@@ -11,7 +11,7 @@ class Home extends PureComponent {
     return (
       <div>
 	  
-			主页
+			资讯主页
 			
       </div>
     );
