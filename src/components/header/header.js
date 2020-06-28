@@ -5,6 +5,7 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/ico
 import Media from 'react-media';
 
 import style from"./header.less"
+import MenuItem from "antd/lib/menu/MenuItem";
 
 export default class HeaderComponent extends React.Component {
     state = {
@@ -55,8 +56,35 @@ export default class HeaderComponent extends React.Component {
                             <a href="#">注册</a>
                         </Col>
 
-                        
+
                     </Row> 
+                    <Row className={`${style.minHeader}`}>
+                        <div>
+                            <Menu mode="vertical">
+                            <Menu.Item key="index">
+                                首页
+                            </Menu.Item>
+                            <Menu.Item key="Ttai">
+                                T台
+                            </Menu.Item>
+                            <Menu.Item key="kuanshi">
+                                款式
+                            </Menu.Item>
+                            <Menu.Item key="jiepai">
+                                街拍
+                            </Menu.Item>
+                            <Menu.Item key="tuan">
+                                图案
+                            </Menu.Item>
+                            <Menu.Item key="sucai">
+                                素材
+                            </Menu.Item>
+                            <Menu.Item key="tupianku">
+                                图片库
+                            </Menu.Item>
+                            </Menu>
+                        </div>
+                    </Row>
                 
             </div>
             
