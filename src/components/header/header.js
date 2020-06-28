@@ -54,6 +54,7 @@ export default class HeaderComponent extends React.Component {
                             <a href="#">登录</a>
                             <a href="#">注册</a>
                         </Col>
+
                         
                     </Row> 
                 
