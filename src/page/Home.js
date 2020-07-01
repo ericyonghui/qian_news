@@ -12,11 +12,10 @@ class Home extends PureComponent {
     }
 
     render() {
-        return ( 
+        return (
             <div >
-            <HeaderComponent / >
-                {/* <Design /> */}
-            {/* 资主页 */}
+            <HeaderComponent />
+
             <FooterComponent />
             </div>
         );
