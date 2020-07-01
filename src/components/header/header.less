@@ -1,81 +1,194 @@
-@import "~antd/lib/style/themes/default.less";
-.clearfix:after{
+.clearfix:after {
   content: '';
   display: block;
   height: 0;
   clear: both;
-  visibility: hidden; 
-}
-.clearfix{
-  zoom: 1;
-}
-@media (min-width:1024px){
-  .minHeader{
-    display: none;
-  }
-.header{
-  height: 100px;
-  background-color: #fff;
-  padding:20px 10px;
-  box-sizing: border-box;
-  .logo{
-    font-size: 36px;
-    line-height: 80px;
-    font-weight: bold;
-    color:#0A0A0A;
-    float:left;
-  }
-  .menu{
-    float: left;
-    line-height:60px;
-    color:#020000;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .search{
-    padding: 10px 0;
-    float: left;
-    box-sizing: border-box;
-    input{
-      height: 40px;
-    }
-  }
-  .login{
-    a{
-      display:block;
-      float: right;
-      padding:10px;
-      line-height: 40px;
-      color:#070707;
-      font-weight: bold;
-    }
-  }
-  
+  visibility: hidden;
 }
 
-  
+.clearfix {
+  zoom: 1;
 }
-@media (max-width:1023px){
-  .header{
+
+@media (min-width:1024px) {
+  .pc_container {
+    display: block;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .logo {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .menu {
+      border-bottom: 0;
+      font-size: 16px;
+    }
+
+    .search input {
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+
+    .user {
+
+      li {
+        float: right;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        line-height: 40px;
+      }
+    }
+  }
+
+  .m_container {
     display: none;
   }
-  .minHeader{
-    display: block;
-    padding:20px;
-    background:red;
-  }
 }
-@media (min-width:1024px){
-  .m{display: none;}
-  .pc{
-    display: block;
-  }
-}
-@media (max-width:1023px){
-  .pc{
+
+// pc 不显示
+@media (max-width:1023px) {
+  .pc_container {
     display: none;
   }
-  .m{
+
+  .m_container {
     display: block;
+
+    .menu {
+      box-sizing: border-box
+    }
+
+    .mark {
+      display: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      bottom: 0;
+      background: rgba(0, 0, 0, .5);
+      z-index: 9998;
+    }
+
+    .minNav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: #fff;
+
+      .userContainer {
+        padding: 10px 15px;
+        border-bottom: 1px solid #ddd;
+
+        li {
+          float: left;
+          width: 50%;
+          text-align: center;
+
+          &:first-child {
+            border-right: 1px solid #ddd;
+          }
+        } 
+      }
+    }
+  }
+}
+
+//ipad 768px
+@media (max-width:1023px) and (min-width:768px) {
+  .m_container {
+    .menu {
+      padding: 20px;
+
+      .logo {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: bold;
+      }
+
+      .search {
+        font-size: 14px;
+        line-height: 30px;
+      }
+
+      .fonticon {
+        font-size: 20px;
+        vertical-align: -2px;
+        text-align: center;
+      }
+    }
+
+    .minNav {
+      width: 300px;
+
+      li {
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .userinfo {
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .menuLis li{
+        font-size:16px;
+        line-height: 30px;
+      }
+    }
+
+  }
+}
+
+//手机  640px
+@media (max-width:766px){
+  .m_container {
+    .menu {
+      padding: 10px;
+
+      .logo {
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: bold;
+      }
+
+      .search {
+        font-size: 14px;
+        line-height: 30px;
+      }
+
+      .fonticon {
+        height: 32px;
+        font-size: 20px;
+        line-height: 32px;
+        text-align: center;
+      }
+    }
+
+    .minNav {
+      display: none;
+      width: 200px;
+
+      li {
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .userinfo {
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .menuLis li{
+        font-size:16px;
+        line-height: 30px;
+      }
+    }
+
   }
 }

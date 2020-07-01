@@ -3,6 +3,7 @@ import router from 'umi/router';
 
 import HeaderComponent from "../components/header/header"
 import FooterComponent from "../components/footer/footer"
+// import Design from "./design/design"
 
 class Home extends PureComponent {
 
@@ -14,7 +15,8 @@ class Home extends PureComponent {
         return ( 
             <div >
             <HeaderComponent / >
-            资主页
+                {/* <Design /> */}
+            {/* 资主页 */}
             <FooterComponent />
             </div>
         );

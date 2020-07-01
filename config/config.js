@@ -22,8 +22,10 @@ export default {
           path: '/',
           redirect: '/home',
         },
-        { path: './home', component: './Home'}
+        { path: './home', component: './Home'},
+        {path:'./design' , component:'./design/design'}
       ]
-    }
+    },
+    
   ],
 };
