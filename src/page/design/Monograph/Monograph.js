@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Row, Col, Tabs } from "antd";
-
-const { TabPane } = Tabs;
-
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import style from "./Monograph.less";
+
+const { TabPane } = Tabs;
 function onChange(a, b, c) {
   console.log(a, b, c);
 }
@@ -35,7 +34,7 @@ export default class Monograph extends React.Component {
       ],
     };
   }
- 
+
   render() {
     return (
       <div>

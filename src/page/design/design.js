@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import router from 'umi/router';
 import { Row, Col, Pagination } from "antd";
 import style from "./design.less";
 
@@ -105,6 +104,10 @@ export default class Design extends React.Component {
     ]
   };
 
+  handleClick=(link)=>{
+    router.push(link);
+  };
+
   render() {
     return (
       <div className={style.DesingContainer}>
@@ -120,8 +123,7 @@ export default class Design extends React.Component {
               className={style.list}
               key={item.id}
             >
-              <Link to={item.link}>
-                <div className={style.item}>
+                <div className={style.item} onClick={()=>{this.handleClick(item.link)}}>
                   <div className={style.pictrue}>
                     <p>img</p>
                     <span className={style.postion}>NEW</span>
@@ -133,7 +135,6 @@ export default class Design extends React.Component {
                     <p>{item.timer}</p>
                   </div>
                 </div>
-              </Link>
             </Col>
           ))}
         </Row>
