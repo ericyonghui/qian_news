@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Pagination } from "antd";
+import router from "umi/router"
 import style from "./design.less";
 
 function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);
 }
+
 export default class Design extends React.Component {
   state = {
     list: [
@@ -104,7 +106,9 @@ export default class Design extends React.Component {
       }
     ]
   };
-
+  goNext(link){
+    console.log(link)
+  }
   render() {
     return (
       <div className={style.DesingContainer}>
@@ -120,8 +124,7 @@ export default class Design extends React.Component {
               className={style.list}
               key={item.id}
             >
-              <Link to={item.link}>
-                <div className={style.item}>
+                <div className={style.item} onClick={this.goNext(item.link)}>
                   <div className={style.pictrue}>
                     <p>img</p>
                     <span className={style.postion}>NEW</span>
@@ -133,7 +136,6 @@ export default class Design extends React.Component {
                     <p>{item.timer}</p>
                   </div>
                 </div>
-              </Link>
             </Col>
           ))}
         </Row>
