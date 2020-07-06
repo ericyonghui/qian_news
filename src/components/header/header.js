@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {Link} from "react-router-dom"
 import { Row, Col, Menu, Input, Divider } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 import MediaQuery from "react-responsive";
@@ -15,7 +16,7 @@ export default class HeaderComponent extends React.Component {
     current: "index"
   };
   handleClick = e => {
-    console.log("click ", e);
+    // console.log("click ", e);
     this.setState({
       current: e.key
     });
@@ -35,9 +36,9 @@ export default class HeaderComponent extends React.Component {
               mode="horizontal"
               className={style.menu}
             >
-              <Menu.Item key="index">首页</Menu.Item>
+              <Menu.Item key="index"><Link to="/">首页</Link></Menu.Item>
               <Menu.Item key="Ttai">T台</Menu.Item>
-              <Menu.Item key="kuanshi">款式</Menu.Item>
+              <Menu.Item key="kuanshi"><Link to="/design">款式</Link></Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
               <Menu.Item key="tuan">图案</Menu.Item>
               <Menu.Item key="sucai">素材</Menu.Item>
