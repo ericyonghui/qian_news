@@ -34,7 +34,7 @@ export default {
         //款式 list
         {path:'/design' , component:'./design/design'},
         // 款式 详情 单图
-        {path:'/slideShow/Monograph', component:'./design/Monograph/Monograph'}
+        {path:'/Monograph', component:'./design/Monograph/Monograph'}
       ]
     }
   ],
