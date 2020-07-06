@@ -19,7 +19,7 @@ export default class Design extends React.Component {
         info: "Chanel | 2020/21秋冬 ｜巴黎",
         author: "Honor",
         timer: "2020.6.15",
-        link: "/slideShow/Monograph"
+        link: "/Monograph"
       },
       {
         id: "2",
