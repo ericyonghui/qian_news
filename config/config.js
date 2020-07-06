@@ -23,7 +23,12 @@ export default {
           redirect: '/home',
         },
         { path: './home', component: './Home'},
-        {path:'./design' , component:'./design/design'}
+        //款式 list
+        {path:'./design' , component:'./design/design'},
+        // 款式 详情 多图
+        {path:'./Multigraph' , component:'./design/Multigraph/Multigraph'},
+        // 款式 详情 单图
+        {path:'./Monograph', component:'./design/Monograph/Monograph'}
       ]
     },
     
