@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import router from 'umi/router';
 import { Row, Col, Pagination } from "antd";
 import router from "umi/router"
 import style from "./design.less";
@@ -20,7 +19,7 @@ export default class Design extends React.Component {
         info: "Chanel | 2020/21秋冬 ｜巴黎",
         author: "Honor",
         timer: "2020.6.15",
-        link: "/Monograph"
+        link: "/slideShow/Monograph"
       },
       {
         id: "2",
@@ -30,7 +29,7 @@ export default class Design extends React.Component {
         info: "Chanel | 2020/21秋冬 ｜巴黎",
         author: "Honor",
         timer: "2020.6.15",
-        link:"/Multigraph"
+        link:"/slideShow/Multigraph"
       },
       {
         id: "3",
@@ -106,9 +105,11 @@ export default class Design extends React.Component {
       }
     ]
   };
-  goNext(link){
-    console.log(link)
-  }
+
+  handleClick=(link)=>{
+    router.push(link);
+  };
+
   render() {
     return (
       <div className={style.DesingContainer}>
@@ -124,7 +125,7 @@ export default class Design extends React.Component {
               className={style.list}
               key={item.id}
             >
-                <div className={style.item} onClick={this.goNext(item.link)}>
+                <div className={style.item} onClick={()=>{this.handleClick(item.link)}}>
                   <div className={style.pictrue}>
                     <p>img</p>
                     <span className={style.postion}>NEW</span>
