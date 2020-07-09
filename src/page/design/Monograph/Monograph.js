@@ -6,8 +6,7 @@ import {
   DownOutlined,
   UpOutlined
 } from "@ant-design/icons";
-import img1 from "./1.jpg";
-import img2 from "./2.jpg";
+import img1 from "../../../assets/11.jpg";
 import style from "./Monograph.less";
 
 const { TabPane } = Tabs;
@@ -26,7 +25,7 @@ export default class Monograph extends React.Component {
           id: "1"
         },
         {
-          src: img2,
+          src: img1,
           id: "2"
         },
         {
@@ -67,7 +66,7 @@ export default class Monograph extends React.Component {
             style={{ background: "#eee", textAlign: "center" ,position:'relative'}}
           >
             <div className={style.maxPicture}>
-              <img src={img1} />
+              <img src={img1} alt=""/>
               <LeftOutlined className={style.maxLeft} />
               <RightOutlined className={style.maxRight} />
             </div>
@@ -77,7 +76,7 @@ export default class Monograph extends React.Component {
               <ul>
                 {this.state.list.map((item, index) => (
                   <li key={item.id}>
-                    <img src={item.src} />
+                    <img src={item.src} alt=""/>
                   </li>
                 ))}
               </ul>

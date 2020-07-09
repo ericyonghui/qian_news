@@ -6,8 +6,13 @@ import {
   EllipsisOutlined,
   HeartOutlined
 } from "@ant-design/icons";
-import img1 from "./1.jpg";
-import img2 from "./2.jpg";
+import img1 from "../../../assets/1.jpg";
+import img2 from "../../../assets/2.jpg";
+import img3 from "../../../assets/3.jpg";
+import img4 from "../../../assets/4.jpg";
+import img5 from "../../../assets/5.jpg";
+import img6 from "../../../assets/6.jpg";
+import img7 from "../../../assets/7.jpg";
 
 import style from "./patternInfo.less";
 
@@ -27,37 +32,37 @@ export default class patternInfo extends React.Component {
               link:'/patternInfo'
             },
             {
-              src: img1,
+              src: img3,
               id: "3",
               link:'/patternInfo'
             },
             {
-              src: img2,
+              src: img4,
               id: "4",
               link:'/patternInfo'
             },
             {
-              src: img2,
+              src: img5,
               id: "5",
               link:'/patternInfo'
             },
             {
-              src: img1,
+              src: img6,
               id: "6",
               link:'/patternInfo'
             },
             {
-              src: img1,
+              src: img7,
               id: "7",
               link:'/patternInfo'
             },
             {
-              src: img2,
+              src: img3,
               id: "8",
               link:'/patternInfo'
             },
             {
-              src: img1,
+              src: img4,
               id: "9",
               link:'/patternInfo'
             },
@@ -67,12 +72,12 @@ export default class patternInfo extends React.Component {
               link:'/patternInfo'
             },
             {
-              src: img2,
+              src: img1,
               id: "11",
               link:'/patternInfo'
             },
             {
-              src: img1,
+              src: img7,
               id: "12",
               link:'/patternInfo'
             }
@@ -84,8 +89,8 @@ export default class patternInfo extends React.Component {
       <div className={style.patternContainer}>
         <Row>
           <Col lg={4} xl={4} md={4} sm={2} xs={2} className={style.goBack}>
-            <LeftOutlined />
-            <span>返回</span>
+            {/*<LeftOutlined />*/}
+            {/*<span>返回</span>*/}
           </Col>
           <Col lg={16} xl={16} md={20} sm={21} xs={21} className={`${style.clearfix} ${style.containerPadding}`}>
             <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.picture}>

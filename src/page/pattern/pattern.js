@@ -3,8 +3,13 @@ import { Pagination } from "antd";
 import router from "umi/router"
 
 import style from "./pattern.less";
-import img1 from "./1.jpg";
-import img2 from "./2.jpg";
+import img1 from "../../assets/1.jpg";
+import img2 from "../../assets/2.jpg";
+import img3 from "../../assets/3.jpg";
+import img4 from "../../assets/4.jpg";
+import img5 from "../../assets/5.jpg";
+import img6 from "../../assets/6.jpg";
+import img7 from "../../assets/7.jpg";
 
 
 function onShowSizeChange(current, pageSize) {
@@ -27,42 +32,42 @@ export default class Pattern extends React.Component {
           link:'/patternInfo'
         },
         {
-          src: img1,
+          src: img3,
           id: "3",
           link:'/patternInfo'
         },
         {
-          src: img2,
+          src: img4,
           id: "4",
           link:'/patternInfo'
         },
         {
-          src: img2,
+          src: img5,
           id: "5",
           link:'/patternInfo'
         },
         {
-          src: img1,
+          src: img6,
           id: "6",
           link:'/patternInfo'
         },
         {
-          src: img1,
+          src: img7,
           id: "7",
           link:'/patternInfo'
         },
         {
-          src: img2,
+          src: img5,
           id: "8",
           link:'/patternInfo'
         },
         {
-          src: img1,
+          src: img4,
           id: "9",
           link:'/patternInfo'
         },
         {
-          src: img2,
+          src: img3,
           id: "10",
           link:'/patternInfo'
         },

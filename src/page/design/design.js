@@ -2,6 +2,9 @@ import React from "react";
 import router from 'umi/router';
 import { Row, Col, Pagination } from "antd";
 import style from "./design.less";
+import img1 from "../../assets/11.jpg";
+
+
 
 function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);
@@ -12,7 +15,7 @@ export default class Design extends React.Component {
     list: [
       {
         id: "1",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -22,7 +25,7 @@ export default class Design extends React.Component {
       },
       {
         id: "2",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -32,7 +35,7 @@ export default class Design extends React.Component {
       },
       {
         id: "3",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -41,7 +44,7 @@ export default class Design extends React.Component {
       },
       {
         id: "4",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -50,7 +53,7 @@ export default class Design extends React.Component {
       },
       {
         id: "5",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -59,7 +62,7 @@ export default class Design extends React.Component {
       },
       {
         id: "6",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -68,7 +71,7 @@ export default class Design extends React.Component {
       },
       {
         id: "7",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -77,7 +80,7 @@ export default class Design extends React.Component {
       },
       {
         id: "8",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -86,7 +89,7 @@ export default class Design extends React.Component {
       },
       {
         id: "9",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -95,7 +98,7 @@ export default class Design extends React.Component {
       },
       {
         id: "10",
-        img: "",
+        img: img1,
         flag: true,
         title: "Chanel 2020春夏系列",
         info: "Chanel | 2020/21秋冬 ｜巴黎",
@@ -126,7 +129,7 @@ export default class Design extends React.Component {
             >
                 <div className={style.item} onClick={()=>{this.handleClick(item.link)}}>
                   <div className={style.pictrue}>
-                    <p>img</p>
+                    <p><img src={item.img} alt=""/></p>
                     <span className={style.postion}>NEW</span>
                   </div>
                   <div className={style.title}>{item.title}</div>
