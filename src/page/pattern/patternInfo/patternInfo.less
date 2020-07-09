@@ -1,0 +1,275 @@
+.patternContainer {
+    margin-top: 110px
+}
+
+
+
+
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+// list
+@media (min-width:1500px) {
+    .patternContainer {
+        margin-top: 110px;
+    }
+
+    // tip NEW
+    .container {
+        width: 1500px;
+        column-count: 6;
+        margin: 0 auto;
+
+        .tip {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: limegreen;
+            color: #fff;
+            padding: 0 8px;
+            line-height: 30px;
+            font-size: 14px;
+        }
+    }
+
+    .goBack {
+        padding: 15px;
+        cursor: pointer;
+        box-sizing: border-box;
+    
+        icon {
+            font-size: 30px;
+            line-height: 30px;
+    
+        }
+    
+        span {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+@media (max-width:1499px) and (min-width:1200px) {
+    .patternContainer {
+        margin-top: 110px;
+    }
+
+    .container {
+        width: 1200px;
+        column-count: 6;
+        margin: 0 auto;
+    }
+    .goBack {
+        padding: 15px;
+        cursor: pointer;
+        box-sizing: border-box;
+    
+        icon {
+            font-size: 30px;
+            line-height: 30px;
+    
+        }
+    
+        span {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+@media (max-width:1199px) and (min-width:768px) {
+
+    .patternContainer {
+        margin-top: 70px;
+    }
+
+    .container {
+        width: 768px;
+        padding: 0 20px;
+        column-count: 4;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    .goBack {
+        padding: 15px;
+        cursor: pointer;
+        box-sizing: border-box;
+    
+        icon {
+            font-size: 30px;
+            line-height: 30px;
+    
+        }
+    
+        span {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .patternContainer {
+        margin-top: 70px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 20px;
+        column-count: 2;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    .goBack {
+        padding: 10px;
+        cursor: pointer;
+        box-sizing: border-box;
+    
+        icon {
+            font-size: 14px;
+            line-height: 30px;
+    
+        }
+    
+        span {
+            font-size: 14;
+            line-height: 30px;
+        }
+    }
+}
+
+.column {
+    position: relative;
+    break-inside: avoid;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.more{
+    padding:20px 0;
+    border-bottom:1px solid #ddd;
+    text-align: center;
+    position: relative;
+    margin-bottom:30px;
+    p{
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    span{
+        display: block;
+        width:100px;
+        height: 3px;
+        position: absolute;
+        bottom:-2px;
+        left:50%;
+        margin-left: -50px;
+        background: #1890ff;
+    }
+}
+
+
+
+
+
+.containerPadding {
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+}
+
+.picture {
+    padding-right: 15px;
+    box-sizing: border-box;
+    ;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.infoIcon {
+    margin-top:15px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #999;
+    cursor: pointer;
+
+}
+
+.infoList{
+    >p{
+        font-size:14px;
+        color:#333;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+    >h3{
+        line-height: 60px;
+        font-size:24px;
+        margin-bottom: 0;
+    }
+    >ul{
+        margin-bottom: 0;
+        li{
+            font-size:14px;
+            color:#333;
+            line-height: 24px;
+        }
+    }
+}
+.infoTip{
+    >p{
+        font-weight: 500;
+        font-size:14px;
+        line-height: 24px;
+        margin-bottom:0;
+        color:#333;
+    }
+    >ul{
+        margin-bottom: 0;
+        li{
+            padding:0 8px;
+            float: left;
+            border:1px solid #ddd;
+            border-radius: 2px;
+            margin-right: 8px;
+            line-height: 30px;
+        }
+    }
+}
+.anthorUp{
+    >p{
+        color:#333;
+        line-height: 24px;
+    }
+    >ul{
+        li{
+            width:80px;
+            float: left;
+            margin-right: 8px;
+            img{
+                width:100%;
+                height: auto;
+            }
+        }
+    }
+}

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { Row, Col, Tabs } from "antd";
+import {
+  LeftOutlined,
+  RightOutlined,
+  DownOutlined,
+  UpOutlined
+} from "@ant-design/icons";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import style from "./Monograph.less";
@@ -28,10 +34,18 @@ export default class Monograph extends React.Component {
           id: "3"
         },
         {
-            src: img2,
-            id: "4"
-          }
-      ],
+          src: img1,
+          id: "4"
+        },
+        {
+          src: img1,
+          id: "5"
+        },
+        {
+          src: img1,
+          id: "6"
+        }
+      ]
     };
   }
 
@@ -50,19 +64,25 @@ export default class Monograph extends React.Component {
             md={20}
             xs={24}
             sm={24}
-            style={{ background: "#eee", textAlign: "center" }}
+            style={{ background: "#eee", textAlign: "center" ,position:'relative'}}
           >
-            <Tabs
-              defaultActiveKey="1"
-              tabPosition={this.state.mode}
-              style={{ height: 600 }}
-            >
-              {this.state.list.map((item,i) => (
-                <TabPane tab={<img src={item.src} className={style.pictrueMin} />} key={item.id} style={{margin:'0'}}>
-                  <img src={item.src} className={style.pictrueMax}/>
-                </TabPane>
-              ))}
-            </Tabs>
+            <div className={style.maxPicture}>
+              <img src={img1} />
+              <LeftOutlined className={style.maxLeft} />
+              <RightOutlined className={style.maxRight} />
+            </div>
+
+            <div className={style.minPicture}>
+              <UpOutlined className={style.upIcon} />
+              <ul>
+                {this.state.list.map((item, index) => (
+                  <li key={item.id}>
+                    <img src={item.src} />
+                  </li>
+                ))}
+              </ul>
+              <DownOutlined  className={style.downIcon}/>
+            </div>
           </Col>
         </Row>
       </div>

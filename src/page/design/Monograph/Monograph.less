@@ -18,53 +18,205 @@
         padding: 15px;
         box-sizing: border-box;
     }
+}
 
-    .pictrue {
-        padding: 0 15px;
+.maxPicture {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+
+    .maxLeft {
+        position: absolute;
+    }
+
+    .maxRight {
+        position: absolute;
+    }
+}
+
+.minPicture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow:hidden;
+
+    ul {
+        padding: 0;
+        overflow: hidden;
+
+        li {
+            margin-bottom: 10px;
+            list-style: none;
+            overflow: hidden;
+
+            img {
+                width: 100%
+            }
+        }
+    }
+
+}
+
+@media (min-width:1200px){
+    .maxPicture {
+        padding: 0 240px 0 30px;
+        width:100%;
+        max-height: 600px;
+        overflow: hidden;
         box-sizing: border-box;
+        img{
+            width: auto;
+            height: 600px;
+        }
+        .maxLeft {
+            top: 48%;
+            left: 10px;
+            font-size: 30px;
+        }
 
-        p {
-            background: lightslategray;
-            color: #fff;
-            line-height: 600px;
-            text-align: center;
+        .maxRight {
+            top: 48%;
+            right: 220px;
+            font-size: 30px;
+        }
+    } 
+    .minPicture {
+        width: 200px;
+        padding:50px 0;
+        height: 100%;
+        box-sizing: border-box;
+        .upIcon{
+            position: absolute;
+            top:5px;
+            left:90px;
+            line-height: 20px;
+            font-size:20px;
+        }
+        .downIcon{
+            position: absolute;
+            bottom:0;
+            left:90px;
+            line-height: 20px;
+            font-size:20px;
+        }
+        ul{
+            height: 100%;
+            overflow: hidden;
+            li{
+                width:180px;
+            }
         }
     }
 }
-@media (min-width:768px){
-    .pictrueMin{
-        width:200px;
-        height: auto;
+
+@media (max-width:1199px) and (min-width:768px) {
+    .maxPicture {
+        padding: 0 240px 0 30px;
+        width:100%;
+        max-height: 600px;
+        overflow: hidden;
+        box-sizing: border-box;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .maxLeft {
+            top: 48%;
+            left: 10px;
+            font-size: 30px;
+        }
+
+        .maxRight {
+            top: 48%;
+            right: 220px;
+            font-size: 30px;
+        }
     }
-    .pictrueMax{
-        width:400px;
-        height: auto;
+
+    .minPicture {
+        width: 200px;
+        padding:50px 0;
+        height: 100%;
+        box-sizing: border-box;
+        .upIcon{
+            position: absolute;
+            top:5px;
+            left:90px;
+            line-height: 20px;
+            font-size:20px;
+        }
+        .downIcon{
+            position: absolute;
+            bottom:0;
+            left:90px;
+            line-height: 20px;
+            font-size:20px;
+        }
+        ul{
+            height: 100%;
+            overflow: hidden;
+            li{
+                width:180px;
+            }
+        }
     }
+
 }
 
-@media (max-width:767px) and (min-width:640px){
+@media (max-width:767px){
+    .maxPicture {
+        padding: 0 90px 0 40px;
+        height: auto;
+        width:100%;
+        box-sizing: border-box;
+        img{
+            width:100%;
+            height: auto;
+        }
+        .maxLeft {
+            top: 48%;
+            left: 10px;
+            font-size: 20px;
+        }
 
-    .pictrueMin{
-        width:100px;
-        height: auto;
+        .maxRight {
+            top: 48%;
+            right: 60px;
+            font-size: 20px;
+        }
     }
-    .pictrueMax{
-        width:300px;
-        height: auto;
+    .minPicture {
+        width: 50px;
+        padding:30px 0;
+        right: 10px;
+        height: 100%;
+        box-sizing: border-box;
+        .upIcon{
+            position: absolute;
+            top:5px;
+            left:20px;
+            line-height: 20px;
+            font-size:16px;
+        }
+        .downIcon{
+            position: absolute;
+            bottom:0;
+            left:20px;
+            line-height: 20px;
+            font-size:16px;
+        }
+        ul{
+            height: 100%;
+            overflow: hidden;
+            li{
+                width:50px;
+            }
+        }
     }
 }
-@media (max-width:639px){
-
-    .pictrueMin{
-        width:50px;
-        height: auto;
-    }
-    .pictrueMax{
-        width:auto;
-        height: 400px;
-    }
-}
-
-
-
-

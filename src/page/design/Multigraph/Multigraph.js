@@ -88,7 +88,7 @@ export default class Detail extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={style.MultiggarphContainer}>
         {/* title */}
         <div className={style.container}>
           <Row className={`${style.nav} ${style.clearfix}`}>

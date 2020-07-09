@@ -1,7 +1,6 @@
 import React from "react";
 import router from 'umi/router';
 import { Row, Col, Pagination } from "antd";
-import router from "umi/router"
 import style from "./design.less";
 
 function onShowSizeChange(current, pageSize) {

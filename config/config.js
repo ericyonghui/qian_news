@@ -34,7 +34,11 @@ export default {
         //款式 list
         {path:'/design' , component:'./design/design'},
         // 款式 详情 多图
-        {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'}
+        {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
+        // 图案
+        {path:'/pattern' , component:'./pattern/pattern'},
+        // 图案详情
+        {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'}
       ]
     }
   ],

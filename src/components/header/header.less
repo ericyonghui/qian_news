@@ -12,6 +12,11 @@
 
 @media (min-width:1024px) {
   .pc_container {
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    background: #fff;
     display: block;
     padding: 20px;
     box-sizing: border-box;
@@ -57,6 +62,12 @@
 
   .m_container {
     display: block;
+    position: fixed;
+    top: 0;
+    width:100%;
+    padding-bottom: 15px;
+    background: #fff;;
+    z-index: 99999;
 
     .menu {
       box-sizing: border-box
@@ -93,7 +104,7 @@
           &:first-child {
             border-right: 1px solid #ddd;
           }
-        } 
+        }
       }
     }
   }
@@ -136,8 +147,9 @@
         font-size: 16px;
         font-weight: bold;
       }
-      .menuLis li{
-        font-size:16px;
+
+      .menuLis li {
+        font-size: 16px;
         line-height: 30px;
       }
     }
@@ -146,8 +158,13 @@
 }
 
 //手机  640px
-@media (max-width:766px){
+@media (max-width:766px) {
   .m_container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+
     .menu {
       padding: 10px;
 
@@ -184,8 +201,9 @@
         font-size: 16px;
         font-weight: bold;
       }
-      .menuLis li{
-        font-size:16px;
+
+      .menuLis li {
+        font-size: 16px;
         line-height: 30px;
       }
     }
