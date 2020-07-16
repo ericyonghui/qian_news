@@ -49,7 +49,7 @@ export default class HeaderComponent extends React.Component {
               className={style.menu}
             >
               <Menu.Item key="index"><Link to="/">首页</Link></Menu.Item>
-              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="Ttai"><Link to="/Tstage">T台</Link></Menu.Item>
               <Menu.Item key="kuanshi"><Link to="/design">款式</Link></Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
               <Menu.Item key="tuan"><Link to="/pattern">图案</Link></Menu.Item>
@@ -100,7 +100,7 @@ export default class HeaderComponent extends React.Component {
             </div>
             <Menu className={style.menuLis}>
               <Menu.Item key="index"><Link to="/">首页</Link></Menu.Item>
-              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="Ttai"><Link to="/Tstage">T台</Link></Menu.Item>
               <Menu.Item key="kuanshi"><Link to="/design">款式</Link></Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
               <Menu.Item key="tuan"><Link to="/pattern">图案</Link></Menu.Item>

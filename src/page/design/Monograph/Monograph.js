@@ -7,45 +7,62 @@ import {
   UpOutlined
 } from "@ant-design/icons";
 import img1 from "../../../assets/11.jpg";
+import img2 from "../../../assets/2.jpg"
 import style from "./Monograph.less";
-
-const { TabPane } = Tabs;
-function onChange(a, b, c) {
-  console.log(a, b, c);
-}
 
 export default class Monograph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       mode: "right",
+      currentIndex: "0",
       list: [
         {
           src: img1,
-          id: "1"
+          id: "1",
+          index: 0
+        },
+        {
+          src: img2,
+          id: "2",
+          index: 1
         },
         {
           src: img1,
-          id: "2"
+          id: "3",
+          index: 2
+        },
+        {
+          src: img2,
+          id: "4",
+          index: 3
         },
         {
           src: img1,
-          id: "3"
+          id: "5",
+          index: 4
         },
         {
           src: img1,
-          id: "4"
-        },
-        {
-          src: img1,
-          id: "5"
-        },
-        {
-          src: img1,
-          id: "6"
+          id: "6",
+          index: 5
         }
-      ]
+      ],
+      picMax:
+        {
+          src: img1,
+          id: "1",
+          index: 0
+        }
+      
     };
+  }
+
+  clickHandle = (i) =>{
+    this.setState({
+      picMax:this.state.list[i]
+    })
+    
   }
 
   render() {
@@ -63,24 +80,44 @@ export default class Monograph extends React.Component {
             md={20}
             xs={24}
             sm={24}
-            style={{ background: "#eee", textAlign: "center" ,position:'relative'}}
+            style={{
+              background: "#eee",
+              textAlign: "center",
+              position: "relative"
+            }}
           >
-            <div className={style.maxPicture}>
-              <img src={img1} alt=""/>
+            <div className={style.maxPicture} style={{height:'800px'}}>
               <LeftOutlined className={style.maxLeft} />
+                <img src={this.state.picMax.src} />
+              
               <RightOutlined className={style.maxRight} />
             </div>
 
             <div className={style.minPicture}>
+              <div style={{height:'600px'}}>
               <UpOutlined className={style.upIcon} />
-              <ul>
-                {this.state.list.map((item, index) => (
-                  <li key={item.id}>
-                    <img src={item.src} alt=""/>
-                  </li>
-                ))}
-              </ul>
-              <DownOutlined  className={style.downIcon}/>
+                {
+                  this.state.list.map((item,index)=>(
+                    
+                    <div key={item.id} onClick={()=>{this.clickHandle(index)}}>
+                      <img src={item.src} />
+                    </div>
+                    
+                  ))
+                }
+                <DownOutlined className={style.downIcon} />
+              </div>
+              
+              {/* <ul>
+                {
+                  this.state.list.map((item,index)=>(
+                    <li key={item.id} onClick={()=>{this.clickHandle(index)}}>
+                      <img src={item.src} />
+                    </li>
+                  ))
+                }
+              </ul> */}
+              
             </div>
           </Col>
         </Row>

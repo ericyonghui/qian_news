@@ -38,7 +38,12 @@ export default {
         // 图案
         {path:'/pattern' , component:'./pattern/pattern'},
         // 图案详情
-        {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'}
+        {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
+        // T 台
+        {path:'/Tstage',component:'./Tstage/Tstage'},
+        // T 台详细
+        {path:'/TstageDetail',component:'./Tstage/TstageDetail/TstageEdtail'}
+
       ]
     }
   ],

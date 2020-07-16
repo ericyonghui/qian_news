@@ -118,7 +118,7 @@ export default class Detail extends React.Component {
                   className={style.item}
                   key={item.id}
                 >
-                  <p><img src={item.img} alt=""/></p>
+                  <img src={item.img} alt=""/>
                 </Col>
               );
             })}

@@ -129,7 +129,7 @@ export default class Design extends React.Component {
             >
                 <div className={style.item} onClick={()=>{this.handleClick(item.link)}}>
                   <div className={style.pictrue}>
-                    <p><img src={item.img} alt=""/></p>
+                    <img src={item.img} alt=""/>
                     <span className={style.postion}>NEW</span>
                   </div>
                   <div className={style.title}>{item.title}</div>

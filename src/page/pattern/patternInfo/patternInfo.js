@@ -88,11 +88,7 @@ export default class patternInfo extends React.Component {
     return (
       <div className={style.patternContainer}>
         <Row>
-          <Col lg={4} xl={4} md={4} sm={2} xs={2} className={style.goBack}>
-            {/*<LeftOutlined />*/}
-            {/*<span>返回</span>*/}
-          </Col>
-          <Col lg={16} xl={16} md={20} sm={21} xs={21} className={`${style.clearfix} ${style.containerPadding}`}>
+          <Col lg={{span:16,offset:4}} xl={{span:16,offset:4}} md={{span:20,offset:2}} sm={{span:22,offset:1}} xs={{span:22,offset:1}} className={`${style.clearfix} ${style.containerPadding}`}>
             <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.picture}>
               <img src={img1} />
             </Col>
