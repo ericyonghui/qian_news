@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import LazyLoad from 'react-lazyload';
 import {IMG_HOST} from '../../util/common';
 import {Row, Col } from "antd";
 import { HeartFilled, EyeFilled } from "@ant-design/icons";
@@ -19,7 +20,9 @@ class RunwayList extends PureComponent {
           <Col style={{marginLeft: '10px',marginTop: '10px'}} className={style.list} key={key}>
             <div className={style.stagemain} onClick={()=>{}}>
               <div className={`${style.picture}`}>
-                <img src={`${IMG_HOST}/webp${img}`} alt=""/>
+                <LazyLoad  height={0}>
+                  <img src={`${IMG_HOST}/webp${img}`} alt=""/>
+                </LazyLoad>
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
                 <ul className={`${style.iconPosition} ${style.clearfix}`}>
