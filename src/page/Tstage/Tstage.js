@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import {IMG_HOST} from '../../util/common';
-import { Row, Col, Pagination } from "antd";
+import { Spin, Row, Col, Pagination } from "antd";
 import { HeartFilled, EyeFilled } from "@ant-design/icons";
 import axios from '../../util/axios';
 import style from "./Tstage.less";
@@ -123,24 +123,32 @@ class Tstage extends PureComponent {
 
   render() {
     return (
-      <div className={style.TstageContainer}>
-        <Row>
-          {this.renderList()}
-        </Row>
-        {
-          this.state.productData.list.length>0 &&
-          <div className={style.pagination}>
-            <Pagination
-              onChange={this.handleStandardTableChange}
-              showQuickJumper={true}
-              hideOnSinglePage={true}
-              total={this.state.productData.pagination.total}
-              pageSize={this.state.productData.pagination.pageSize}
-              current={this.state.productData.pagination.current}
-            />
-          </div>
-        }
-      </div>
+      <Spin spinning={this.state.spinLoading}>
+        <div className={style.TstageContainer}>
+          {
+            this.state.productData.list.length<=0 &&
+            <div style={{width:'100%',height:"500px"}}/>
+          }
+          {
+            this.state.productData.list.length>0 &&
+            <div>
+              <Row>
+                {this.renderList()}
+              </Row>
+              <div className={style.pagination}>
+                <Pagination
+                  onChange={this.handleStandardTableChange}
+                  showQuickJumper={true}
+                  hideOnSinglePage={true}
+                  total={this.state.productData.pagination.total}
+                  pageSize={this.state.productData.pagination.pageSize}
+                  current={this.state.productData.pagination.current}
+                />
+              </div>
+            </div>
+          }
+        </div>
+      </Spin>
     );
   }
 }

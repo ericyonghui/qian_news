@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import router from 'umi/router';
 import {Link} from "react-router-dom"
 import { Row, Col, Menu, Input, Divider } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
@@ -11,6 +11,38 @@ import { AudioOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
 
+const routerArr=[
+  {
+    routerKey:"home",
+    routerVal:""
+  },
+  {
+    routerKey:"Ttai",
+    routerVal:"/Tstage"
+  },
+  {
+    routerKey:"kuanshi",
+    routerVal:"/design"
+  },
+  {
+    routerKey:"jiepai",
+    routerVal:""
+  },
+  {
+    routerKey:"tuan",
+    routerVal:"/pattern"
+  },
+  {
+    routerKey:"sucai",
+    routerVal:""
+  },
+  {
+    routerKey:"tupian",
+    routerVal:""
+  },
+];
+
+
 export default class HeaderComponent extends React.Component {
   constructor(props){
     super(props);
@@ -19,9 +51,14 @@ export default class HeaderComponent extends React.Component {
       display:'none'
     }
   }
- 
+
   handleClick = e => {
-    // console.log("click ", e);
+    let res = routerArr.filter(item=>{return item.routerKey === e.key});
+    if(res[0].routerVal!==''){
+      router.push(res[0].routerVal);
+    } else {
+      router.push(`/home`);
+    }
     this.setState({
       current: e.key
     });
@@ -32,7 +69,7 @@ export default class HeaderComponent extends React.Component {
   hideNav = e =>{
     this.setState({display: "none"});
   }
-  
+
   render() {
     return (
       <div>
@@ -48,11 +85,11 @@ export default class HeaderComponent extends React.Component {
               mode="horizontal"
               className={style.menu}
             >
-              <Menu.Item key="index"><Link to="/">首页</Link></Menu.Item>
-              <Menu.Item key="Ttai"><Link to="/Tstage">T台</Link></Menu.Item>
-              <Menu.Item key="kuanshi"><Link to="/design">款式</Link></Menu.Item>
+              <Menu.Item key="home">首页</Menu.Item>
+              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="kuanshi">款式</Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
-              <Menu.Item key="tuan"><Link to="/pattern">图案</Link></Menu.Item>
+              <Menu.Item key="tuan">图案</Menu.Item>
               <Menu.Item key="sucai">素材</Menu.Item>
               <Menu.Item key="tupian">图片库</Menu.Item>
             </Menu>
@@ -99,11 +136,11 @@ export default class HeaderComponent extends React.Component {
               {/* <div className={style.userinfo}>hello world</div> */}
             </div>
             <Menu className={style.menuLis}>
-              <Menu.Item key="index"><Link to="/">首页</Link></Menu.Item>
-              <Menu.Item key="Ttai"><Link to="/Tstage">T台</Link></Menu.Item>
-              <Menu.Item key="kuanshi"><Link to="/design">款式</Link></Menu.Item>
+              <Menu.Item key="home">首页</Menu.Item>
+              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="kuanshi">款式</Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
-              <Menu.Item key="tuan"><Link to="/pattern">图案</Link></Menu.Item>
+              <Menu.Item key="tuan">图案</Menu.Item>
               <Menu.Item key="sucai">素材</Menu.Item>
               <Menu.Item key="tupian">图片库</Menu.Item>
             </Menu>
