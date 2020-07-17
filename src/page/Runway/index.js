@@ -92,7 +92,7 @@ class Runway extends PureComponent {
           }
           {
             this.state.productData.list.length>0 &&
-            <div ref={(ref)=>this.listBegin=ref}>
+            <div>
               <RunwayList
                 data={this.state.productData}
               />
