@@ -17,8 +17,8 @@ const routerArr=[
     routerVal:""
   },
   {
-    routerKey:"Ttai",
-    routerVal:"/Tstage"
+    routerKey:"runway",
+    routerVal:"/runway"
   },
   {
     routerKey:"kuanshi",
@@ -41,7 +41,6 @@ const routerArr=[
     routerVal:""
   },
 ];
-
 
 export default class HeaderComponent extends React.Component {
   constructor(props){
@@ -86,7 +85,7 @@ export default class HeaderComponent extends React.Component {
               className={style.menu}
             >
               <Menu.Item key="home">首页</Menu.Item>
-              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="runway">T台</Menu.Item>
               <Menu.Item key="kuanshi">款式</Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
               <Menu.Item key="tuan">图案</Menu.Item>
@@ -137,7 +136,7 @@ export default class HeaderComponent extends React.Component {
             </div>
             <Menu className={style.menuLis}>
               <Menu.Item key="home">首页</Menu.Item>
-              <Menu.Item key="Ttai">T台</Menu.Item>
+              <Menu.Item key="runway">T台</Menu.Item>
               <Menu.Item key="kuanshi">款式</Menu.Item>
               <Menu.Item key="jiepai">街拍</Menu.Item>
               <Menu.Item key="tuan">图案</Menu.Item>

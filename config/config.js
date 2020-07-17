@@ -40,9 +40,9 @@ export default {
         // 图案详情
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台
-        {path:'/Tstage',component:'./Tstage/Tstage'},
+        {path:'/runway',component:'./Runway'},
         // T 台详细
-        {path:'/TstageDetail',component:'./Tstage/TstageDetail/TstageEdtail'}
+        {path:'/TstageDetail',component:'./Runway/TstageDetail/TstageEdtail'}
 
       ]
     }
