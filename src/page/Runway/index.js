@@ -10,7 +10,6 @@ import style from "./index.less";
 class Runway extends PureComponent {
   state = {
     current: 1,
-    pageSize: 25,
     spinLoading: false,
     productData: {
       list: [],
@@ -25,15 +24,13 @@ class Runway extends PureComponent {
     const _this = this;
     let query = _this.props.location.query;
     if(typeof query.currentPage!=='undefined'){
-      router.push(`/runway?currentPage=${query.currentPage ||'' }&pageSize=${query.pageSize ||'' }`);
+      router.push(`/runway?currentPage=${query.currentPage ||'' }`);
       _this.queryList({
-        current: query.currentPage || _this.state.current,
-        pageSize: query.pageSize || _this.state.pageSize
+        current: query.currentPage || _this.state.current
       });
     } else {
       _this.queryList({
-        current: _this.state.current,
-        pageSize: _this.state.pageSize
+        current: _this.state.current
       });
     }
   }
@@ -48,7 +45,7 @@ class Runway extends PureComponent {
     }, async()=>{
       let result = await axios({
         method:"GET",
-        url:`/fashion/getFashionShowList?currentPage=${params.current ||'' }&pageSize=${params.pageSize ||'' }`,
+        url:`/fashion/getFashionShowList?currentPage=${params.current ||'' }`,
       });
       const { code,data} = result;
       if (code === 200) {
@@ -79,7 +76,7 @@ class Runway extends PureComponent {
     });
   };
   handleStandardTableChange = (current, pageSize) => {
-    router.push(`/runway?currentPage=${current ||this.state.current }&pageSize=${pageSize ||this.state.pageSize }`);
+    router.push(`/runway?currentPage=${current ||this.state.current }`);
     window.scrollTo(0, 0);
     this.queryList({
       current, pageSize
