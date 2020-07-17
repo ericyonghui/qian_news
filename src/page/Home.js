@@ -9,8 +9,8 @@ class Home extends PureComponent {
     render() {
         return (
             <div >
-home
-           
+                home
+
             </div>
         );
     }
