@@ -3,7 +3,6 @@ import router from 'umi/router';
 import RunwayList from '../../components/RunwayComponents/runwayList';
 import { Spin, Pagination } from "antd";
 import axios from '../../util/axios';
-import ReactDOM from 'react-dom';
 import style from "./index.less";
 
 
