@@ -5,9 +5,28 @@ import { Row, Col } from "antd";
 import { HeartFilled, EyeFilled } from "@ant-design/icons";
 import style from "../../page/Runway/index.less";
 
-class RunwayList extends PureComponent {
+class StreetSnapList extends PureComponent {
   componentDidMount() {}
 
+  renderTag(street_snap_type,street_snap_place){
+    let newPlace='';
+    if(street_snap_place && street_snap_place!==''){
+      newPlace = street_snap_place;
+    } else {
+      if(street_snap_type ===1){
+        newPlace ='欧美';
+      } else if(street_snap_type ===2){
+        newPlace ='明星';
+      } else if(street_snap_type ===3){
+        newPlace ='亚洲';
+      } else if(street_snap_type ===4){
+        newPlace ='国内';
+      } else if(street_snap_type ===5){
+        newPlace ='其他';
+      }
+    }
+    return newPlace;
+  }
   renderList() {
     let vDOM = [];
     let {
@@ -18,11 +37,8 @@ class RunwayList extends PureComponent {
         let {
           key,
           main_id,
-          city_cn,
-          fashion_season,
-          release_date,
-          brand_name,
-          gender,
+          street_snap_type,
+          street_snap_place,
           img
         } = item;
         vDOM.push(
@@ -38,7 +54,7 @@ class RunwayList extends PureComponent {
             <div className={style.stagemain} onClick={() => {}}>
               <div className={`${style.picture}`}>
                 <LazyLoad  height={0}>
-                <img src={`${IMG_HOST}/webp${img}`} alt="" />
+                  <img src={`${IMG_HOST}/webp${img}`} alt="" />
                 </LazyLoad>
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
@@ -56,14 +72,9 @@ class RunwayList extends PureComponent {
 
               </div>
               <div className={style.info}>
-                <h3
-                  className={style.title}
-                >{`${release_date}${fashion_season}${brand_name}${
-                  gender === "women" ? "女装" : "男装"
-                }发布会`}</h3>
                 <p
                   className={style.infomation}
-                >{`${brand_name}|${release_date}${fashion_season}|${city_cn}`}</p>
+                >{`${this.renderTag(street_snap_type,street_snap_place)}|2020|春夏`}</p>
                 <p className={style.anthor}>MR Right</p>
                 <p className={style.anthor}>2020.7.17</p>
               </div>
@@ -79,4 +90,4 @@ class RunwayList extends PureComponent {
     return <Row type="flex">{this.renderList()}</Row>;
   }
 }
-export default RunwayList;
+export default StreetSnapList;

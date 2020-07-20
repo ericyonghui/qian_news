@@ -41,6 +41,8 @@ export default {
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台
         {path:'/runway',component:'./Runway'},
+        // T 台
+        {path:'/streetSnap',component:'./StreetSnap'},
         // T 台详细
         {path:'/TstageDetail',component:'./Runway/TstageDetail/TstageEdtail'}
 

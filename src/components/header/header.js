@@ -25,8 +25,8 @@ const routerArr=[
     routerVal:"/design"
   },
   {
-    routerKey:"jiepai",
-    routerVal:""
+    routerKey:"streetSnap",
+    routerVal:"/streetSnap"
   },
   {
     routerKey:"tuan",
@@ -87,7 +87,7 @@ export default class HeaderComponent extends React.Component {
               <Menu.Item key="home">首页</Menu.Item>
               <Menu.Item key="runway">T台</Menu.Item>
               <Menu.Item key="kuanshi">款式</Menu.Item>
-              <Menu.Item key="jiepai">街拍</Menu.Item>
+              <Menu.Item key="streetSnap">街拍</Menu.Item>
               <Menu.Item key="tuan">图案</Menu.Item>
               <Menu.Item key="sucai">素材</Menu.Item>
               <Menu.Item key="tupian">图片库</Menu.Item>
@@ -138,7 +138,7 @@ export default class HeaderComponent extends React.Component {
               <Menu.Item key="home">首页</Menu.Item>
               <Menu.Item key="runway">T台</Menu.Item>
               <Menu.Item key="kuanshi">款式</Menu.Item>
-              <Menu.Item key="jiepai">街拍</Menu.Item>
+              <Menu.Item key="streetSnap">街拍</Menu.Item>
               <Menu.Item key="tuan">图案</Menu.Item>
               <Menu.Item key="sucai">素材</Menu.Item>
               <Menu.Item key="tupian">图片库</Menu.Item>
