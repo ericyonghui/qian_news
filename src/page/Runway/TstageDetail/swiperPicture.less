@@ -1,0 +1,57 @@
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+}
+p{
+    margin:0
+}
+.picContainer{
+    background-color:#999;
+    padding-right:150px;
+    position: relative;
+    box-sizing: border-box;
+    .min{
+        width: 150px;;
+        position: absolute;
+        right: 0;
+        top:20px;
+        li{
+            margin-bottom:8px;
+            position: relative;
+            img{
+                width:100%;
+                height: auto;
+            }
+            .mark{
+                position: absolute;
+                width:100%;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                background:rgba(0,0,0,0.5);
+                
+                p{
+                    color:#fff;
+                    font-size:16px;
+                    position: absolute;
+                    top:50%;
+                    left:50%;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+    }
+}
