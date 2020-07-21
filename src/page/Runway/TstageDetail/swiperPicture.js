@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { AppstoreOutlined ,LeftOutlined ,RightOutlined,UpOutlined,DownOutlined} from "@ant-design/icons";
+import { AppstoreOutlined ,LeftOutlined ,RightOutlined,UpOutlined,DownOutlined,DownCircleOutlined} from "@ant-design/icons";
 
 import style from "./swiperPicture.less"
 import img1 from "../../../assets/11.jpg"
@@ -10,6 +10,7 @@ export default class SwiperPicture extends React.Component {
   constructor() {
     super();
     this.state = {
+      ulHeight:'',
       list:[
         {
           src:img1,
@@ -34,35 +35,40 @@ export default class SwiperPicture extends React.Component {
       ]
     };
   }
+  getImgHeightHandle=()=>{
+    this.ulHeight=document.getElementById('img').height() - 60 + "px";
+
+  }
   render() {
     return (
       <div>
-        <Row>
-          <Col xl={6} lg={6} md={6} sm={24} xs={24}>
-            <h3>千尚 秀场直击</h3>
-            <p>米兰</p>
-            <p>Autumn/Winter2020</p>
-            <h4>Antonio Marras</h4>
-            <p>全部</p>
-            <div>
-              <AppstoreOutlined />
+        <Row className={style.container}>
+          <Col xl={4} lg={4} md={4} sm={24} xs={24} className={style.info}>
+          <h4 className={style.infoTitle}>Antonio Marras</h4> 
+            <p className={style.infoAdress}>Autumn/Winter2020  米兰</p>
+            <p className={style.infoAllIcon}><span className={style.infoRight}>全部</span>  <DownCircleOutlined /></p>
+            <div className={style.infoTab}>
+              <AppstoreOutlined />&nbsp;
               <span>浏览完整系列</span>
             </div>
           </Col>
-          <Col xl={18} lg={18} md={18} sm={24} xs={24} className={style.picContainer}>
+          <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer}>
             <div className={style.max}>
-                <LeftOutlined />
-                <img src={img1} />
-                <RightOutlined />
+                <LeftOutlined className={style.maxLeft} />
+                <img src={img1} id="img"/>
+                <RightOutlined className={style.maxright} />
             </div>
             <div className={style.min}>
-            <UpOutlined />
-              <ul>
+              <div className={style.minIcon}>
+                <UpOutlined style={{fontSize:'20px'}}/>
+              </div>
+              
+              <ul className={style.minList}>
               {
                 this.state.list.map(item=>(
                   <li key={item.id}>
                     <img src={item.src} alt=""/>
-                    {/* 黑色蒙层 */}
+                    
                     <div className={style.mark}>
                       <p>{item.num}</p>
                     </div>
@@ -70,7 +76,10 @@ export default class SwiperPicture extends React.Component {
                 ))
               }
               </ul>
+              <div className={style.minIcon}>
               <DownOutlined />
+              </div>
+              
             </div>
           </Col>
         </Row>

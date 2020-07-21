@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col } from "antd";
-import { HeartOutlined, HeartFilled ,ClusterOutlined,AppstoreOutlined} from "@ant-design/icons";
+import { Row, Col ,Progress} from "antd";
+import { HeartOutlined, HeartFilled ,ClusterOutlined,AppstoreOutlined, RotateRightOutlined} from "@ant-design/icons";
 import img1 from "../../../assets/11.jpg";
 import img2 from "../../../assets/2.jpg"
 import style from "./listPictrue.less";
@@ -78,10 +78,10 @@ export default class ListPicture extends React.Component {
     return (
       <div>
         <Row className={style.pictureContainer}>
+          
           <div className={style.title}>
-            <p>千尚</p>
-            {/* <ClusterOutlined className={style.iconColor} /> */}
-            <AppstoreOutlined className={style.iconColor}/>
+          <p>千尚</p>
+            
           </div>
           {this.state.list.map(item => (
             <Col
@@ -103,6 +103,11 @@ export default class ListPicture extends React.Component {
               </div>
             </Col>
           ))}
+
+          <div className={style.picTabIcon}>
+            <AppstoreOutlined className={style.picTabIconi}/>
+            <Progress percent={30} size="small" type="circle" width="60px"/>
+          </div>
 
         </Row>
       </div>

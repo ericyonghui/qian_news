@@ -13,7 +13,7 @@ export default class TstageEdtail extends React.Component{
     render(){
         return (
             <div className={style.detail}>
-                {/* <ListPictrue></ListPictrue> */}
+                <ListPictrue></ListPictrue>
                 <SwiperPictrue></SwiperPictrue>
             </div>
         )
