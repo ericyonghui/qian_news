@@ -28,7 +28,6 @@ class SlideShow extends PureComponent{
       this.queryImgTypeList(query.id);
     }
   }
-
   queryImgTypeList = (id) =>{
     const _this = this;
     _this.setState({
@@ -88,7 +87,6 @@ class SlideShow extends PureComponent{
       }
     });
   };
-
   handleSelectType=(val)=>{
     console.info(val)
     let newSelectTypeVal='';
@@ -113,6 +111,12 @@ class SlideShow extends PureComponent{
       }
     })
   };
+
+  handleSwitch=(val)=>{
+    this.setState({
+      switchFlag:val
+    })
+  };
   render(){
     return (
       <Spin spinning={this.state.spinLoading}>
@@ -121,7 +125,11 @@ class SlideShow extends PureComponent{
             this.state.switchFlag
               ?
               (
-                <ListPicture/>)
+                this.state.imgObj.imgData.length>0 &&
+                  <ListPicture
+                    imgList={this.state.imgObj.imgData}
+                    handleSwitch={this.handleSwitch}
+                  />)
               :
               (
                 this.state.imgObj.imgData.length>0 &&
@@ -130,6 +138,7 @@ class SlideShow extends PureComponent{
                   imgObj={this.state.imgObj}
                   selectTypeVal={this.state.selectTypeVal}
                   handleSelectType={this.handleSelectType}
+                  handleSwitch={this.handleSwitch}
               />)
           }
         </div>

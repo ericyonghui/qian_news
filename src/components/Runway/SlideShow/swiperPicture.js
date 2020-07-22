@@ -61,7 +61,7 @@ class SwiperPicture extends PureComponent {
   //   this.ulHeight=document.getElementById('img').height() - 60 + "px";
   // }
   render() {
-    const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData},selectTypeVal,handleSelectType} = this.props;
+    const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData},selectTypeVal,handleSelectType,handleSwitch} = this.props;
     const imgTypeListOptions = imgTypeList.map((province) => {
       return <Option key={province.typeKey}>{province.typeVal}</Option>;
     });
@@ -82,7 +82,7 @@ class SwiperPicture extends PureComponent {
             >
               {imgTypeListOptions}
             </Select>
-            <div className={style.infoTab}>
+            <div className={style.infoTab} onClick={()=>{handleSwitch(true)}}>
               <AppstoreOutlined />&nbsp;
               <span>浏览完整系列</span>
             </div>
