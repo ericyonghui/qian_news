@@ -21,7 +21,7 @@ export default {
         // 款式 详情 单图
         {path:'/slideShow/Monograph', component:'./design/Monograph/Monograph'},
         // T 台详细
-        {path:'/runway_slideShow',component:'./Runway/SlideShow'}
+        {path:'/slideShow/runway_slideShow',component:'./Runway/SlideShow'}
       ]
     },
     {
