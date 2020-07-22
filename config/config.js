@@ -36,7 +36,7 @@ export default {
         // 款式 详情 多图
         {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
         // 图案
-        {path:'/pattern' , component:'./pattern/pattern'},
+        {path:'/material' , component:'./Material'},
         // 图案详情
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台

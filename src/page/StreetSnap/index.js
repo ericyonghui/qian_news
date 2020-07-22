@@ -3,7 +3,7 @@ import router from 'umi/router';
 import axios from "../../util/axios";
 import { Spin, Pagination } from "antd";
 import style from "../Runway/index.less";
-import StreetSnapList from "../../components/StreetSnapComponents/streetSnapList";
+import StreetSnapList from "../../components/StreetSnap/streetSnapList";
 
 class StreetSnap extends PureComponent {
   state = {

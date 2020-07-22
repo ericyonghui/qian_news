@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
-import RunwayList from '../../components/RunwayComponents/runwayList';
+import RunwayList from '../../components/Runway/runwayList';
 import { Spin, Pagination } from "antd";
 import axios from '../../util/axios';
 import style from "./index.less";
