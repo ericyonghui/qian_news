@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Row, Col,Select  } from "antd";
 import { IMG_HOST } from "../../../util/common";
-import { AppstoreOutlined ,LeftOutlined ,RightOutlined,UpOutlined,DownOutlined,DownCircleOutlined} from "@ant-design/icons";
+import { AppstoreOutlined ,LeftOutlined ,RightOutlined,UpOutlined,DownOutlined} from "@ant-design/icons";
 import style from "./swiperPicture.less";
-
 
 const { Option } = Select;
 
@@ -62,7 +61,7 @@ class SwiperPicture extends PureComponent {
   //   this.ulHeight=document.getElementById('img').height() - 60 + "px";
   // }
   render() {
-    const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData}} = this.props;
+    const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData},selectTypeVal,handleSelectType} = this.props;
     const imgTypeListOptions = imgTypeList.map((province) => {
       return <Option key={province.typeKey}>{province.typeVal}</Option>;
     });
@@ -71,16 +70,18 @@ class SwiperPicture extends PureComponent {
         <Row className={style.container}>
           <Col xl={4} lg={4} md={4} sm={24} xs={24} className={style.info}>
           <h4 className={style.infoTitle}>{brand_name}</h4>
-            <p className={style.infoAdress}>{fashion_season}/{release_date}  {city_cn}</p>
-            <p className={style.infoAllIcon}>
-              <Select
-                bordered={false}
-                defaultValue="1"
-                style={{width: '120px'}}
-              >
-                {imgTypeListOptions}
-              </Select>
-            </p>
+            <p className={style.infoAdress}>{`${fashion_season}/${release_date}  ${city_cn}`}  </p>
+            {/*<p className={style.infoAllIcon}>*/}
+            {/*  */}
+            {/*</p>*/}
+            <Select
+              bordered={false}
+              value={selectTypeVal}
+              onChange={handleSelectType}
+              style={{width: '120px'}}
+            >
+              {imgTypeListOptions}
+            </Select>
             <div className={style.infoTab}>
               <AppstoreOutlined />&nbsp;
               <span>浏览完整系列</span>

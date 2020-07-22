@@ -7,7 +7,7 @@ import axios from "../../../util/axios";
 
 class SlideShow extends PureComponent{
   state={
-    flag:false,
+    switchFlag:false,
     spinLoading: false,
     imgTypeList:[],
     imgObj:{
@@ -16,10 +16,12 @@ class SlideShow extends PureComponent{
       release_date:'',
       brand_name:'',
       imgData:[]
-    }
+    },
+    selectTypeKey:1,
+    selectTypeVal:"T台",
   };
 
-  componentDidMount(){
+ componentDidMount(){
     const _this = this;
     let query = _this.props.location.query;
     if(typeof query.id!=='undefined'){
@@ -30,8 +32,25 @@ class SlideShow extends PureComponent{
   queryImgTypeList = (id) =>{
     const _this = this;
     _this.setState({
+      imgTypeList:[]
+    }, async()=>{
+      let result = await axios({
+        method:"GET",
+        url:`/fashion/getImgTypeList?id=${id}`,
+      });
+      const { code,data } = result;
+      if (code === 200) {
+        this.queryImgList(id,data[0].typeKey);
+        _this.setState({
+          imgTypeList: data
+        });
+      }
+    });
+  };
+  queryImgList = (id,typeKey) =>{
+    const _this = this;
+    _this.setState({
       spinLoading: true,
-      imgTypeList:[],
       imgObj:{
         city_cn:'',
         fashion_season:'',
@@ -42,56 +61,75 @@ class SlideShow extends PureComponent{
     }, async()=>{
       let result = await axios({
         method:"GET",
-        url:`/fashion/getImgTypeList?id=${id}`,
+        url:`/fashion/getImgList?id=${id}&imgType=${typeKey}`,
       });
-      const { code } = result;
-      if (code === 200) {
-        let result1 = await axios({
-          method:"GET",
-          url:`/fashion/getImgList?id=${id}&imgType=${result.data[0].typeKey}`,
-        });
-        const { code } = result1;
-        if(code === 200){
-          let dataList = [];
-          for (const [index, val] of result1.data.imgData.entries()) {
-            const obj = { key: (index + 1) };
-            Object.assign(val, obj);
-            dataList.push(val);
-          }
-          _this.setState({
-            spinLoading: false,
-            imgTypeList:result.data,
-            imgObj:{
-              city_cn:result1.data.city_cn,
-              fashion_season:result1.data.fashion_season,
-              release_date:result1.data.release_date,
-              brand_name:result1.data.brand_name,
-              imgData:dataList
-            }
-          });
-        } else {
-          _this.setState({
-            spinLoading: false,
-          });
+      const { code,data:{city_cn,fashion_season,release_date,brand_name,imgData}} = result;
+      if(code === 200){
+        let dataList = [];
+        for (const [index, val] of imgData.entries()) {
+          const obj = { key: (index + 1) };
+          Object.assign(val, obj);
+          dataList.push(val);
         }
+        _this.setState({
+          spinLoading: false,
+          imgObj:{
+            city_cn,
+            fashion_season,
+            release_date,
+            brand_name,
+            imgData:dataList
+          }
+        });
+      } else {
+        _this.setState({
+          spinLoading: false,
+        });
       }
     });
   };
 
+  handleSelectType=(val)=>{
+    console.info(val)
+    let newSelectTypeVal='';
+    if(parseInt(val) ===1){
+      newSelectTypeVal="T台";
+    } else if(parseInt(val) ===2){
+      newSelectTypeVal="细节";
+    } else if(parseInt(val) ===3){
+      newSelectTypeVal="前排";
+    } else if(parseInt(val) ===4){
+      newSelectTypeVal="妆容";
+    } else if(parseInt(val) ===5){
+      newSelectTypeVal="场景";
+    }
+    this.setState({
+      selectTypeKey: parseInt(val),
+      selectTypeVal:newSelectTypeVal
+    },()=>{
+      let query = this.props.location.query;
+      if(typeof query.id!=='undefined'){
+        this.queryImgList(query.id,val);
+      }
+    })
+  };
   render(){
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.detail}>
           {
-            this.state.flag
+            this.state.switchFlag
               ?
-              (<ListPicture/>)
+              (
+                <ListPicture/>)
               :
               (
                 this.state.imgObj.imgData.length>0 &&
                 <SwiperPicture
-                imgTypeList={this.state.imgTypeList}
-                imgObj={this.state.imgObj}
+                  imgTypeList={this.state.imgTypeList}
+                  imgObj={this.state.imgObj}
+                  selectTypeVal={this.state.selectTypeVal}
+                  handleSelectType={this.handleSelectType}
               />)
           }
         </div>

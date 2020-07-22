@@ -111,3 +111,10 @@ export async function getImgToBase64(url){//将图片转换为Base64
   });
   return res;
 }
+export async function titleCase(str) {
+  let strArr = str.split(' ');
+  for(let i=0;i<strArr.length;i++){
+    strArr[i] = strArr[i].substring(0,1).toUpperCase()+strArr[i].toLowerCase().substring(1)
+  }
+  return strArr.join(' ');
+}
