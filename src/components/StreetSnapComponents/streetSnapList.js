@@ -54,7 +54,7 @@ class StreetSnapList extends PureComponent {
             <div className={style.stagemain} onClick={() => {}}>
               <div className={`${style.picture}`}>
                 <LazyLoad  height={0}>
-                  <img src={`${IMG_HOST}/webp${img}`} alt="" />
+                  <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" />
                 </LazyLoad>
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
