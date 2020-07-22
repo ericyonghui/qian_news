@@ -3,7 +3,7 @@ import { Row, Col ,Progress} from "antd";
 import { HeartOutlined, HeartFilled ,ClusterOutlined,AppstoreOutlined, RotateRightOutlined} from "@ant-design/icons";
 import img1 from "../../../assets/11.jpg";
 import img2 from "../../../assets/2.jpg"
-import style from "./listPictrue.less";
+import style from "./listPicture.less";
 
 export default class ListPicture extends React.Component {
   constructor() {
@@ -78,10 +78,10 @@ export default class ListPicture extends React.Component {
     return (
       <div>
         <Row className={style.pictureContainer}>
-          
+
           <div className={style.title}>
           <p>千尚</p>
-            
+
           </div>
           {this.state.list.map(item => (
             <Col
@@ -96,9 +96,9 @@ export default class ListPicture extends React.Component {
               <div className={style.list}>
                 <img src={item.src} alt=""/>
                 {item.flag?<HeartFilled className={style.iconPosition} />:<HeartOutlined className={style.iconPosition}  />}
-                
-                
-                
+
+
+
           <p className={style.numPosition}>{item.num}</p>
               </div>
             </Col>
