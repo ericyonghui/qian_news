@@ -9,7 +9,7 @@ export default class TstageEdtail extends React.Component{
     constructor(){
         super();
         this.state={
-            flag:true
+            flag:false
         }
     }
     render(){
