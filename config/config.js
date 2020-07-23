@@ -19,7 +19,9 @@ export default {
       component: '../layout/SlideShow',
       routes: [
         // 款式 详情 单图
-        {path:'/slideShow/Monograph', component:'./design/Monograph/Monograph'}
+        {path:'/slideShow/Monograph', component:'./design/Monograph/Monograph'},
+        // T 台详细
+        {path:'/slideShow/runway_slideShow',component:'./Runway/SlideShow'}
       ]
     },
     {
@@ -36,15 +38,13 @@ export default {
         // 款式 详情 多图
         {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
         // 图案
-        {path:'/pattern' , component:'./pattern/pattern'},
+        {path:'/material' , component:'./Material'},
         // 图案详情
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台
         {path:'/runway',component:'./Runway'},
         // T 台
-        {path:'/streetSnap',component:'./StreetSnap'},
-        // T 台详细
-        {path:'/TstageDetail',component:'./Runway/TstageDetail/TstageEdtail'}
+        {path:'/streetSnap',component:'./StreetSnap'}
 
       ]
     }

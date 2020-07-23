@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
-import RunwayList from '../../components/RunwayComponents/runwayList';
+import RunwayList from '../../components/Runway/runwayList';
 import { Spin, Pagination } from "antd";
 import axios from '../../util/axios';
 import style from "./index.less";
@@ -81,6 +81,10 @@ class Runway extends PureComponent {
     });
   };
 
+  handleSlideShow=(id)=>{
+    router.push(`/slideShow/runway_slideShow?id=${id}`);
+  };
+
   render() {
     return (
       <Spin spinning={this.state.spinLoading}>
@@ -94,6 +98,7 @@ class Runway extends PureComponent {
             <div className={style.clearfix}>
               <RunwayList
                 data={this.state.productData}
+                handleSlideShow={this.handleSlideShow}
               />
               <div className={style.pagination}>
                 <Pagination
