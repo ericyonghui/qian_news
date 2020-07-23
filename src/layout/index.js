@@ -7,10 +7,10 @@ class BasicLayout extends Component {
   render() {
     const { children} = this.props;
     return <div>
-            <Header/>
-              {children}
-            <Footer/>
-         </div>;
+      <Header/>
+      {children}
+      <Footer/>
+    </div>;
   }
 }
 
