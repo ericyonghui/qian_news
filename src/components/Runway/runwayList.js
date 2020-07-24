@@ -27,9 +27,9 @@ class RunwayList extends PureComponent {
         } = item;
         vDOM.push(
           <Col
-            xl={6}
-            lg={8}
-            md={12}
+            xl={4}
+            lg={6}
+            md={8}
             sm={24}
             xs={24}
             className={style.list}
