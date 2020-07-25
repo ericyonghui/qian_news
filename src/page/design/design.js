@@ -119,9 +119,9 @@ export default class Design extends React.Component {
         <Row className={style.lgContainer}>
           {this.state.list.map(item => (
             <Col
-              xl={6}
-              lg={8}
-              md={12}
+              xl={4}
+              lg={4}
+              md={6}
               sm={24}
               xs={24}
               className={style.list}
