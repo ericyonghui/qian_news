@@ -3,7 +3,6 @@ import router from 'umi/router';
 import {Link} from "react-router-dom"
 import { Row, Col, Menu, Input, Divider } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
-import MediaQuery from "react-responsive";
 
 import style from "./header.less";
 
@@ -109,9 +108,7 @@ export default class HeaderComponent extends React.Component {
           </Col>
         </Row>
         {/* m 小于1023 */}
-
         <Row className={style.m_container}>
-          <div className={style.menu}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
             <Col  md={20} sm={18} xs={18} className={style.search}>
               <Search
@@ -123,8 +120,8 @@ export default class HeaderComponent extends React.Component {
             <Col md={2} sm={3} xs={3} className={style.fonticon}>
               <MenuUnfoldOutlined onClick={this.showNav} />
             </Col>
-          </div>
-
+          {/* </div> */}
+        {/* mini header list */}
           <div className={style.mark} style={{display:this.state.display}} onClick={this.hideNav}></div>
           <div className={style.minNav} style={{display:this.state.display}}>
             <div className={`${style.userContainer} ${style.clearfix}`}>
