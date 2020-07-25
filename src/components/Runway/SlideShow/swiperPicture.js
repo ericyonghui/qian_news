@@ -9,7 +9,7 @@ const { Option } = Select;
 class SwiperPicture extends PureComponent {
   state={
     selectPic:'',
-    selectKey: 1,
+    selectKey: 1
   };
   componentDidMount(){
     const {imgObj:{imgData}} = this.props;
@@ -18,6 +18,9 @@ class SwiperPicture extends PureComponent {
       selectPic: obj.img
     })
   }
+
+
+
 
   handleRoll=(direction)=>{
     const {imgObj:{imgData}} = this.props;
