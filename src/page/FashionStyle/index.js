@@ -74,7 +74,11 @@ class FashionStyle extends PureComponent {
     });
   };
   handleStandardTableChange = (current, pageSize) => {
-    router.push(`/style?currentPage=${current ||this.state.current }`);
+    if(current === 1){
+      router.push(`/style`);
+    } else {
+      router.push(`/style?currentPage=${current ||this.state.current }`);
+    }
     window.scrollTo(0, 0);
     this.queryList({
       current, pageSize

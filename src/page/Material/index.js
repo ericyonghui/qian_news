@@ -75,7 +75,11 @@ class Material extends PureComponent {
     });
   };
   handleStandardTableChange = (current, pageSize) => {
-    router.push(`/material?currentPage=${current ||this.state.current }`);
+    if(current === 1){
+      router.push(`/material`);
+    } else {
+      router.push(`/material?currentPage=${current ||this.state.current }`);
+    }
     window.scrollTo(0, 0);
     this.queryList({
       current, pageSize

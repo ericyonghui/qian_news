@@ -74,7 +74,11 @@ class StreetSnap extends PureComponent {
     });
   };
   handleStandardTableChange = (current, pageSize) => {
-    router.push(`/streetSnap?currentPage=${current ||this.state.current }`);
+    if(current === 1){
+      router.push(`/streetSnap`);
+    } else {
+      router.push(`/streetSnap?currentPage=${current ||this.state.current }`);
+    }
     window.scrollTo(0, 0);
     this.queryList({
       current, pageSize
