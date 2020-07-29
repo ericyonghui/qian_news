@@ -99,6 +99,7 @@ class Material extends PureComponent {
                 <Pagination
                   onChange={this.handleStandardTableChange}
                   showQuickJumper={true}
+                  showSizeChanger={false}
                   hideOnSinglePage={true}
                   total={this.state.productData.pagination.total}
                   pageSize={this.state.productData.pagination.pageSize}

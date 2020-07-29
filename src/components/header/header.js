@@ -20,8 +20,8 @@ const routerArr=[
     routerVal:"/runway"
   },
   {
-    routerKey:"kuanshi",
-    routerVal:"/design"
+    routerKey:"style",
+    routerVal:"/style"
   },
   {
     routerKey:"streetSnap",
@@ -85,7 +85,7 @@ export default class HeaderComponent extends React.Component {
             >
               <Menu.Item key="home">首页</Menu.Item>
               <Menu.Item key="runway">T台</Menu.Item>
-              <Menu.Item key="kuanshi">款式</Menu.Item>
+              <Menu.Item key="style">款式</Menu.Item>
               <Menu.Item key="streetSnap">街拍</Menu.Item>
               <Menu.Item key="design">图案</Menu.Item>
               <Menu.Item key="material">素材</Menu.Item>
@@ -134,7 +134,7 @@ export default class HeaderComponent extends React.Component {
             <Menu className={style.menuLis}>
               <Menu.Item key="home">首页</Menu.Item>
               <Menu.Item key="runway">T台</Menu.Item>
-              <Menu.Item key="kuanshi">款式</Menu.Item>
+              <Menu.Item key="style">款式</Menu.Item>
               <Menu.Item key="streetSnap">街拍</Menu.Item>
               <Menu.Item key="design">图案</Menu.Item>
               <Menu.Item key="material">素材</Menu.Item>

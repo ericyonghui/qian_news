@@ -33,7 +33,7 @@ export default {
           redirect: '/home',
         },
         { path: '/home', component: './Home'},
-        //款式 list
+
         {path:'/design' , component:'./design/design'},
         // 款式 详情 多图
         {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
@@ -43,6 +43,8 @@ export default {
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台
         {path:'/runway',component:'./Runway'},
+        //款式
+        {path:'/style',component:'./FashionStyle'},
         // 街拍
         {path:'/streetSnap',component:'./StreetSnap'},
         {path:'/streetSnapList',component:'./StreetSnap/StreetSnapList/StreetSnapList'}
