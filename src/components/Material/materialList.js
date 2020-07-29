@@ -3,20 +3,35 @@ import LazyLoad from "react-lazyload";
 import style from "../../page/Material/index.less";
 
 class MaterialList extends PureComponent {
-  componentDidMount() {}
+  state={
+    columnWidth: 236.33
+  };
+  componentDidMount() {
+    window.addEventListener('resize',this.handleWidth)
+  }
+
+  handleWidth=()=>{
+    let columnWidth =this.column.clientWidth;
+    this.setState({columnWidth});
+  };
+  componentWillUnmount() {
+    window.addEventListener('resize',this.handleWidth);
+  }
 
   renderList() {
     let vDOM = [];
     let { data: { list } } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
-        let {key,main_id,img,imgHeight} = item;
+        let {key,main_id,img,imgWidth,imgHeight} = item;
         vDOM.push(
-          <div key={key} className={style.column} onClick={()=>{}}>
+          <div key={key} className={style.column} onClick={()=>{}} ref={(c) => {
+            this.column = c;
+          }}>
             <span className={style.tip}>NEW</span>
             <LazyLoad  height={0}>
               <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
-                height:`${imgHeight}px`
+                height:`${this.state.columnWidth / imgWidth * imgHeight}px`
               }}/>
             </LazyLoad>
           </div>
