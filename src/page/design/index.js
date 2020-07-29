@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import axios from "../../util/axios";
 import { Spin, Pagination } from "antd";
-import style from "./index.less";
+import style from "../../page/Material/index.less";
 import MaterialList from "../../components/Material/materialList";
 
 
-class Material extends PureComponent {
+class Design extends PureComponent {
   state = {
     current: 1,
     spinLoading: false,
@@ -23,7 +23,7 @@ class Material extends PureComponent {
     const _this = this;
     let query = _this.props.location.query;
     if(typeof query.currentPage!=='undefined'){
-      router.push(`/material?currentPage=${query.currentPage ||'' }`);
+      router.push(`/design?currentPage=${query.currentPage ||'' }`);
       _this.queryList({
         current: query.currentPage || _this.state.current
       });
@@ -44,7 +44,7 @@ class Material extends PureComponent {
     }, async()=>{
       let result = await axios({
         method:"GET",
-        url:`/material/getManuscriptsList?currentPage=${params.current ||'' }`,
+        url:`/material/getMaterialList?currentPage=${params.current ||'' }`,
       });
       const { code,data} = result;
       if (code === 200) {
@@ -76,9 +76,9 @@ class Material extends PureComponent {
   };
   handleStandardTableChange = (current, pageSize) => {
     if(current === 1){
-      router.push(`/material`);
+      router.push(`/design`);
     } else {
-      router.push(`/material?currentPage=${current ||this.state.current }`);
+      router.push(`/design?currentPage=${current ||this.state.current }`);
     }
     window.scrollTo(0, 0);
     this.queryList({
@@ -117,4 +117,4 @@ class Material extends PureComponent {
     );
   }
 }
-export default Material;
+export default Design;

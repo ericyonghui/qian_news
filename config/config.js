@@ -34,11 +34,9 @@ export default {
         },
         { path: '/home', component: './Home'},
 
-        {path:'/design' , component:'./design/design'},
         // 款式 详情 多图
         {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
-        // 图案
-        {path:'/material' , component:'./Material'},
+
         // 图案详情
         {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
         // T 台
@@ -47,6 +45,11 @@ export default {
         {path:'/style',component:'./FashionStyle'},
         // 街拍
         {path:'/streetSnap',component:'./StreetSnap'},
+        //图案
+        {path:'/design' , component:'./Design'},
+        //素材
+        {path:'/material' , component:'./Material'},
+
         {path:'/streetSnapList',component:'./StreetSnap/StreetSnapList/StreetSnapList'}
 
       ]

@@ -29,7 +29,7 @@ const routerArr=[
   },
   {
     routerKey:"design",
-    routerVal:"/material"
+    routerVal:"/design"
   },
   {
     routerKey:"material",
