@@ -12,12 +12,11 @@
 
 @media (min-width:1024px) {
   .pc_container {
+    width:100%;
     position: fixed;
     top: 0;
     z-index: 99999;
-    width: 100%;
     background: #fff;
-    // display: block;
     padding: 20px;
     box-sizing: border-box;
 
@@ -44,17 +43,15 @@
     }
   }
 
-  .m_container {
-    display: none;
-  }
+  // .m_container {
+  //   display: none;
+  // }
 }
-
 // pc 不显示
 @media (max-width:1023px) {
   .pc_container {
     display: none;
   }
-
   .m_container {
     position: fixed;
     top: 0;

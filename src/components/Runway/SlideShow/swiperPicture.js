@@ -7,9 +7,12 @@ import style from "./swiperPicture.less";
 const { Option } = Select;
 
 class SwiperPicture extends PureComponent {
+
   state={
     selectPic:'',
-    selectKey: 1
+    selectKey: 1,
+    setHeight:document.body.clientHeight+ 'px',
+    ulHeight:document.body.clientHeight - 140 + "px"
   };
   componentDidMount(){
     const {imgObj:{imgData}} = this.props;
@@ -17,9 +20,8 @@ class SwiperPicture extends PureComponent {
     this.setState({
       selectPic: obj.img
     })
+    console.log(this.state.selectPic)
   }
-
-
 
 
   handleRoll=(direction)=>{
@@ -60,9 +62,7 @@ class SwiperPicture extends PureComponent {
     })
   };
 
-  // getImgHeightHandle=()=>{
-  //   this.ulHeight=document.getElementById('img').height() - 60 + "px";
-  // }
+  
   render() {
     const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData},selectTypeVal,handleSelectType,handleSwitch} = this.props;
     const imgTypeListOptions = imgTypeList.map((province) => {
@@ -90,8 +90,8 @@ class SwiperPicture extends PureComponent {
               <span>浏览完整系列</span>
             </div>
           </Col>
-          <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer}>
-            <div className={style.max}>
+          <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer} >
+            <div className={style.max} style={{height:this.state.setHeight}}>
                 <LeftOutlined className={style.maxLeft}  onClick={()=>{this.handleRoll('left')}}/>
                 <img src={`${IMG_HOST}/webp${this.state.selectPic}`} alt="" />
                 <RightOutlined className={style.maxright}  onClick={()=>{this.handleRoll('right')}}/>
@@ -103,7 +103,7 @@ class SwiperPicture extends PureComponent {
                   <UpOutlined style={{fontSize:'20px'}}/>
                 </div>
               }
-              <ul className={style.minList}>
+              <ul className={style.minList} style={{height:(this.state.ulHeight)}}>
                 {
                   imgData.map(item=>(
                     <li key={item.img_id}>

@@ -72,7 +72,7 @@ export default class HeaderComponent extends React.Component {
     return (
       <div>
         {/* pc 大于等于1024 >ipad */}
-        <Row className={style.pc_container}>
+        <Row className={style.pc_container} style={{height:"75px"}}>
           <Col span={2} className={style.logo}>
             千尚
           </Col>
@@ -108,7 +108,7 @@ export default class HeaderComponent extends React.Component {
           </Col>
         </Row>
         {/* m 小于1023 */}
-        <Row className={style.m_container}>
+        <Row className={style.m_container} style={{height:"60px"}}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
             <Col  md={20} sm={18} xs={18} className={style.search}>
               <Search
