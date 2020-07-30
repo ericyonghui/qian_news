@@ -121,7 +121,7 @@ export default class Design extends React.Component {
             <Col
               xl={4}
               lg={4}
-              md={6}
+              md={4}
               sm={24}
               xs={24}
               className={style.list}
