@@ -1,5 +1,5 @@
 .patternContainer {
-    margin-top: 110px
+    margin-top: 200px
 }
 
 .clearfix:after {
@@ -17,7 +17,7 @@
 // list
 @media (min-width:1500px) {
     .patternContainer {
-        margin-top: 110px;
+        margin-top: 30px;
     }
 
     // tip NEW
@@ -42,7 +42,7 @@
 
 @media (max-width:1499px) and (min-width:1200px) {
     .patternContainer {
-        margin-top: 110px;
+        margin-top: 30px;
     }
 
     .container {
@@ -52,7 +52,21 @@
     }
 }
 
-@media (max-width:1199px) and (min-width:768px) {
+@media (max-width:1199px) and (min-width:1024px){
+    .patternContainer {
+        margin-top: 30px;
+    }
+
+    .container {
+
+        width: 100%;
+        padding:0 20px;
+        column-count: 6;
+        margin: 0 auto;
+    } 
+}
+
+@media (max-width:1023px) and (min-width:768px) {
 
     .patternContainer {
         margin-top: 70px;
@@ -117,7 +131,38 @@
     }
 }
 
+@media (min-width:1024px){
+    .picture {
+        float: left;
+        padding-right: 30px;
+        box-sizing: border-box;
+        img {
+            width: 300px;
+            height: auto;
+        }
+    } 
+}
 
+@media (max-width:1023px) and (min-width:768px){
+    .picture {
+        float: left;
+        padding-right: 30px;
+        box-sizing: border-box;
+        img {
+            width: 240px;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width:767px){
+    .picture {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
 
 
 
@@ -127,16 +172,7 @@
     box-sizing: border-box;
 }
 
-.picture {
-    padding-right: 15px;
-    box-sizing: border-box;
-    ;
 
-    img {
-        width: 100%;
-        height: auto;
-    }
-}
 
 .infoIcon {
     margin-top:15px;
@@ -185,6 +221,7 @@
             border-radius: 2px;
             margin-right: 8px;
             line-height: 30px;
+            margin-bottom: 8px;
         }
     }
 }
@@ -196,8 +233,10 @@
     >ul{
         li{
             width:80px;
+            height: 160px;
             float: left;
             margin-right: 8px;
+            overflow: hidden;
             img{
                 width:100%;
                 height: auto;

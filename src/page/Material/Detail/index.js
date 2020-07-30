@@ -64,6 +64,7 @@ class Detail extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.patternContainer}>
+          
         {
           img!=='' &&
           <Row>
@@ -71,7 +72,7 @@ class Detail extends PureComponent {
               <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.picture}>
                 <img src={`http://106.37.96.145:2019/chosen/${img}`} alt=''/>
               </Col>
-              <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.info}>
+              <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.info} style={{float:'left'}}>
                 <div className={`${style.infoIcon} ${style.clearfix}`}>
                   <DownloadOutlined style={{marginRight:"10px"}}/>
                   <EllipsisOutlined />

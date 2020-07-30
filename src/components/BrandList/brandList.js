@@ -28,7 +28,7 @@ class BrandList extends PureComponent {
             className={style.item}
             key={key}
           >
-            <div onClick={() => {handleSlideShow(primary_key)}}>
+            <div onClick={() => {handleSlideShow(primary_key)}} className={style.itemIMG}>
               <LazyLoad  height={0}>
                 <img src={`http://106.37.96.145:2019${img}`} alt="" />
               </LazyLoad>
