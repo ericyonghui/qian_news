@@ -7,22 +7,31 @@ import style from "./swiperPicture.less";
 const { Option } = Select;
 
 class SwiperPicture extends PureComponent {
-
   state={
+    ulHeight:`${document.body.clientHeight - 140}px`,
     selectPic:'',
     selectKey: 1,
-    setHeight:document.body.clientHeight+ 'px',
-    ulHeight:document.body.clientHeight - 140 + "px"
+    setHeight:`${document.body.clientHeight}px`
   };
   componentDidMount(){
     const {imgObj:{imgData}} = this.props;
     let obj=imgData.filter(item=>{return item.key === 1})[0];
     this.setState({
       selectPic: obj.img
-    })
-    console.log(this.state.selectPic)
+    });
+    window.addEventListener('resize',this.handleWidth)
   }
-
+  handleWidth=()=>{
+    let clientHeight = document.body.clientHeight;
+    let newUlHeight = clientHeight - 140;
+    this.setState({
+      setHeight:`${clientHeight}px`,
+      ulHeight:`${newUlHeight}px`
+    });
+  };
+  componentWillUnmount() {
+    window.addEventListener('resize',this.handleWidth);
+  }
 
   handleRoll=(direction)=>{
     const {imgObj:{imgData}} = this.props;
@@ -62,7 +71,7 @@ class SwiperPicture extends PureComponent {
     })
   };
 
-  
+
   render() {
     const {imgTypeList,imgObj:{city_cn,fashion_season,release_date,brand_name,imgData},selectTypeVal,handleSelectType,handleSwitch} = this.props;
     const imgTypeListOptions = imgTypeList.map((province) => {

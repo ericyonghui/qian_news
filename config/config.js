@@ -43,6 +43,8 @@ export default {
         {path:'/runway',component:'./Runway'},
         //款式
         {path:'/style',component:'./FashionStyle'},
+        //款式单品牌列表
+        {path:'/brand',component:'./FashionStyle/BrandList'},
         // 街拍
         {path:'/streetSnap',component:'./StreetSnap'},
         //图案

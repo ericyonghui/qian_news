@@ -34,7 +34,7 @@ class StyleList extends PureComponent {
             className={style.list}
             key={key}
           >
-            <div className={style.stagemain} onClick={() => {handleSlideShow()}}>
+            <div className={style.stagemain} onClick={() => {handleSlideShow(primary_key,fashion_season,fashion_region,brand_name)}}>
               <div className={`${style.picture}`}>
                 <LazyLoad  height={0}>
                   <img src={`http://106.37.96.145:2019${img}`} alt="" />

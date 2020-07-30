@@ -85,8 +85,8 @@ class FashionStyle extends PureComponent {
     });
   };
 
-  handleSlideShow=(id)=>{
-    router.push(`/slideShow/runway_slideShow?id=${id}`);
+  handleSlideShow=(primaryKey,fashionSeason,fashionRegion,brandName)=>{
+    router.push(`/brand?id=${primaryKey.split('_')[0]}&fashion_season=${fashionSeason}&fashion_region=${fashionRegion}&brand=${brandName}`);
   };
 
   render() {
