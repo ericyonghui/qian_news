@@ -11,8 +11,10 @@ class MaterialList extends PureComponent {
   }
 
   handleWidth=()=>{
-    let columnWidth =this.column.clientWidth;
-    this.setState({columnWidth});
+    if(this.column){
+      let columnWidth =this.column.clientWidth;
+      this.setState({columnWidth});
+    }
   };
   componentWillUnmount() {
     window.addEventListener('resize',this.handleWidth);
