@@ -22,12 +22,12 @@ class MaterialList extends PureComponent {
 
   renderList() {
     let vDOM = [];
-    let { data: { list } } = this.props;
+    let { data: { list },handleSlideShow } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
         let {key,main_id,img,imgWidth,imgHeight} = item;
         vDOM.push(
-          <div key={key} className={style.column} onClick={()=>{}} ref={(c) => {
+          <div key={key} className={style.column} onClick={()=>{handleSlideShow(main_id)}} ref={(c) => {
             this.column = c;
           }}>
             <span className={style.tip}>NEW</span>

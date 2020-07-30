@@ -18,10 +18,12 @@ export default {
       path: '/slideShow',
       component: '../layout/SlideShow',
       routes: [
-        // 款式 详情 单图
-        {path:'/slideShow/Monograph', component:'./design/Monograph/Monograph'},
         // T 台详细
-        {path:'/slideShow/runway_slideShow',component:'./Runway/SlideShow'}
+        {path:'/slideShow/runway_slideShow',component:'./Runway/SlideShow'},
+        // 街拍详细
+        {path:'/slideShow/streetSnap_slideShow',component:'./StreetSnap/SlideShow'},
+        // 款式商品详细
+        {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'}
       ]
     },
     {
@@ -33,27 +35,20 @@ export default {
           redirect: '/home',
         },
         { path: '/home', component: './Home'},
-
-        // 款式 详情 多图
-        {path:'/Multigraph' , component:'./design/Multigraph/Multigraph'},
-
-        // 图案详情
-        {path:'/patternInfo' , component:'./pattern/patternInfo/patternInfo'},
-        // T 台
+        // T台列表
         {path:'/runway',component:'./Runway'},
-        //款式
+        //款式列表
         {path:'/style',component:'./FashionStyle'},
         //款式单品牌列表
         {path:'/brand',component:'./FashionStyle/BrandList'},
-        // 街拍
+        // 街拍列表
         {path:'/streetSnap',component:'./StreetSnap'},
-        //图案
+        //图案列表
         {path:'/design' , component:'./Design'},
-        //素材
+        //素材列表
         {path:'/material' , component:'./Material'},
-
-        {path:'/streetSnapList',component:'./StreetSnap/StreetSnapList/StreetSnapList'}
-
+        //图案素材详情
+        {path:'/detail' , component:'./Material/Detail'}
       ]
     }
   ],

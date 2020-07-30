@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
 import LazyLoad from "react-lazyload";
-import { IMG_HOST } from "../../util/common";
 import { Row, Col } from "antd";
-import { HeartFilled, EyeFilled } from "@ant-design/icons";
 import style from "../../page/FashionStyle/BrandList/index.less";
 
 class BrandList extends PureComponent {
@@ -18,10 +16,6 @@ class BrandList extends PureComponent {
         let {
           key,
           primary_key,
-          brand_name,
-          fashion_season,
-          fashion_region,
-          gender,
           img
         } = item;
         vDOM.push(
@@ -34,9 +28,11 @@ class BrandList extends PureComponent {
             className={style.item}
             key={key}
           >
-            <LazyLoad  height={0}>
-              <img src={`http://106.37.96.145:2019${img}`} alt="" />
-            </LazyLoad>
+            <div onClick={() => {handleSlideShow(primary_key)}}>
+              <LazyLoad  height={0}>
+                <img src={`http://106.37.96.145:2019${img}`} alt="" />
+              </LazyLoad>
+            </div>
           </Col>
         );
       });

@@ -85,6 +85,11 @@ class Design extends PureComponent {
       current, pageSize
     });
   };
+
+  handleSlideShow=(id)=>{
+    router.push(`/detail?id=${id}`);
+  };
+
   render() {
     return (
       <Spin spinning={this.state.spinLoading}>
@@ -98,6 +103,7 @@ class Design extends PureComponent {
             <div>
               <MaterialList
                 data={this.state.productData}
+                handleSlideShow={this.handleSlideShow}
               />
               <div className={style.pagination}>
                 <Pagination

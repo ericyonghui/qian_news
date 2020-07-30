@@ -30,7 +30,7 @@ class StreetSnapList extends PureComponent {
   renderList() {
     let vDOM = [];
     let {
-      data: { list }
+      data: { list },handleSlideShow
     } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
@@ -51,7 +51,7 @@ class StreetSnapList extends PureComponent {
             className={style.list}
             key={key}
           >
-            <div className={style.stagemain} onClick={() => {}}>
+            <div className={style.stagemain} onClick={() => {handleSlideShow(main_id)}}>
               <div className={`${style.picture}`}>
                 <LazyLoad  height={0}>
                   <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" />

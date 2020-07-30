@@ -85,6 +85,10 @@ class StreetSnap extends PureComponent {
     });
   };
 
+  handleSlideShow=(id)=>{
+    router.push(`/slideShow/streetSnap_slideShow?id=${id}`);
+  };
+
   render() {
     return (
       <Spin spinning={this.state.spinLoading}>
@@ -98,6 +102,7 @@ class StreetSnap extends PureComponent {
             <div className={style.clearfix}>
               <StreetSnapList
                 data={this.state.productData}
+                handleSlideShow={this.handleSlideShow}
               />
               <div className={style.pagination}>
                 <Pagination
