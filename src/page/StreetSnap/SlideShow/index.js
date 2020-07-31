@@ -77,8 +77,7 @@ class Detail extends PureComponent {
     });
   };
   handleRoll=(direction)=>{
-    const {productData:{imgs}} = this.state;
-    const {selectKey} = this.state;
+    const {productData:{imgs},selectKey} = this.state;
     let newSelectKey = '';
     if(direction ==='up'){
       if(selectKey ===1){
@@ -105,6 +104,23 @@ class Detail extends PureComponent {
         newSelectKey = selectKey + 1;
       }
     }
+
+    let diffVal=(this.ulDom.clientHeight) - (document.body.clientHeight - 140);
+    let top = this.ulDom.style.top;
+    if(direction ==='up' || direction ==='left'){
+      let newTop=Math.abs(parseInt(top)) - 75;
+      if(newTop<0){
+        newTop = 0;
+      }
+      this.ulDom.style.top= newTop ===0 ? `0px` : `-${newTop}px`;
+    } else if(direction ==='down' || direction ==='right'){
+      let newTop=Math.abs(parseInt(top)) + 75;
+      if(newTop>diffVal){
+        newTop = diffVal;
+      }
+      this.ulDom.style.top=`-${newTop}px`;
+    }
+
     let obj=imgs.filter(item=>{return item.key === newSelectKey})[0];
     this.setState({
       selectKey: newSelectKey,
@@ -115,7 +131,7 @@ class Detail extends PureComponent {
   };
 
   render() {
-    let {productData:{street_snap_type,imgs}} = this.state;
+    let {productData:{street_snap_type,imgs},selectKey,setHeight,selectPic,ulHeight} = this.state;
     let street_snap_typeStr='';
     if(street_snap_type!==''){
       if(parseInt(street_snap_type) ===1){
@@ -140,46 +156,45 @@ class Detail extends PureComponent {
               <p>AutAutumn 2020 米兰 </p>
             </Col>
             <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer}>
-              <div className={style.max} style={{height: this.state.setHeight}}>
+              <div className={style.max} style={{height: setHeight}}>
                 <LeftOutlined className={style.maxLeft} onClick={() => {
                   this.handleRoll('left')
                 }}/>
-                <img src={`http://106.37.96.145:2019/chosen/${this.state.selectPic}`} alt=""/>
+                <img src={`http://106.37.96.145:2019/chosen/${selectPic}`} alt=""/>
                 <RightOutlined className={style.maxright} onClick={() => {
                   this.handleRoll('right')
                 }}/>
               </div>
               <div className={style.min}>
-                {
-                  this.state.selectKey > 1 &&
-                  <div className={style.minIcon} onClick={() => {
-                    this.handleRoll('up')
-                  }}>
-                    <UpOutlined style={{fontSize: '20px'}}/>
-                  </div>
-                }
-                <div style={{height:this.state.ulHeight}} className={style.minPositon}>
-                <ul className={style.minList}>
+                <div className={style.minIcon} onClick={() => {
+                  this.handleRoll('up')
+                }}>
+                  <UpOutlined style={{fontSize: '20px'}}/>
+                </div>
+                <div style={{height:ulHeight}} className={style.minPositon}>
+                <ul className={style.minList}  style={{top: 0}} ref={(c) => {
+                  this.ulDom = c;
+                }}>
                   {
                     imgs.map(item => (
                       <li key={item.img_id}>
                         <img src={`http://106.37.96.145:2019/chosen/${item.server_picture_address}`} alt=""/>
-                        <div className={style.mark}>
-                          <p>{item.key}</p>
-                        </div>
+                        {
+                          selectKey === item.key &&
+                          <div className={style.mark}>
+                            <p>{item.key > 9 ? item.key : `0${item.key}`}</p>
+                          </div>
+                        }
                       </li>
                     ))
                   }
                 </ul>
                 </div>
-                {
-                  this.state.selectKey < imgs.length &&
-                  <div className={style.minIcon} onClick={() => {
-                    this.handleRoll('down')
-                  }}>
-                    <DownOutlined/>
-                  </div>
-                }
+                <div className={style.minIcon} onClick={() => {
+                  this.handleRoll('down')
+                }}>
+                  <DownOutlined/>
+                </div>
               </div>
             </Col>
           </Row>

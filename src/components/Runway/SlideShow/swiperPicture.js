@@ -62,6 +62,22 @@ class SwiperPicture extends PureComponent {
         newSelectKey = selectKey + 1;
       }
     }
+    let diffVal=(this.ulDom.clientHeight) - (document.body.clientHeight - 140);
+    let top = this.ulDom.style.top;
+    if(direction ==='up' || direction ==='left'){
+      let newTop=Math.abs(parseInt(top)) - 75;
+      if(newTop<0){
+        newTop = 0;
+      }
+      this.ulDom.style.top= newTop ===0 ? `0px` : `-${newTop}px`;
+    } else if(direction ==='down' || direction ==='right'){
+      let newTop=Math.abs(parseInt(top)) + 75;
+      if(newTop>diffVal){
+        newTop = diffVal;
+      }
+      this.ulDom.style.top=`-${newTop}px`;
+    }
+
     let obj=imgData.filter(item=>{return item.key === newSelectKey})[0];
     this.setState({
       selectKey: newSelectKey,
@@ -106,32 +122,31 @@ class SwiperPicture extends PureComponent {
                 <RightOutlined className={style.maxright}  onClick={()=>{this.handleRoll('right')}}/>
             </div>
             <div className={style.min} style={{height:this.state.setHeight}}>
-              {
-                this.state.selectKey > 1 &&
-                <div className={style.minIcon}  onClick={()=>{this.handleRoll('up')}}>
-                  <UpOutlined style={{fontSize:'20px'}}/>
-                </div>
-              }
+              <div className={style.minIcon}  onClick={()=>{this.handleRoll('up')}}>
+                <UpOutlined style={{fontSize:'20px'}}/>
+              </div>
               <div style={{height:this.state.ulHeight}} className={style.minPositon}>
-                <ul className={style.minList} >
+                <ul className={style.minList} style={{top: 0}} ref={(c) => {
+                  this.ulDom = c;
+                }}>
                   {
                     imgData.map(item=>(
                       <li key={item.img_id}>
                         <img src={`${IMG_HOST}/webp${item.img}`} alt="" />
-                        <div className={style.mark}>
-                          <p>{item.key}</p>
-                        </div>
+                        {
+                          this.state.selectKey === item.key &&
+                          <div className={style.mark}>
+                            <p>{item.key > 9 ? item.key : `0${item.key}`}</p>
+                          </div>
+                        }
                       </li>
                     ))
                   }
                 </ul>
               </div>
-              {
-                this.state.selectKey < imgData.length &&
-                <div className={style.minIcon} onClick={()=>{this.handleRoll('down')}} >
-                  <DownOutlined />
-                </div>
-              }
+              <div className={style.minIcon} onClick={()=>{this.handleRoll('down')}} >
+                <DownOutlined />
+              </div>
             </div>
           </Col>
         </Row>

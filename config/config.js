@@ -32,7 +32,7 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/home',
+          redirect: '/runway',
         },
         { path: '/home', component: './Home'},
         // T台列表
