@@ -80,9 +80,8 @@ class Detail extends PureComponent {
     });
   };
   handleRoll=(direction)=>{
-    const {productData:{imgs}} = this.state;
-    const {selectKey} = this.state;
-    let newSelectKey = '';
+    const {productData:{imgs},selectKey} = this.state;
+    let newSelectKey = '', newTop=0;
     if(direction ==='up'){
       if(selectKey ===1){
         newSelectKey = selectKey;
@@ -108,17 +107,30 @@ class Detail extends PureComponent {
         newSelectKey = selectKey + 1;
       }
     }
+    let diffVal=(this.ulDom.clientHeight) - (document.body.clientHeight - 140);
+    let top = this.ulDom.style.top;
+    if(direction ==='up' || direction ==='left'){
+      let newTop=Math.abs(parseInt(top)) - 75;
+      if(newTop<0){
+        newTop = 0;
+      }
+      this.ulDom.style.top= newTop ===0 ? `0px` : `-${newTop}px`;
+    } else if(direction ==='down' || direction ==='right'){
+      let newTop=Math.abs(parseInt(top)) + 75;
+      if(newTop>diffVal){
+        newTop = diffVal;
+      }
+      this.ulDom.style.top=`-${newTop}px`;
+    }
     let obj=imgs.filter(item=>{return item.key === newSelectKey})[0];
     this.setState({
       selectKey: newSelectKey,
       selectPic: obj.img
-    },()=>{
-      console.info(this.state.selectKey)
     })
   };
 
   render() {
-    let {productData:{ brand_name,fashion_season,fashion_region,imgs}} = this.state;
+    let {productData:{ brand_name,fashion_season,fashion_region,imgs},setHeight,selectKey,ulHeight} = this.state;
     return (
       <Spin spinning={this.state.spinLoading}>
         {
@@ -130,7 +142,7 @@ class Detail extends PureComponent {
               <h3 className={style.infoTitle}>{brand_name}</h3>
             </Col>
             <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer}>
-              <div className={style.max} style={{height: this.state.setHeight}}>
+              <div className={style.max} style={{height: setHeight}}>
                 <LeftOutlined className={style.maxLeft} onClick={() => {
                   this.handleRoll('left')
                 }}/>
@@ -140,34 +152,35 @@ class Detail extends PureComponent {
                 }}/>
               </div>
               <div className={style.min}>
-                {
-                  this.state.selectKey > 1 &&
-                  <div className={style.minIcon} onClick={() => {
-                    this.handleRoll('up')
+                <div className={style.minIcon} onClick={() => {
+                  this.handleRoll('up')
+                }}>
+                  <UpOutlined style={{fontSize: '20px'}}/>
+                </div>
+                <div style={{height:ulHeight}} className={style.minPositon}>
+                  <ul className={style.minList} style={{top: 0}} ref={(c) => {
+                    this.ulDom = c;
                   }}>
-                    <UpOutlined style={{fontSize: '20px'}}/>
-                  </div>
-                }
-                <ul className={style.minList} style={{height: (this.state.ulHeight)}}>
-                  {
-                    imgs.map((item) => (
-                      <li key={item.key}>
-                        <img src={`http://106.37.96.145:2019${item.img}`} alt=""/>
-                        <div className={style.mark}>
-                          <p>{item.key}</p>
-                        </div>
-                      </li>
-                    ))
-                  }
-                </ul>
-                {
-                  this.state.selectKey < imgs.length &&
-                  <div className={style.minIcon} onClick={() => {
-                    this.handleRoll('down')
-                  }}>
-                    <DownOutlined/>
-                  </div>
-                }
+                    {
+                      imgs.map((item) => (
+                        <li key={item.key}>
+                          <img src={`http://106.37.96.145:2019${item.img}`} alt=""/>
+                          {
+                            selectKey === item.key &&
+                              <div className={style.mark}>
+                                <p>{item.key > 9 ? item.key : `0${item.key}`}</p>
+                              </div>
+                          }
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+                <div className={style.minIcon} onClick={() => {
+                  this.handleRoll('down')
+                }}>
+                  <DownOutlined/>
+                </div>
               </div>
             </Col>
           </Row>
