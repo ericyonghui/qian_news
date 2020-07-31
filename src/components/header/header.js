@@ -2,7 +2,7 @@ import React from "react";
 import router from 'umi/router';
 import {Link} from "react-router-dom"
 import { Row, Col, Menu, Input, Divider } from "antd";
-import { MenuUnfoldOutlined } from "@ant-design/icons";
+import { MenuUnfoldOutlined ,CloseCircleOutlined} from "@ant-design/icons";
 
 import style from "./header.less";
 
@@ -98,6 +98,86 @@ export default class HeaderComponent extends React.Component {
               onSearch={value => console.log(value)}
               enterButton
             />
+            <div className={style.searchList}>
+              <div className={style.searchHistory}>
+                <span>最近搜索</span>
+                <CloseCircleOutlined  className={style.ICON} /> 
+              </div>
+              <ul className={`${style.searchHistoryList} ${style.clearfix}`}>
+                <li>milan</li>
+                <li>taotou</li>
+              </ul>
+              <div className={`${style.ulList} ${style.clearfix}`}>
+                <h4>性别</h4>
+                  <ul>
+                    <li>
+                      <img src="" />
+                      <span>男装</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>女装</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>童装</span>
+                    </li>
+                  </ul>
+              </div>
+
+              <div className={`${style.ulList} ${style.clearfix}`}>
+                <h4>类别</h4>
+                  <ul>
+                    <li>
+                      <img src="" />
+                      <span>T台</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>款式</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>街拍</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>图案</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>手绘</span>
+                    </li>
+                  </ul>
+              </div>
+
+              <div className={`${style.ulList} ${style.clearfix}`}>
+                <h4>季节</h4>
+                  <ul>
+                    <li>
+                      <img src="" />
+                      <span>2020早春</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>2020春夏</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>2020早秋</span>
+                    </li>
+                    <li>
+                      <img src="" />
+                      <span>2020秋冬</span>
+                    </li>
+                  </ul>
+              </div>
+
+              <div>
+                <h4>年份</h4>
+                
+              </div>
+            </div>
           </Col>
           <Col span={3} className={style.user}>
             <ul>
@@ -106,6 +186,7 @@ export default class HeaderComponent extends React.Component {
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
+          
         </Row>
         {/* m 小于1023 */}
         <Row className={style.m_container} style={{height:"60px"}}>
