@@ -8,7 +8,7 @@ const { Option } = Select;
 
 class SwiperPicture extends PureComponent {
   state={
-    ulHeight:`${document.body.clientHeight - 140}px`,
+    ulHeight:`${document.body.clientHeight - 3000}px`,
     selectPic:'',
     selectKey: 1,
     setHeight:`${document.body.clientHeight}px`
@@ -112,21 +112,23 @@ class SwiperPicture extends PureComponent {
                   <UpOutlined style={{fontSize:'20px'}}/>
                 </div>
               }
-              <ul className={style.minList} style={{height:(this.state.ulHeight)}}>
-                {
-                  imgData.map(item=>(
-                    <li key={item.img_id}>
-                      <img src={`${IMG_HOST}/webp${item.img}`} alt="" />
-                      <div className={style.mark}>
-                        <p>{item.key}</p>
-                      </div>
-                    </li>
-                  ))
-                }
-              </ul>
+              <div style={{height:(this.state.ulHeight)}} className={style.minPositon}>
+                <ul className={style.minList} >
+                  {
+                    imgData.map(item=>(
+                      <li key={item.img_id}>
+                        <img src={`${IMG_HOST}/webp${item.img}`} alt="" />
+                        <div className={style.mark}>
+                          <p>{item.key}</p>
+                        </div>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
               {
                 this.state.selectKey < imgData.length &&
-                <div className={style.minIcon} onClick={()=>{this.handleRoll('down')}}>
+                <div className={style.minIcon} onClick={()=>{this.handleRoll('down')}} >
                   <DownOutlined />
                 </div>
               }
