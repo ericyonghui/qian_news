@@ -83,6 +83,12 @@ p{
             width:150px;
         }
     }
+    .minList {
+        li{
+            height: 225px;
+            overflow: hidden;
+        }
+    }
 }
 
 @media (max-width:1499px) and (min-width:1200px){
@@ -100,6 +106,12 @@ p{
             width:150px;
         }
     }
+    .minList {
+        li{
+            height: 225px;
+            overflow: hidden;
+        }
+    }
 }
 @media (max-width:1199px){
     .container{
@@ -113,6 +125,12 @@ p{
         padding-right:60px;
         .min{
             width:60px;
+        }
+        .minList {
+            li{
+                height: 90px;
+                overflow: hidden;
+            }
         }
     }
 }
@@ -134,7 +152,10 @@ p{
             li{
                 margin-bottom:8px;
                 position: relative;
+                display: flex;
+                align-items: center;
                 img{
+                    align-items: center;
                     width:100%;
                     height: auto;
                 }

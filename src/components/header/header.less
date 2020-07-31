@@ -15,7 +15,7 @@
     width:100%;
     position: fixed;
     top: 0;
-    z-index: 99999;
+    z-index: 1;
     background: #fff;
     padding: 20px;
     box-sizing: border-box;
@@ -32,12 +32,15 @@
         box-sizing: border-box;
       }
       .searchList{
+        display: none;
         position: absolute;
         top:40px;
         width:100%;
         padding:30px;
+        z-index: 2;
         box-shadow: 0 0 10px rgba(0,0,0,.1);
         border-radius: 8px;
+        background:#fff;
         box-sizing: border-box;
         .searchHistory{
           margin-bottom:15px;
@@ -98,6 +101,48 @@
             }
           }
         }
+        .searchCountry{
+          h4{
+            font-size:14px;
+            color:#000;
+            line-height: 30px;
+          }
+          li{
+            padding:0 10px;
+            font-size:14px; 
+            color:#999;
+            line-height: 30px;
+            float: left;
+          }
+        }
+        .searchBrand{
+          font-size:14px;
+            color:#000;
+            line-height: 30px;
+            .searchBrandLetter {
+              li{
+                padding:0 8px;
+                line-height: 24px;
+                font-size: 14px;
+                color:#999;
+                float: left;
+                cursor: pointer;
+              }
+            }
+            .on{
+              color:#000;
+            }
+            .searchBandList li{
+              width:50%;
+              padding:0 8px;
+              line-height: 24px;
+              font-size: 14px;
+              color:#999;
+              float: left;
+              cursor: pointer;
+            }
+        }
+
       }
     }
     
@@ -131,7 +176,7 @@
     padding:15px 5px;
     padding-bottom: 15px;
     background: #fff;;
-    z-index: 99999;
+    z-index: 1;
     box-sizing: border-box;
 
 

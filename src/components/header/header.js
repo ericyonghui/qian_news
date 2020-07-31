@@ -1,7 +1,7 @@
 import React from "react";
 import router from 'umi/router';
 import {Link} from "react-router-dom"
-import { Row, Col, Menu, Input, Divider } from "antd";
+import { Row, Col, Menu, Input, Divider ,Select} from "antd";
 import { MenuUnfoldOutlined ,CloseCircleOutlined} from "@ant-design/icons";
 
 import style from "./header.less";
@@ -9,6 +9,7 @@ import style from "./header.less";
 import { AudioOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
+const { Option } = Select;
 
 const routerArr=[
   {
@@ -98,7 +99,7 @@ export default class HeaderComponent extends React.Component {
               onSearch={value => console.log(value)}
               enterButton
             />
-            <div className={style.searchList} style={{display:'none'}}>
+            <div className={style.searchList}>
               <div className={style.searchHistory}>
                 <span>最近搜索</span>
                 <CloseCircleOutlined  className={style.ICON} /> 
@@ -173,9 +174,62 @@ export default class HeaderComponent extends React.Component {
                   </ul>
               </div>
 
-              <div>
+              <div className={style.searchYear} style={{position:'relative',zIndex:20000000000}}>
                 <h4>年份</h4>
-
+                <Select bordered={false} maxTagTextLength="100" style={{ width: 120 }} defaultValue="2020">
+                  <Option value="2020">2020</Option>
+                  <Option value="2019">2019</Option>
+                  <Option value="2018">2018</Option>
+                </Select>
+              </div>
+              <div className={`${style.searchCountry} ${style.clearfix}`}>
+                <h4>国家</h4>
+                <ul>
+                  <li>中国</li>
+                  <li>日本</li>
+                </ul>
+              </div>
+              <div className={`${style.searchBrand}`}>
+                  <h4>品牌</h4>
+                  <ul className={`${style.searchBrandLetter} ${style.clearfix}`}>
+                    <li className={style.on}>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                    <li>E</li>
+                    <li>F</li>
+                    <li>G</li>
+                    <li>H</li>
+                    <li>I</li>
+                    <li>J</li>
+                    <li>K</li>
+                    <li>L</li>
+                    <li>M</li>
+                    <li>N</li>
+                    <li>O</li>
+                    <li>P</li>
+                    <li>Q</li>
+                    <li>R</li>
+                    <li>S</li>
+                    <li>T</li>
+                    <li>U</li>
+                    <li>V</li>
+                    <li>W</li>
+                    <li>X</li>
+                    <li>Y</li>
+                    <li>Z</li>
+                  </ul>
+                  <p>A</p>
+                  <ul className={`${style.searchBandList} ${style.clearfix}`}>
+                    <li>A Kind of Guise</li>
+                    <li>ALa Garcone</li>
+                    <li>A Kind of Guise</li>
+                    <li>ALa Garcone</li>
+                    <li>A Kind of Guise</li>
+                    <li>ALa Garcone</li>
+                    <li>A Kind of Guise</li>
+                    <li>ALa Garcone</li>
+                  </ul>
               </div>
             </div>
           </Col>
