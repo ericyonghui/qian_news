@@ -8,7 +8,7 @@ const { Option } = Select;
 
 class SwiperPicture extends PureComponent {
   state={
-    ulHeight:`${document.body.clientHeight - 3000}px`,
+    ulHeight:`${document.body.clientHeight - 140}px`,
     selectPic:'',
     selectKey: 1,
     setHeight:`${document.body.clientHeight}px`
@@ -100,19 +100,19 @@ class SwiperPicture extends PureComponent {
             </div>
           </Col>
           <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer} >
-            <div className={style.max} style={{height:this.state.setHeight}}>
+            <div className={style.max}>
                 <LeftOutlined className={style.maxLeft}  onClick={()=>{this.handleRoll('left')}}/>
                 <img src={`${IMG_HOST}/webp${this.state.selectPic}`} alt="" />
                 <RightOutlined className={style.maxright}  onClick={()=>{this.handleRoll('right')}}/>
             </div>
-            <div className={style.min}>
+            <div className={style.min} style={{height:this.state.setHeight}}>
               {
                 this.state.selectKey > 1 &&
                 <div className={style.minIcon}  onClick={()=>{this.handleRoll('up')}}>
                   <UpOutlined style={{fontSize:'20px'}}/>
                 </div>
               }
-              <div style={{height:(this.state.ulHeight)}} className={style.minPositon}>
+              <div style={{height:this.state.ulHeight}} className={style.minPositon}>
                 <ul className={style.minList} >
                   {
                     imgData.map(item=>(

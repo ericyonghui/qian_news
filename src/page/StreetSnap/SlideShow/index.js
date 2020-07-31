@@ -158,7 +158,8 @@ class Detail extends PureComponent {
                     <UpOutlined style={{fontSize: '20px'}}/>
                   </div>
                 }
-                <ul className={style.minList} style={{height: (this.state.ulHeight)}}>
+                <div style={{height:this.state.ulHeight}} className={style.minPositon}>
+                <ul className={style.minList}>
                   {
                     imgs.map(item => (
                       <li key={item.img_id}>
@@ -170,6 +171,7 @@ class Detail extends PureComponent {
                     ))
                   }
                 </ul>
+                </div>
                 {
                   this.state.selectKey < imgs.length &&
                   <div className={style.minIcon} onClick={() => {
