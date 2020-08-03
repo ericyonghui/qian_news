@@ -80,7 +80,6 @@ class Design extends PureComponent {
     } else {
       router.push(`/design?currentPage=${current ||this.state.current }`);
     }
-    window.scrollTo(0, 0);
     this.queryList({
       current, pageSize
     });

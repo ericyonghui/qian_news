@@ -1,20 +1,15 @@
-import React from "react";
+import React, { PureComponent } from 'react';
 import router from 'umi/router';
-import {Link} from "react-router-dom"
-import { Row, Col, Menu, Input, Divider ,Select} from "antd";
+import { Row, Col, Menu, Input ,Select} from "antd";
 import { MenuUnfoldOutlined ,CloseCircleOutlined} from "@ant-design/icons";
-
 import style from "./header.less";
-
-import { AudioOutlined } from "@ant-design/icons";
-
 const { Search } = Input;
 const { Option } = Select;
 
 const routerArr=[
   {
     routerKey:"home",
-    routerVal:""
+    routerVal:"/home"
   },
   {
     routerKey:"runway",
@@ -35,21 +30,29 @@ const routerArr=[
   {
     routerKey:"material",
     routerVal:"/material"
-  },
-  {
-    routerKey:"tupian",
-    routerVal:""
-  },
+  }
 ];
 
-export default class HeaderComponent extends React.Component {
-  constructor(props){
-    super(props);
-    this.state={
-      current: "index",
-      display:'none'
-    }
+class HeaderComponent extends PureComponent {
+  state={
+    current: "index",
+    display:'none'
+  };
+
+  componentDidMount(){
+    // let str = window.location.pathname;
+    // let pathname=str.substring(1,str.length);
+    // let res = routerArr.filter(item=>{return item.routerKey === pathname});
+    // if(res[0].routerVal!==''){
+    //   router.push(res[0].routerVal);
+    // } else {
+    //   router.push(`/home`);
+    // }
+    // this.setState({
+    //   current: pathname
+    // });
   }
+
 
   handleClick = e => {
     let res = routerArr.filter(item=>{return item.routerKey === e.key});
@@ -102,7 +105,7 @@ export default class HeaderComponent extends React.Component {
             <div className={style.searchList}>
               <div className={style.searchHistory}>
                 <span>最近搜索</span>
-                <CloseCircleOutlined  className={style.ICON} /> 
+                <CloseCircleOutlined  className={style.ICON} />
               </div>
               <ul className={`${style.searchHistoryList} ${style.clearfix}`}>
                 <li>milan</li>
@@ -240,7 +243,7 @@ export default class HeaderComponent extends React.Component {
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
-          
+
         </Row>
         {/* m 小于1023 */}
         <Row className={style.m_container} style={{height:"60px"}}>
@@ -281,3 +284,4 @@ export default class HeaderComponent extends React.Component {
     );
   }
 }
+export default HeaderComponent;
