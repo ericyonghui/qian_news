@@ -64,18 +64,39 @@ class SwiperPicture extends PureComponent {
     }
     let diffVal=(this.ulDom.clientHeight) - (document.body.clientHeight - 140);
     let top = this.ulDom.style.top;
+    let liHeight =this.ulDom.childNodes[0].clientHeight;
     if(direction ==='up' || direction ==='left'){
-      let newTop=Math.abs(parseInt(top)) - 75;
-      if(newTop<0){
-        newTop = 0;
+      if(direction ==='left'){
+        if(selectKey ===1){
+          this.ulDom.style.top= `-${diffVal}px`;
+        }
       }
-      this.ulDom.style.top= newTop ===0 ? `0px` : `-${newTop}px`;
+      if(newSelectKey <= imgData.length-2){
+        let newTop=Math.abs(parseInt(top)) - liHeight;
+        if(newTop<0){
+          newTop = 0;
+        }
+        this.ulDom.style.top= newTop ===0 ? `0px` : `-${newTop}px`;
+      }
     } else if(direction ==='down' || direction ==='right'){
-      let newTop=Math.abs(parseInt(top)) + 75;
-      if(newTop>diffVal){
-        newTop = diffVal;
+      if(direction ==='right'){
+        if(selectKey === imgData.length){
+          this.ulDom.style.top=`0px`;
+        }
       }
-      this.ulDom.style.top=`-${newTop}px`;
+
+      if(newSelectKey>2){
+        let newTop='';
+        if(parseInt(newSelectKey) === 3){
+          newTop=liHeight-40;
+        } else {
+          newTop=((selectKey-1) * (liHeight+2));
+        }
+        if(newTop>diffVal){
+          newTop = diffVal;
+        }
+        this.ulDom.style.top=`-${newTop}px`;
+      }
     }
 
     let obj=imgData.filter(item=>{return item.key === newSelectKey})[0];
