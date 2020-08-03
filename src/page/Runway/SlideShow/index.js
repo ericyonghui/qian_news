@@ -27,6 +27,7 @@ class SlideShow extends PureComponent{
     if(typeof query.id!=='undefined'){
       this.queryImgTypeList(query.id);
     }
+   window.scrollTo(0, 0);
   }
   queryImgTypeList = (id) =>{
     const _this = this;

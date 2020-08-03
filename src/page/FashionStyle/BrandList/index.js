@@ -43,6 +43,7 @@ class Brand extends PureComponent {
         brand: query.brand ||''
       });
     }
+    window.scrollTo(0, 0);
   }
   queryList = (params) =>{
     const _this = this;

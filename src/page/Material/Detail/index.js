@@ -25,6 +25,7 @@ class Detail extends PureComponent {
     this.queryDetail({
       id: query.id || ''
     });
+    window.scrollTo(0, 0);
   }
 
   queryDetail=(params)=>{
@@ -64,7 +65,7 @@ class Detail extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.patternContainer}>
-          
+
         {
           img!=='' &&
           <Row>

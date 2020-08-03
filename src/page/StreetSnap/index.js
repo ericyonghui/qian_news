@@ -31,6 +31,7 @@ class StreetSnap extends PureComponent {
         current: _this.state.current
       });
     }
+    window.scrollTo(0, 0);
   }
   queryList = (params) =>{
     const _this = this;

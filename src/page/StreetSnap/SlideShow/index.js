@@ -36,6 +36,7 @@ class Detail extends PureComponent {
   };
   componentWillUnmount() {
     window.addEventListener('resize',this.handleWidth);
+    window.scrollTo(0, 0);
   }
   queryDetail=(params)=>{
     const _this = this;

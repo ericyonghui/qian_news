@@ -25,7 +25,8 @@ class Detail extends PureComponent {
     this.queryDetail({
       id: query.id || ''
     });
-    window.addEventListener('resize',this.handleWidth)
+    window.addEventListener('resize',this.handleWidth);
+    window.scrollTo(0, 0);
   }
   handleWidth=()=>{
     let clientHeight = document.body.clientHeight;
