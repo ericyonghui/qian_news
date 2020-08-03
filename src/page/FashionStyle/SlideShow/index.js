@@ -26,7 +26,6 @@ class Detail extends PureComponent {
       id: query.id || ''
     });
     window.addEventListener('resize',this.handleWidth);
-    window.scrollTo(0, 0);
   }
   handleWidth=()=>{
     let clientHeight = document.body.clientHeight;

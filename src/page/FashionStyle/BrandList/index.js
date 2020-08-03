@@ -43,7 +43,6 @@ class Brand extends PureComponent {
         brand: query.brand ||''
       });
     }
-    window.scrollTo(0, 0);
   }
   queryList = (params) =>{
     const _this = this;
@@ -97,7 +96,6 @@ class Brand extends PureComponent {
     } else {
       router.push(`/brand?id=${query.id ||''}&fashion_season=${query.fashion_season ||''}&fashion_region=${query.fashion_region ||''}&brand=${query.brand ||''}&currentPage=${current ||this.state.current }`);
     }
-    window.scrollTo(0, 0);
     this.queryList({
       current,
       pageSize,

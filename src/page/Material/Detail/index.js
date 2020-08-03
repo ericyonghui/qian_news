@@ -25,7 +25,6 @@ class Detail extends PureComponent {
     this.queryDetail({
       id: query.id || ''
     });
-    window.scrollTo(0, 0);
   }
 
   queryDetail=(params)=>{

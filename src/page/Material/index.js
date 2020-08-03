@@ -32,7 +32,6 @@ class Material extends PureComponent {
         current: _this.state.current
       });
     }
-    window.scrollTo(0, 0);
   }
   queryList = (params) =>{
     const _this = this;
@@ -81,7 +80,6 @@ class Material extends PureComponent {
     } else {
       router.push(`/material?currentPage=${current ||this.state.current }`);
     }
-    window.scrollTo(0, 0);
     this.queryList({
       current, pageSize
     });

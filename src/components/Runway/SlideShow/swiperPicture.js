@@ -103,8 +103,6 @@ class SwiperPicture extends PureComponent {
     this.setState({
       selectKey: newSelectKey,
       selectPic: obj.img
-    },()=>{
-      console.info(this.state.selectKey)
     })
   };
 

@@ -36,7 +36,6 @@ class Detail extends PureComponent {
   };
   componentWillUnmount() {
     window.addEventListener('resize',this.handleWidth);
-    window.scrollTo(0, 0);
   }
   queryDetail=(params)=>{
     const _this = this;
@@ -147,8 +146,6 @@ class Detail extends PureComponent {
     this.setState({
       selectKey: newSelectKey,
       selectPic: obj.server_picture_address
-    },()=>{
-      console.info(this.state.selectKey)
     })
   };
 
