@@ -99,7 +99,7 @@ export default class HeaderComponent extends React.Component {
               onSearch={value => console.log(value)}
               enterButton
             />
-            <div className={style.searchList}>
+            <div className={style.searchList} style={{display:'none'}}>
               <div className={style.searchHistory}>
                 <span>最近搜索</span>
                 <CloseCircleOutlined  className={style.ICON} /> 
@@ -174,7 +174,7 @@ export default class HeaderComponent extends React.Component {
                   </ul>
               </div>
 
-              <div className={style.searchYear} style={{position:'relative',zIndex:20000000000}}>
+              <div className={style.searchYear}>
                 <h4>年份</h4>
                 <Select bordered={false} maxTagTextLength="100" style={{ width: 120 }} defaultValue="2020">
                   <Option value="2020">2020</Option>

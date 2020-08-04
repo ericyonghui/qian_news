@@ -48,7 +48,8 @@ export default {
         //素材列表
         {path:'/material' , component:'./Material'},
         //图案素材详情
-        {path:'/detail' , component:'./Material/Detail'}
+        {path:'/detail' , component:'./Material/Detail'},
+        {path:'/search' , component:'./searchMobile/searchMobile'}
       ]
     }
   ],
