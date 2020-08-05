@@ -79,7 +79,7 @@ class Detail extends PureComponent {
                   <HeartOutlined style={{float:'right'}}/>
                 </div>
                 <div className={style.infoList}>
-                  <p>由 eric 上传</p>
+                  <p>由 <strong>eric</strong> 上传</p>
                   <h3>{material_title}</h3>
                   <ul>
                     <li>格式：{material_format}</li>

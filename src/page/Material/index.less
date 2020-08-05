@@ -83,18 +83,31 @@
   box-sizing: border-box;
   img{
     width:100%;
-    //height: auto;
+    height: auto;
+  }
+  .mark{
+    display: none;
+    position: absolute;
+    top:0;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,.3)
+  }
+  &:hover .mark{
+      display: block;
   }
 }
 .tip{
+  width:36px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
   position: absolute;
   top:0;
   right:0;
   background:#1890ff;
   color:#fff;
-  padding:0 8px;
-  line-height: 30px;
-  font-size:14px;
+  font-size:12px;
 }
 .pagination{
   margin:20px auto;

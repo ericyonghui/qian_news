@@ -36,6 +36,7 @@ class MaterialList extends PureComponent {
                 height:`${this.state.columnWidth / imgWidth * imgHeight}px`
               }}/>
             </LazyLoad>
+            <div className={style.mark}></div>
           </div>
         );
       });
