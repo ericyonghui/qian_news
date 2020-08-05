@@ -86,6 +86,7 @@ class HeaderComponent extends PureComponent {
               selectedKeys={[this.state.current]}
               mode="horizontal"
               className={style.menu}
+              style={{border:'0'}}
             >
               <Menu.Item key="home">首页</Menu.Item>
               <Menu.Item key="runway">T台</Menu.Item>

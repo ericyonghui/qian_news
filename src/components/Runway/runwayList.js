@@ -45,11 +45,11 @@ class RunwayList extends PureComponent {
 
                   <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
-                      <HeartFilled />
+                      <HeartFilled className={style.heartIcon} />
                       <span>270</span>
                     </li>
                     <li>
-                      <EyeFilled />
+                      <EyeFilled className={style.eyeIcon} />
                       <span>270</span>
                     </li>
                   </ul>

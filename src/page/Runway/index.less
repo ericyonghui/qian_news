@@ -96,13 +96,19 @@ ul {
         display: none;
     }
 
+    .iconPosition{
+        display: block;
+    }
     .picture {
+       transition: all ease-in .5s;
 
         &:hover .downPostion {
             display: block;
         }
-
-
+        &:hover .iconPosition{
+            display: block;
+        }
+ 
     }
 }
 
@@ -193,11 +199,11 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50px;
+    width: 36px;
     text-align: center;
-    font-size: 14px;
-    height: 30px;
-    line-height: 30px;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
     color: #fff;
     background: rgb(28, 112, 246)
 }
@@ -207,10 +213,10 @@ ul {
     text-align: center;
     top: 0;
     right: 0;
-    width: 50px;
-    font-size: 14px;
-    height: 30px;
-    line-height: 30px;
+    width: 36px;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
     color: #fff;
     background: rgb(251, 0, 8);
 }
@@ -228,9 +234,20 @@ ul {
 
     li {
         float: left;
-        margin-right: 10px;
+        margin-right: 20px;
         font-size: 14px;
         color:#fff;
+        span{
+            display: inline-block;
+            margin-left:8px;
+        }
+
+        .heartIcon{
+            font-size:13px;
+        }
+        .eyeIcon{
+            font-size:14px;
+        }
     }
     
 }
