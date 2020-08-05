@@ -125,7 +125,7 @@ class SwiperPicture extends PureComponent {
               bordered={false}
               value={selectTypeVal}
               onChange={handleSelectType}
-              style={{width: '120px'}}
+              style={{width: '120px',fontSize:'16px'}}
             >
               {imgTypeListOptions}
             </Select>

@@ -59,13 +59,13 @@ class StreetSnapList extends PureComponent {
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
 
-                  <ul className={`${style.iconPosition} ${style.clearfix}`}>
+                <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
-                      <HeartFilled />
+                      <HeartFilled className={style.heartIcon} />
                       <span>270</span>
                     </li>
                     <li>
-                      <EyeFilled />
+                      <EyeFilled className={style.eyeIcon} />
                       <span>270</span>
                     </li>
                   </ul>

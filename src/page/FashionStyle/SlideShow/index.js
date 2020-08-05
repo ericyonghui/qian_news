@@ -159,8 +159,8 @@ class Detail extends PureComponent {
           <Row className={style.container}>
             <Col xl={4} lg={4} md={4} sm={24} xs={24} className={style.info}>
               <h4 className={style.infoTitle}>{fashion_region}</h4>
-              <p>{fashion_season}</p>
-              <h3 className={style.infoTitle}>{brand_name}</h3>
+              <p className={style.infoTab}>{fashion_season}</p>
+              <h3 className={style.infoPin}>{brand_name}</h3>
             </Col>
             <Col xl={20} lg={20} md={20} sm={24} xs={24} className={style.picContainer}>
               <div className={style.max} style={{height: setHeight}}>

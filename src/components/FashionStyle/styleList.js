@@ -42,15 +42,15 @@ class StyleList extends PureComponent {
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
                 <ul className={`${style.iconPosition} ${style.clearfix}`}>
-                  <li>
-                    <HeartFilled />
-                    <span>270</span>
-                  </li>
-                  <li>
-                    <EyeFilled />
-                    <span>270</span>
-                  </li>
-                </ul>
+                    <li>
+                      <HeartFilled className={style.heartIcon} />
+                      <span>270</span>
+                    </li>
+                    <li>
+                      <EyeFilled className={style.eyeIcon} />
+                      <span>270</span>
+                    </li>
+                  </ul>
 
               </div>
               <div className={style.info}>
