@@ -98,11 +98,15 @@ class HeaderComponent extends PureComponent {
             </Menu>
           </Col>
           <Col span={7} className={style.search}>
-            <Search
+            {/* <Search
               placeholder="input search text"
               onSearch={value => console.log(value)}
               enterButton
-            />
+            /> */}
+            <div className={style.searchInput}>
+              <input type="text"/>
+              <button>搜索</button>
+            </div>
             <div className={style.searchList} style={{display:'none'}}>
               <div className={style.searchHistory}>
                 <span>最近搜索</span>
@@ -250,11 +254,15 @@ class HeaderComponent extends PureComponent {
         <Row className={style.m_container} style={{height:"60px"}}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
             <Col  md={20} sm={18} xs={18} className={style.search}>
-              <Search
+              {/* <Search
                 placeholder="input search text"
                 onSearch={value => console.log(value)}
                 enterButton
-              />
+              /> */}
+              <div className={style.searchInput}>
+              <input type="text"/>
+              <button>搜索</button>
+            </div>
             </Col>
             <Col md={2} sm={3} xs={3} className={style.fonticon}>
               <MenuUnfoldOutlined onClick={this.showNav} />

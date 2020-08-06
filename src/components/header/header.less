@@ -29,13 +29,10 @@
       font-size: 36px;
       line-height: 40px;
     }
-
+    
     .search{
       position: relative;
-      input {
-        margin-top: 4px;
-        box-sizing: border-box;
-      }
+      
       .searchList{
         // display: none;
         position: absolute;
@@ -234,11 +231,6 @@
         font-weight: bold;
       }
 
-      .search {
-        font-size: 14px;
-        line-height: 30px;
-      }
-
       .fonticon {
         font-size: 20px;
         vertical-align: -2px;
@@ -285,11 +277,6 @@
         font-weight: bold;
       }
 
-      .search {
-        font-size: 14px;
-        line-height: 30px;
-      }
-
       .fonticon {
         height: 32px;
         font-size: 20px;
@@ -321,3 +308,48 @@
 
   }
 }
+
+input,button{
+  outline: none;
+}
+
+// search input
+.searchInput{
+  position: relative;
+  padding-right:60px;
+  box-sizing: border-box;
+  input{
+    width:100%;
+    height: 36px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    padding:0 5px;
+    line-height: 36px;
+    font-size:14px;
+    color:#444;
+    border:1px solid #ddd;
+    transition: all ease-in ;
+    box-sizing: border-box;
+    &:focus{
+      border-color:rgba(44, 134, 238,1);
+    }
+  }
+  button{
+    width:61px;
+    height: 36px;
+    background:rgba(44, 134, 238,1);
+    text-align: center;
+    line-height: 36px;
+    border:0;
+    position: absolute;
+    top:0;
+    right:0;
+    font-size:14px;
+    color:#fff;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    &:focus{
+      background:rgba(44, 134, 238, .8)
+    }
+  }
+ }
