@@ -57,18 +57,15 @@ class RunwayList extends PureComponent {
               </div>
               <div className={style.info}>
                 <h3
-                  className={style.title}
+                  className={style.title} title={`${release_date}${fashion_season}${brand_name}${gender === "women" ? "女装" : "男装"}发布会`}
                 >{`${release_date}${fashion_season}${brand_name}${
                   gender === "women" ? "女装" : "男装"
                 }发布会`}</h3>
                 <div className={style.infomation}>
-                  <span>D.Exterior &nbsp;| &nbsp;</span>
-                  <span>2019春夏 &nbsp;|&nbsp;</span>
-                  <span>意大利</span>
+                  <span>{brand_name} &nbsp;| &nbsp;</span>
+                  <span>{`${release_date}${fashion_season}`} &nbsp;|&nbsp;</span>
+                  <span>{city_cn}</span>
                 </div>
-                {/* <p
-                  className={style.infomation}
-                >{`${brand_name}|${release_date}${fashion_season}|${city_cn}`}</p> */}
                 <p className={style.anthor}>MR Right</p>
                 <p className={style.anthor}>2020.7.17</p>
               </div>
