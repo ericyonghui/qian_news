@@ -71,6 +71,7 @@ class Detail extends PureComponent {
             <Col lg={{span:16,offset:4}} xl={{span:16,offset:4}} md={{span:20,offset:2}} sm={{span:22,offset:1}} xs={{span:22,offset:1}} className={`${style.clearfix} ${style.containerPadding}`}>
               <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.picture}>
                 <img src={`http://106.37.96.145:2019/chosen/${img}`} alt=''/>
+                <div className={style.mark}></div>
               </Col>
               <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.info} style={{float:'left'}}>
                 <div className={`${style.infoIcon} ${style.clearfix}`}>

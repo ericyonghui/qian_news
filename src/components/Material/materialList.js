@@ -30,7 +30,7 @@ class MaterialList extends PureComponent {
           <div key={key} className={style.column} onClick={()=>{handleSlideShow(main_id)}} ref={(c) => {
             this.column = c;
           }}>
-            <span className={style.tip}>NEW</span>
+            {/* <span className={style.tip}>NEW</span> */}
             <LazyLoad  height={0}>
               <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
                 height:`${this.state.columnWidth / imgWidth * imgHeight}px`

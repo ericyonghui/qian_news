@@ -57,9 +57,14 @@ class StyleList extends PureComponent {
                 <h3
                   className={style.title}
                 >{`${brand_name}${fashion_season}${gender === "women" ? "女装" : (gender === "men" ? "男装": "童装")}系列`}</h3>
-                <p
+                <div className={style.infomation}>
+                  <span>D.Exterior &nbsp;| &nbsp;</span>
+                  <span>2019春夏 &nbsp;|&nbsp;</span>
+                  <span>意大利</span>
+                </div>
+                {/* <p
                   className={style.infomation}
-                >{`${brand_name}|${fashion_season}|${fashion_region}`}</p>
+                >{`${brand_name}|${fashion_season}|${fashion_region}`}</p> */}
                 <p className={style.anthor}>MR Right</p>
                 <p className={style.anthor}>2020.7.17</p>
               </div>

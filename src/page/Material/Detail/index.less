@@ -137,7 +137,6 @@
         width:100%;
         height: auto;
         border-radius: 16px;
-        border:1px solid #ddd;
         overflow: hidden;
         box-sizing: border-box;
         img {
@@ -157,7 +156,6 @@
         width:100%;
         height: auto;
         border-radius: 16px;
-        border:1px solid #ddd;
         overflow: hidden;
         box-sizing: border-box;
         img {
@@ -174,7 +172,6 @@
 @media (max-width:767px){
     .picture {
         border-radius: 16px;
-        border:1px solid #ddd;
         overflow: hidden;
         box-sizing: border-box;
         img {
@@ -211,8 +208,7 @@
     >p{
         font-size:14px;
         color:#333;
-        line-height: 30px;
-        margin-bottom: 0;
+        margin-bottom:10px;
     }
     >h3{
         line-height: 60px;
@@ -224,15 +220,16 @@
         li{
             font-size:14px;
             color:#333;
-            line-height: 24px;
+            margin-bottom:10px;
         }
     }
 }
 .infoTip{
+    margin-bottom: 10px;
     >p{
         font-weight: 500;
         font-size:14px;
-        line-height: 24px;
+        margin-bottom:15px;
         margin-bottom:0;
         color:#333;
     }
@@ -253,6 +250,7 @@
     >p{
         color:#333;
         line-height: 24px;
+        margin-bottom:10px;
     }
     >ul{
         li{
@@ -266,5 +264,15 @@
                 height: auto;
             }
         }
+    }
+}
+.picture{
+    position: relative;
+    .mark{
+        position: absolute;
+        top:0;
+        bottom:0;
+        width:100%;
+        background:rgba(0,0,0,.3)
     }
 }
