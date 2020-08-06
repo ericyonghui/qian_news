@@ -89,7 +89,7 @@ class Detail extends PureComponent {
                   </ul>
                 </div>
                 <div className={style.infoTip}>
-                  <p>标签</p>
+                  <p>标签：</p>
                   <ul className={style.clearfix}>
                     {
                       tag.map((item, index) =>(
