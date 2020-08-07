@@ -110,8 +110,8 @@ class Detail extends PureComponent {
         }
 
         <div className={style.more}>
-            <p>更多推荐</p>
-            <span></span>
+            {/*<p>更多推荐</p>*/}
+            {/*<span></span>*/}
         </div>
 
         {/*<div className={style.container} style={{marginBottom:"15px"}}>*/}

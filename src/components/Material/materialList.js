@@ -20,25 +20,54 @@ class MaterialList extends PureComponent {
     window.addEventListener('resize',this.handleWidth);
   }
 
+  renderHeight(imgWidth,imgHeight){
+    let imgH =this.state.columnWidth / imgWidth * imgHeight;
+    return `${parseInt(imgH)}px`;
+  }
+  renderBoxHeight=(imgWidth,imgHeight)=>{
+    let imgH =this.state.columnWidth / imgWidth * imgHeight;
+    if(imgH > 500){
+      return  `${parseInt(imgH / 2)}px`;
+    } else {
+      return  '';
+    }
+  };
   renderList() {
     let vDOM = [];
     let { data: { list },handleSlideShow } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
         let {key,main_id,img,imgWidth,imgHeight} = item;
-        vDOM.push(
-          <div key={key} className={style.column} onClick={()=>{handleSlideShow(main_id)}} ref={(c) => {
-            this.column = c;
-          }}>
-            {/* <span className={style.tip}>NEW</span> */}
-            <LazyLoad  height={0}>
-              <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
-                height:`${this.state.columnWidth / imgWidth * imgHeight}px`
-              }}/>
-            </LazyLoad>
-            <div className={style.mark}></div>
-          </div>
-        );
+        let boxHeight = this.renderBoxHeight(imgWidth,imgHeight);
+        if(boxHeight!==''){
+          vDOM.push(
+            <div key={key} className={style.column} style={{ height:boxHeight }} onClick={()=>{handleSlideShow(main_id)}} ref={(c) => {
+              this.column = c;
+            }}>
+              {/* <span className={style.tip}>NEW</span> */}
+              <LazyLoad  height={0}>
+                <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                  height:`${this.renderHeight(imgWidth,imgHeight)}`
+                }}/>
+              </LazyLoad>
+              <div className={style.mark}></div>
+            </div>
+          );
+        } else {
+          vDOM.push(
+            <div key={key} className={style.column} onClick={()=>{handleSlideShow(main_id)}} ref={(c) => {
+              this.column = c;
+            }}>
+              {/* <span className={style.tip}>NEW</span> */}
+              <LazyLoad  height={0}>
+                <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                  height:`${this.renderHeight(imgWidth,imgHeight)}`
+                }}/>
+              </LazyLoad>
+              <div className={style.mark}></div>
+            </div>
+          );
+        }
       });
     }
     return vDOM;
