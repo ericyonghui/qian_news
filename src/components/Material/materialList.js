@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import LazyLoad from "react-lazyload";
+import {lazyLoad} from '../../util/utils';
 import style from "../../page/Material/index.less";
 
 class MaterialList extends PureComponent {
@@ -7,8 +7,16 @@ class MaterialList extends PureComponent {
     columnWidth: 236.33
   };
   componentDidMount() {
-    window.addEventListener('resize',this.handleWidth)
+    window.addEventListener('resize',this.handleWidth);
+    let imgArr = document.querySelectorAll('img');
+    lazyLoad(imgArr);
+    window.addEventListener('scroll',this.handleImgScroll);
   }
+
+  handleImgScroll=async ()=>{
+    let imgArr = document.querySelectorAll('img');
+    await lazyLoad(imgArr);
+  };
 
   handleWidth=()=>{
     if(this.column){
@@ -17,7 +25,8 @@ class MaterialList extends PureComponent {
     }
   };
   componentWillUnmount() {
-    window.addEventListener('resize',this.handleWidth);
+    window.removeEventListener('resize',this.handleWidth);
+    window.removeEventListener('scroll',this.handleImgScroll);
   }
 
   renderHeight(imgWidth,imgHeight){
@@ -45,11 +54,9 @@ class MaterialList extends PureComponent {
               this.column = c;
             }}>
               {/* <span className={style.tip}>NEW</span> */}
-              <LazyLoad  height={0}>
-                <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
                   height:`${this.renderHeight(imgWidth,imgHeight)}`
                 }}/>
-              </LazyLoad>
               <div className={style.mark}></div>
             </div>
           );
@@ -59,11 +66,9 @@ class MaterialList extends PureComponent {
               this.column = c;
             }}>
               {/* <span className={style.tip}>NEW</span> */}
-              <LazyLoad  height={0}>
-                <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
                   height:`${this.renderHeight(imgWidth,imgHeight)}`
                 }}/>
-              </LazyLoad>
               <div className={style.mark}></div>
             </div>
           );

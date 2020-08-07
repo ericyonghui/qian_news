@@ -4,12 +4,15 @@ import Footer from "../components/footer/footer"
 
 
 class BasicLayout extends Component {
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-  componentDidUpdate() {
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
     window.scrollTo(0, 0);
+    return true;
   }
+
   render() {
     const { children} = this.props;
     return <div>

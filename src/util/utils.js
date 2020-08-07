@@ -111,6 +111,28 @@ export async function getImgToBase64(url){//将图片转换为Base64
   });
   return res;
 }
+
+//用来判断bound.top<=clientHeight的函数，返回一个bool值
+function isIn(el) {
+  let bound = el.getBoundingClientRect();
+  let clientHeight = window.innerHeight;
+  return bound.top <= clientHeight;
+}
+function loadImg(el) {
+  if(!el.src){
+    let source = el.dataset.src;
+    el.src = source;
+  }
+}
+//检查图片是否在可视区内，如果不在，则加载
+export async function lazyLoad(imgArr) {
+  Array.from(imgArr).forEach(function(el){
+    if(isIn(el)){
+      loadImg(el);
+    }
+  })
+}
+
 export async function titleCase(str) {
   let strArr = str.split(' ');
   for(let i=0;i<strArr.length;i++){

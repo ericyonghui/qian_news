@@ -1,12 +1,24 @@
 import React, { PureComponent } from "react";
-import LazyLoad from "react-lazyload";
+import {lazyLoad} from '../../util/utils';
 import { IMG_HOST } from "../../util/common";
 import { Row, Col } from "antd";
 import { HeartFilled, EyeFilled } from "@ant-design/icons";
 import style from "../../page/Runway/index.less";
 
 class StreetSnapList extends PureComponent {
-  componentDidMount() {}
+  componentDidMount() {
+    let imgArr = document.querySelectorAll('img');
+    lazyLoad(imgArr);
+    window.addEventListener('scroll',this.handleImgScroll);
+  }
+  handleImgScroll=async ()=>{
+    let imgArr = document.querySelectorAll('img');
+    await lazyLoad(imgArr);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll',this.handleImgScroll);
+  }
 
   renderTag(street_snap_type,street_snap_place){
     let newPlace='';
@@ -53,9 +65,7 @@ class StreetSnapList extends PureComponent {
           >
             <div className={style.stagemain} onClick={() => {handleSlideShow(main_id)}}>
               <div className={`${style.picture}`}>
-                <LazyLoad  height={0}>
-                  <img src={`http://106.37.96.145:2019/chosen/${img}`} alt="" />
-                </LazyLoad>
+                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" />
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
 
