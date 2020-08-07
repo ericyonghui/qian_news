@@ -79,7 +79,6 @@ class FashionStyle extends PureComponent {
     } else {
       router.push(`/style?currentPage=${current ||this.state.current }`);
     }
-    window.scrollTo(0, 0);
     this.queryList({
       current, pageSize
     });

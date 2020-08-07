@@ -1,12 +1,11 @@
 import { Component } from 'react';
+import withRouter from 'umi/withRouter';
 
 class SlideShowLayout extends Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    window.scrollTo(0, 0);
-    return true;
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0);
+    }
   }
   render() {
     const { children} = this.props;
@@ -14,4 +13,4 @@ class SlideShowLayout extends Component {
   }
 }
 
-export default SlideShowLayout;
+export default withRouter(SlideShowLayout);
