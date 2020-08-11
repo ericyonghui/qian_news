@@ -11,12 +11,13 @@
 }
 
 @media (min-width:1024px) {
-  .menu{
-    font-size:16px;
-    color:#000;
+  .menu {
+    font-size: 16px;
+    color: #000;
   }
+
   .pc_container {
-    width:100%;
+    width: 100%;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -25,161 +26,272 @@
     box-sizing: border-box;
 
     .logo {
-      color:#000;
+      color: #000;
       font-size: 36px;
       line-height: 40px;
     }
-    
-    .search{
+
+    .search {
       position: relative;
-      
-      .searchList{
+
+      .searchList {
         // display: none;
         position: absolute;
-        top:40px;
-        width:100%;
-        padding:30px;
+        top: 40px;
+        width: 100%;
+        padding-bottom: 30px;
+        max-height: 800px;
         z-index: 2;
-        box-shadow: 0 0 10px rgba(0,0,0,.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
         border-radius: 8px;
-        background:#fff;
+        background: #fff;
+        overflow-y: scroll;
         box-sizing: border-box;
-        .searchHistory{
-          margin-bottom:15px;
-          span{
-              font-size:14px;
-              display: inline-block;
-              margin-right:8px;
-              color:#666;
-          }
-          .ICON{
-            font-size:16px;
-            color:#666;
-            cursor: pointer;
-          }
+        .searchBorder{
+          border-bottom:1px solid #777777;
+          padding:0 30px;
+          box-sizing: border-box;
         }
-        .searchHistoryList{
-          li{
+        .searchHistory {
+          margin-bottom: 15px;
+          span {
+            display: block;
+            font-size: 20px;
+            color: #000;
+            line-height: 50px;
+          }
+
+          
+        }
+
+        .searchHistoryList {
+          li {
             float: left;
-            padding:0 15px;
-            border:1px solid #eee;
-            background:#eee;
-            color:#666;
-            line-height: 30px;
-            font-size:14px;
-            margin-right: 8px;
-            margin-bottom:8px;
-            border-radius: 4px;
+            padding: 0 15px;
+            color: #fff;
+            line-height: 46px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            background:#000;
+            border-radius:16px;
+            .ICON {
+              font-size: 16px;
+              color: #fff;
+              cursor: pointer;
+            }
           }
         }
-        .ulList{
-          h4{
-            font-size:14px;
-            color:#000;
-            line-height: 30px;
+
+        .ulList {
+          padding:0 30px;
+          box-sizing: border-box;
+          h4 {
+            font-size: 20px;
+            color: #000;
+            line-height: 50px;
           }
-          ul li{
+
+          ul li {
             position: relative;
-            width:140px;
+            width: 140px;
             height: 80px;
             float: left;
-            margin-right:8px;
-            margin-bottom:8px;
-            background:#000;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            background: #000;
             overflow: hidden;
             border-radius: 16px;
             box-sizing: border-box;
-            img{
-              width:auto;
+
+            img {
+              width: auto;
               height: 100%;
               position: absolute;
-              left:50%;
-              transform: translate(-50%,0%);
-              
+              left: 50%;
+              transform: translate(-50%, 0%);
+
             }
-            p{
-              width:100%;
+
+            p {
+              width: 100%;
               text-align: center;
               position: absolute;
-              top:50%;
-              left:50%;
-              transform: translate(-50%,-50%);
-              font-size:20px;
-              color:#fff;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 20px;
+              color: #fff;
               font-weight: 600;
               z-index: 2;
             }
-            .markmin{
+
+            .markmin {
               position: absolute;
-              top:0;
+              top: 0;
               bottom: 0;
-              width:100%;
-              background:rgba(0,0,0,.2)
+              width: 100%;
+              background: rgba(0, 0, 0, .2)
             }
-            .markminOn{
-              background:rgba(0,0,0,.9)
+
+            .markminOn {
+              background: rgba(0, 0, 0, .9)
             }
-            .checkOn{
+
+            .checkOn {
               display: none;
               position: absolute;
-              top:6px;
+              top: 6px;
               right: 6px;
               font-size: 16px;
-              color:#fff;
+              color: #fff;
             }
           }
-          .pictrueP{
-            img{
-              width:100%;
+
+          .pictrueP {
+            img {
+              width: 100%;
               height: auto;
             }
           }
         }
-        .searchCountry{
-          h4{
-            font-size:14px;
-            color:#000;
-            line-height: 30px;
+
+        .searchCountry {
+          padding:0 30px;
+          border-top:1px solid #777777;
+          margin-top:15px;
+          padding-top:15px;
+          box-sizing: border-box;
+          .searchCountryTitle {
+            h4 {
+              font-size: 20px;
+              color: #000;
+              line-height: 50px;
+              float: left;
+              margin-right: 15px;
+            }
+
+            input {
+              float: left;
+              height: 30px;
+              border: 1px solid #ddd;
+              padding: 0 8px;
+              width: 200px;
+              line-height: 30px;
+              margin-top: 10px;
+              border-radius: 8px;
+              outline: none;
+            }
           }
-          li{
-            padding:0 10px;
-            font-size:14px; 
-            color:#999;
-            line-height: 30px;
-            float: left;
+
+          .searchCountryDZ {
+            li {
+              float: left;
+              margin-right: 20px;
+              padding: 0 20px;
+              height: 46px;
+              font-size: 16px;
+              font-weight: bold;
+              color: #080808;
+              line-height: 46px;
+              background-color: #F7F7F7;
+              border-radius: 16px;
+            }
           }
-        }
-        .searchBrand{
-          font-size:14px;
-            color:#000;
-            line-height: 30px;
-            .searchBrandLetter {
-              li{
-                padding:0 8px;
-                line-height: 24px;
-                font-size: 14px;
-                color:#999;
+
+          .searchCountryGJ {
+            >li {
+              margin-bottom: 10px;
+
+              >p {
                 float: left;
-                cursor: pointer;
+                width: 60px;
+                font-size: 14px;
+                color: #333;
+                font-weight: bold;
+                line-height: 30px;
+              }
+
+              .searchCountryFL {
+                float: left;
+
+                >li {
+                  float: left;
+                  padding-right: 20px;
+                  font-size: 14px;
+                  color: #666;
+                  line-height: 30px;
+                }
+
+                .on {
+                  color: #000;
+                }
               }
             }
-            .on{
-              color:#000;
+          }
+        }
+
+        .searchBrand {
+          padding:0 30px;
+          border-top:1px solid #777777;
+          margin-top:15px;
+          padding-top:15px;
+          box-sizing: border-box;
+          .searchBrandTitle{
+            h4 {
+              font-size: 20px;
+              color: #000;
+              line-height: 50px;
+              float: left;
+              margin-right: 15px;
             }
-            .searchBandList li{
-              width:50%;
-              padding:0 8px;
+
+            input {
+              float: left;
+              height: 30px;
+              border: 1px solid #ddd;
+              padding: 0 8px;
+              width: 200px;
+              line-height: 30px;
+              margin-top: 10px;
+              border-radius: 8px;
+              outline: none;
+            }
+          }
+          
+          
+
+          .searchBrandLetter {
+            li {
+              padding: 0 8px;
               line-height: 24px;
               font-size: 14px;
-              color:#999;
+              color: #999;
               float: left;
               cursor: pointer;
             }
+          }
+
+          .on {
+            color: #000!important;
+            font-weight: bold;
+          }
+
+          .searchBandList li {
+            width: 50%;
+            padding: 0 8px;
+            line-height: 24px;
+            font-size: 14px;
+            color: #999;
+            float: left;
+            cursor: pointer;
+          }
         }
 
       }
     }
-    
+
 
     .user {
 
@@ -198,18 +310,21 @@
   //   display: none;
   // }
 }
+
 // pc 不显示
 @media (max-width:1023px) {
   .pc_container {
     display: none;
   }
+
   .m_container {
     position: fixed;
     top: 0;
-    width:100%;
-    padding:15px 5px;
+    width: 100%;
+    padding: 15px 5px;
     padding-bottom: 15px;
-    background: #fff;;
+    background: #fff;
+    ;
     z-index: 1;
     box-sizing: border-box;
 
@@ -254,20 +369,20 @@
 //ipad 768px
 @media (max-width:1023px) and (min-width:768px) {
   .m_container {
-    
-      .logo {
-        font-size: 20px;
-        line-height: 30px;
-        color:#000;
-        font-weight: bold;
-      }
 
-      .fonticon {
-        font-size: 20px;
-        vertical-align: -2px;
-        text-align: center;
-      }
-    
+    .logo {
+      font-size: 20px;
+      line-height: 30px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .fonticon {
+      font-size: 20px;
+      vertical-align: -2px;
+      text-align: center;
+    }
+
 
     .minNav {
       width: 300px;
@@ -300,21 +415,21 @@
     width: 100%;
     z-index: 99999;
 
-   
-      .logo {
-        font-size: 16px;
-        line-height: 30px;
-        color:#000;
-        font-weight: bold;
-      }
 
-      .fonticon {
-        height: 32px;
-        font-size: 20px;
-        line-height: 32px;
-        text-align: center;
-      }
-    
+    .logo {
+      font-size: 16px;
+      line-height: 30px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .fonticon {
+      height: 32px;
+      font-size: 20px;
+      line-height: 32px;
+      text-align: center;
+    }
+
 
     .minNav {
       display: none;
@@ -340,34 +455,37 @@
   }
 }
 
-input,button{
+input,
+button {
   outline: none;
 }
 
 // search input
-.searchInput{
+.searchInput {
   position: relative;
   box-sizing: border-box;
-  input{
-    width:100%;
+
+  input {
+    width: 100%;
     height: 36px;
-    border-radius:4px;
-    padding:0 40px 0px 5px;
+    border-radius: 4px;
+    padding: 0 40px 0px 5px;
     line-height: 36px;
-    font-size:14px;
-    color:#444;
-    background:rgb(220,213,213);
-    border:1px solid #ddd;
-    transition: all ease-in ;
+    font-size: 14px;
+    color: #444;
+    background: rgb(220, 213, 213);
+    border: 1px solid #ddd;
+    transition: all ease-in;
     outline: none;
     box-sizing: border-box;
   }
-  .ICONSearch{
+
+  .ICONSearch {
     position: absolute;
-    top:8px;
-    right:10px;
-    font-size:20px;
-    color:#666;
+    top: 8px;
+    right: 10px;
+    font-size: 20px;
+    color: #666;
     cursor: pointer;
   }
 }

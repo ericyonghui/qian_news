@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import { Row, Col, Menu, Input ,Select} from "antd";
-import { MenuUnfoldOutlined ,CloseCircleOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
+import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
 import img1 from "../../page/IMG/季节/季节-2020早春.png"
 import img2 from "../../page/IMG/季节/季节-2020早秋.jpg"
@@ -124,14 +124,26 @@ class HeaderComponent extends PureComponent {
               <SearchOutlined className={style.ICONSearch}/>
             </div>
             <div className={style.searchList}>
-              <div className={style.searchHistory}>
-                <span>最近搜索</span>
-                <CloseCircleOutlined  className={style.ICON} />
+              <div className={style.searchBorder}>
+                <div className={style.searchHistory}>
+                  <span>最近搜索</span>
+                </div>
+                <ul className={`${style.searchHistoryList} ${style.clearfix}`}>
+                  <li>男装 &nbsp;&nbsp;&nbsp;&nbsp;<CloseOutlined  className={style.ICON} /></li>
+                  <li>T台 &nbsp;&nbsp;&nbsp;&nbsp;<CloseOutlined  className={style.ICON} /></li>
+                </ul>
               </div>
-              <ul className={`${style.searchHistoryList} ${style.clearfix}`}>
-                <li>milan</li>
-                <li>taotou</li>
-              </ul>
+
+              <div className={style.searchBorder}>
+                <div className={style.searchHistory}>
+                  <span>已选条件</span>
+                </div>
+                <ul className={`${style.searchHistoryList} ${style.clearfix}`}>
+                  <li>男装 &nbsp;&nbsp;&nbsp;&nbsp;<CloseOutlined  className={style.ICON} /></li>
+                  <li>T台 &nbsp;&nbsp;&nbsp;&nbsp;<CloseOutlined  className={style.ICON} /></li>
+                </ul>
+              </div>
+              
               <div className={`${style.ulList} ${style.clearfix}`}>
                 <h4>性别</h4>
                   <ul>
@@ -194,6 +206,11 @@ class HeaderComponent extends PureComponent {
 
               <div className={`${style.ulList} ${style.clearfix}`}>
                 <h4>季节</h4>
+                <Select bordered={false} maxTagTextLength="100" style={{ width: 120 ,fontWeight:'bold',marginBottom:'20px'}} defaultValue="2020">
+                  <Option value="2020">2020</Option>
+                  <Option value="2019">2019</Option>
+                  <Option value="2018">2018</Option>
+                </Select>
                   <ul>
                     <li>
                       <img src={img1} />
@@ -222,23 +239,51 @@ class HeaderComponent extends PureComponent {
                   </ul>
               </div>
 
-              <div className={style.searchYear}>
-                <h4>年份</h4>
-                <Select bordered={false} maxTagTextLength="100" style={{ width: 120 }} defaultValue="2020">
-                  <Option value="2020">2020</Option>
-                  <Option value="2019">2019</Option>
-                  <Option value="2018">2018</Option>
-                </Select>
-              </div>
               <div className={`${style.searchCountry} ${style.clearfix}`}>
-                <h4>国家</h4>
-                <ul>
-                  <li>中国</li>
-                  <li>日本</li>
+                <div className={`${style.searchCountryTitle} ${style.clearfix}`}>
+                <h4>地区</h4>
+                <input type="text"/>
+                </div>
+                <ul className={`${style.searchCountryDZ} ${style.clearfix}`}>
+                  <li>亚洲</li>
+                  <li>欧洲</li>
+                  <li>北美洲</li>
+                  <li>南美洲</li>
+                </ul>
+                <ul className={`${style.searchCountryGJ}`}>
+                  <li className={style.clearfix}>
+                    <p>亚洲</p>
+                    <ul className={`${style.searchCountryFL} ${style.clearfix}`}>
+                      <li></li>
+                    </ul>
+                  </li>
+                  <li className={style.clearfix}>
+                    <p>中国</p>
+                    <ul className={`${style.searchCountryFL} ${style.clearfix}`}>
+                      <li className={style.on}>上海</li>
+                      <li>香港</li>
+                    </ul>
+                  </li>
+                  <li className={style.clearfix}>
+                    <p>日本</p>
+                    <ul className={`${style.searchCountryFL} ${style.clearfix}`}>
+                      <li>东京</li>
+                    </ul>
+                  </li>
+                  <li className={style.clearfix}>
+                    <p>韩国</p>
+                    <ul className={`${style.searchCountryFL} ${style.clearfix}`}>
+                      <li>首尔</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div className={`${style.searchBrand}`}>
+                <div className={`${style.searchBrandTitle} ${style.clearfix}`}>
                   <h4>品牌</h4>
+                  <input type="text" />
+                </div>
+                  
                   <ul className={`${style.searchBrandLetter} ${style.clearfix}`}>
                     <li className={style.on}>A</li>
                     <li>B</li>
@@ -267,10 +312,10 @@ class HeaderComponent extends PureComponent {
                     <li>Y</li>
                     <li>Z</li>
                   </ul>
-                  <p>A</p>
+                  <p className={style.on}>A</p>
                   <ul className={`${style.searchBandList} ${style.clearfix}`}>
                     <li>A Kind of Guise</li>
-                    <li>ALa Garcone</li>
+                    <li className={style.on}>ALa Garcone</li>
                     <li>A Kind of Guise</li>
                     <li>ALa Garcone</li>
                     <li>A Kind of Guise</li>
