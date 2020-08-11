@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import { Row, Col, Menu, Input ,Select} from "antd";
-import { MenuUnfoldOutlined ,CloseCircleOutlined,SearchOutlined} from "@ant-design/icons";
+import { MenuUnfoldOutlined ,CloseCircleOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
 const { Search } = Input;
 const { Option } = Select;
@@ -132,15 +132,21 @@ class HeaderComponent extends PureComponent {
                   <ul>
                     <li>
                       <img src={img6} />
-                      <span>男装</span>
+                      <p>男装</p>
+                      <div className={`${style.markmin} ${style.markminOn}`}></div>
+                      <CheckCircleFilled className={style.checkOn} style={{display:'block'}}/>
                     </li>
                     <li>
                       <img src={img5} />
-                      <span>女装</span>
+                      <p>女装</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img7} />
-                      <span>童装</span>
+                      <p>童装</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                   </ul>
               </div>
@@ -150,23 +156,33 @@ class HeaderComponent extends PureComponent {
                   <ul>
                     <li>
                       <img src={img8} />
-                      <span>T台</span>
+                      <p>T台</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img11} />
-                      <span>款式</span>
+                      <p>款式</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img12} />
-                      <span>街拍</span>
+                      <p>街拍</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
-                    <li>
+                    <li className={style.pictrueP}>
                       <img src={img9} />
-                      <span>图案</span>
+                      <p>图案</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
-                    <li>
+                    <li className={style.pictrueP}>
                       <img src={img10} />
-                      <span>手绘</span>
+                      <p>手绘</p>
+                      <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                   </ul>
               </div>
@@ -176,23 +192,27 @@ class HeaderComponent extends PureComponent {
                   <ul>
                     <li>
                       <img src={img1} />
-                      <span>2020早春</span>
+                      <p>2020早春</p>
                       <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img3} />
-                      <span>2020春夏</span>
+                      <p>2020春夏</p>
                       <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img2} />
-                      <span>2020早秋</span>
+                      <p>2020早秋</p>
                       <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                     <li>
                       <img src={img4} />
-                      <span>2020秋冬</span>
+                      <p>2020秋冬</p>
                       <div className={style.markmin}></div>
+                      <CheckCircleFilled className={style.checkOn}/>
                     </li>
                   </ul>
               </div>
