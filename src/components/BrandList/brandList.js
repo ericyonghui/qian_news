@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import {IMG_HOST_IP} from '../../util/common';
 import {lazyLoad} from '../../util/utils';
 import { Row, Col } from "antd";
 import style from "../../page/FashionStyle/BrandList/index.less";
@@ -41,7 +42,7 @@ class BrandList extends PureComponent {
             key={key}
           >
             <div onClick={() => {handleSlideShow(primary_key)}} className={style.itemIMG}>
-              <img data-src={`http://106.37.96.145:2019${img}`} alt="" />
+              <img data-src={`${IMG_HOST_IP}${img}`} alt="" />
             </div>
           </Col>
         );
