@@ -3,8 +3,6 @@ import router from 'umi/router';
 import { Row, Col, Menu, Input ,Select} from "antd";
 import { MenuUnfoldOutlined ,CloseCircleOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
-const { Search } = Input;
-const { Option } = Select;
 import img1 from "../../page/IMG/季节/季节-2020早春.png"
 import img2 from "../../page/IMG/季节/季节-2020早秋.jpg"
 import img3 from "../../page/IMG/季节/季节-2020春夏.jpg"
@@ -17,6 +15,13 @@ import img9 from "../../page/IMG/类别/类别-图案.jpg"
 import img10 from "../../page/IMG/类别/类别-手绘.png"
 import img11 from "../../page/IMG/类别/类别-款式.jpg"
 import img12 from "../../page/IMG/类别/类别-街拍.png"
+
+
+
+
+const { Search } = Input;
+const { Option } = Select;
+
 const routerArr=[
   {
     routerKey:"home",

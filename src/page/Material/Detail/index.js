@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import {IMG_HOST_IP} from '../../../util/common';
 import router from 'umi/router';
 import {Spin,Row, Col } from "antd";
 import {DownloadOutlined,EllipsisOutlined,HeartOutlined} from "@ant-design/icons";
@@ -70,7 +71,7 @@ class Detail extends PureComponent {
           <Row>
             <Col lg={{span:16,offset:4}} xl={{span:16,offset:4}} md={{span:20,offset:2}} sm={{span:22,offset:1}} xs={{span:22,offset:1}} className={`${style.clearfix} ${style.containerPadding}`}>
               <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.picture}>
-                <img src={`http://106.37.96.145:2019/chosen/${img}`} alt=''/>
+                <img src={`${IMG_HOST_IP}/chosen/${img}`} alt=''/>
                 <div className={style.mark}></div>
               </Col>
               <Col lg={12} xl={12} md={12} sm={24} xs={24} className={style.info} style={{float:'left'}}>
@@ -101,7 +102,7 @@ class Detail extends PureComponent {
                 <div className={style.anthorUp}>
                   <p>TA的上传</p>
                   <ul>
-                    <li><img src={`http://106.37.96.145:2019/chosen/${img}`} alt=''/></li>
+                    <li><img src={`${IMG_HOST_IP}/chosen/${img}`} alt=''/></li>
                   </ul>
                 </div>
               </Col>

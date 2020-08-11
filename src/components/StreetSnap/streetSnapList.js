@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import {lazyLoad} from '../../util/utils';
-import { IMG_HOST } from "../../util/common";
+import { IMG_HOST_IP } from "../../util/common";
 import { Row, Col } from "antd";
 import { HeartFilled, EyeFilled } from "@ant-design/icons";
 import style from "../../page/Runway/index.less";
@@ -65,7 +65,7 @@ class StreetSnapList extends PureComponent {
           >
             <div className={style.stagemain} onClick={() => {handleSlideShow(main_id)}}>
               <div className={`${style.picture}`}>
-                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" />
+                <img data-src={`${IMG_HOST_IP}/chosen/${img}`} alt="" />
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
 

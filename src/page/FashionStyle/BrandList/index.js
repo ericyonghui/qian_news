@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import {IMG_HOST_IP} from '../../../util/common';
 import router from 'umi/router';
 import { Spin, Row, Col, Pagination } from "antd";
 import style from "./index.less";
@@ -118,7 +119,7 @@ class Brand extends PureComponent {
             <div className={style.container}>
               <Row className={`${style.nav} ${style.clearfix}`}>
                 <Col xl={3} lg={4} md={4} xs={24} sm={24} className={style.picture}>
-                  <p><img src={`http://106.37.96.145:2019${this.state.productData.img}`} alt="" /></p>
+                  <p><img src={`${IMG_HOST_IP}${this.state.productData.img}`} alt="" /></p>
                 </Col>
                 <Col xl={21} lg={20} md={20} xs={24} sm={24} className={style.info}>
                   <h2>{`${this.state.productData.brand} ${this.state.productData.fashion_season}`}系列</h2>

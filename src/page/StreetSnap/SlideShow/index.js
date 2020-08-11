@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import {IMG_HOST_IP} from '../../../util/common';
 import { Spin, Row, Col } from "antd";
 import router from 'umi/router';
 import {LeftOutlined, RightOutlined,DownOutlined, UpOutlined} from "@ant-design/icons";
@@ -179,7 +180,7 @@ class Detail extends PureComponent {
                 <LeftOutlined className={style.maxLeft} onClick={() => {
                   this.handleRoll('left')
                 }}/>
-                <img src={`http://106.37.96.145:2019/chosen/${selectPic}`} alt=""/>
+                <img src={`${IMG_HOST_IP}/chosen/${selectPic}`} alt=""/>
                 <RightOutlined className={style.maxright} onClick={() => {
                   this.handleRoll('right')
                 }}/>
@@ -197,7 +198,7 @@ class Detail extends PureComponent {
                   {
                     imgs.map(item => (
                       <li key={item.img_id}>
-                        <img src={`http://106.37.96.145:2019/chosen/${item.server_picture_address}`} alt=""/>
+                        <img src={`${IMG_HOST_IP}/chosen/${item.server_picture_address}`} alt=""/>
                         {
                           selectKey === item.key &&
                           <div className={style.mark}>

@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import {IMG_HOST_IP} from '../../util/common';
 import {lazyLoad} from '../../util/utils';
 import style from "../../page/Material/index.less";
 
@@ -54,7 +55,7 @@ class MaterialList extends PureComponent {
               this.column = c;
             }}>
               {/* <span className={style.tip}>NEW</span> */}
-                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                <img data-src={`${IMG_HOST_IP}/chosen/${img}`} alt="" style={{
                   height:`${this.renderHeight(imgWidth,imgHeight)}`
                 }}/>
               <div className={style.mark}></div>
@@ -66,7 +67,7 @@ class MaterialList extends PureComponent {
               this.column = c;
             }}>
               {/* <span className={style.tip}>NEW</span> */}
-                <img data-src={`http://106.37.96.145:2019/chosen/${img}`} alt="" style={{
+                <img data-src={`${IMG_HOST_IP}/chosen/${img}`} alt="" style={{
                   height:`${this.renderHeight(imgWidth,imgHeight)}`
                 }}/>
               <div className={style.mark}></div>
