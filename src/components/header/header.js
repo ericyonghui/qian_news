@@ -1,11 +1,22 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import { Row, Col, Menu, Input ,Select} from "antd";
-import { MenuUnfoldOutlined ,CloseCircleOutlined} from "@ant-design/icons";
+import { MenuUnfoldOutlined ,CloseCircleOutlined,SearchOutlined} from "@ant-design/icons";
 import style from "./header.less";
 const { Search } = Input;
 const { Option } = Select;
-
+import img1 from "../../page/IMG/季节/季节-2020早春.png"
+import img2 from "../../page/IMG/季节/季节-2020早秋.jpg"
+import img3 from "../../page/IMG/季节/季节-2020春夏.jpg"
+import img4 from "../../page/IMG/季节/季节-2020秋冬.jpg"
+import img5 from "../../page/IMG/性别/性别-女装.jpg"
+import img6 from "../../page/IMG/性别/性别-男装.png"
+import img7 from "../../page/IMG/性别/性别-童装.jpg"
+import img8 from "../../page/IMG/类别/类别-T台.png"
+import img9 from "../../page/IMG/类别/类别-图案.jpg"
+import img10 from "../../page/IMG/类别/类别-手绘.png"
+import img11 from "../../page/IMG/类别/类别-款式.jpg"
+import img12 from "../../page/IMG/类别/类别-街拍.png"
 const routerArr=[
   {
     routerKey:"home",
@@ -80,7 +91,7 @@ class HeaderComponent extends PureComponent {
           <Col span={2} className={style.logo}>
             千尚
           </Col>
-          <Col span={12}>
+          <Col span={8}>
             <Menu
               onClick={this.handleClick}
               selectedKeys={[this.state.current]}
@@ -97,7 +108,7 @@ class HeaderComponent extends PureComponent {
               <Menu.Item key="tupian">图片库</Menu.Item>
             </Menu>
           </Col>
-          <Col span={7} className={style.search}>
+          <Col span={12} className={style.search}>
             {/* <Search
               placeholder="input search text"
               onSearch={value => console.log(value)}
@@ -105,9 +116,9 @@ class HeaderComponent extends PureComponent {
             /> */}
             <div className={style.searchInput}>
               <input type="text"/>
-              <button>搜索</button>
+              <SearchOutlined className={style.ICONSearch}/>
             </div>
-            <div className={style.searchList} style={{display:'none'}}>
+            <div className={style.searchList}>
               <div className={style.searchHistory}>
                 <span>最近搜索</span>
                 <CloseCircleOutlined  className={style.ICON} />
@@ -120,15 +131,15 @@ class HeaderComponent extends PureComponent {
                 <h4>性别</h4>
                   <ul>
                     <li>
-                      <img src="" />
+                      <img src={img6} />
                       <span>男装</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img5} />
                       <span>女装</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img7} />
                       <span>童装</span>
                     </li>
                   </ul>
@@ -138,23 +149,23 @@ class HeaderComponent extends PureComponent {
                 <h4>类别</h4>
                   <ul>
                     <li>
-                      <img src="" />
+                      <img src={img8} />
                       <span>T台</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img11} />
                       <span>款式</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img12} />
                       <span>街拍</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img9} />
                       <span>图案</span>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img10} />
                       <span>手绘</span>
                     </li>
                   </ul>
@@ -164,20 +175,24 @@ class HeaderComponent extends PureComponent {
                 <h4>季节</h4>
                   <ul>
                     <li>
-                      <img src="" />
+                      <img src={img1} />
                       <span>2020早春</span>
+                      <div className={style.markmin}></div>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img3} />
                       <span>2020春夏</span>
+                      <div className={style.markmin}></div>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img2} />
                       <span>2020早秋</span>
+                      <div className={style.markmin}></div>
                     </li>
                     <li>
-                      <img src="" />
+                      <img src={img4} />
                       <span>2020秋冬</span>
+                      <div className={style.markmin}></div>
                     </li>
                   </ul>
               </div>
@@ -241,7 +256,7 @@ class HeaderComponent extends PureComponent {
               </div>
             </div>
           </Col>
-          <Col span={3} className={style.user}>
+          <Col span={2} className={style.user}>
             <ul>
               <li>登录</li>
               <li>注册</li>
@@ -254,15 +269,10 @@ class HeaderComponent extends PureComponent {
         <Row className={style.m_container} style={{height:"60px"}}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
             <Col  md={20} sm={18} xs={18} className={style.search}>
-              {/* <Search
-                placeholder="input search text"
-                onSearch={value => console.log(value)}
-                enterButton
-              /> */}
               <div className={style.searchInput}>
-              <input type="text"/>
-              <button>搜索</button>
-            </div>
+                <input type="text"/>
+                <SearchOutlined className={style.ICONSearch}/>
+              </div>
             </Col>
             <Col md={2} sm={3} xs={3} className={style.fonticon}>
               <MenuUnfoldOutlined onClick={this.showNav} />
