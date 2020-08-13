@@ -51,7 +51,9 @@ class StreetSnapList extends PureComponent {
           main_id,
           street_snap_type,
           street_snap_place,
-          img
+          img,
+          like_size,
+          view_size
         } = item;
         vDOM.push(
           <Col
@@ -72,11 +74,11 @@ class StreetSnapList extends PureComponent {
                 <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
                       <HeartFilled className={style.heartIcon} />
-                      <span>270</span>
+                      <span>{like_size}</span>
                     </li>
                     <li>
                       <EyeFilled className={style.eyeIcon} />
-                      <span>270</span>
+                      <span>{view_size}</span>
                     </li>
                   </ul>
 

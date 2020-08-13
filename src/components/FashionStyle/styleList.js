@@ -35,7 +35,9 @@ class StyleList extends PureComponent {
           fashion_season,
           fashion_region,
           gender,
-          img
+          img,
+          like_size,
+          view_size
         } = item;
         vDOM.push(
           <Col
@@ -55,11 +57,11 @@ class StyleList extends PureComponent {
                 <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
                       <HeartFilled className={style.heartIcon} />
-                      <span>270</span>
+                      <span>{like_size}</span>
                     </li>
                     <li>
                       <EyeFilled className={style.eyeIcon} />
-                      <span>270</span>
+                      <span>{view_size}</span>
                     </li>
                   </ul>
 
