@@ -12,9 +12,6 @@ export default {
       },
     }],
   ],
-  cssLoaderOptions:{
-    localIdentName:'[local]'
-  },
   hash:true,
   routes: [
     {
