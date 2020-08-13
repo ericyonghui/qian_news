@@ -92,7 +92,7 @@ class HeaderComponent extends PureComponent {
     return (
       <div>
         {/* pc 大于等于1024 >ipad */}
-        <Row className={style.pc_container} style={{height:"75px"}}>
+        <Row className={style.pc_container} style={{borderBottom:'1px solid #333'}}>
           <Col span={2} className={style.logo}>
             千尚
           </Col>
@@ -120,7 +120,14 @@ class HeaderComponent extends PureComponent {
               enterButton
             /> */}
             <div className={style.searchInput}>
-              <input type="text"/>
+              <ul className={style.clearfix}>
+                <li>男装&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
+                <li>2020早秋&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
+                <li>
+                  <input type="text"/>
+                  
+              </li>
+              </ul>              
               <SearchOutlined className={style.ICONSearch}/>
             </div>
             <div className={style.searchList}>
@@ -333,8 +340,26 @@ class HeaderComponent extends PureComponent {
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
-
+          <div span={24} className={style.moreSearchList}>
+            <h4>搜索资源</h4>
+            <ul>
+              <li>
+                男装&nbsp;&nbsp;<CloseOutlined />
+              </li>
+              <li>
+                男装&nbsp;&nbsp;<CloseOutlined />
+              </li>
+              <li>
+                男装&nbsp;&nbsp;<CloseOutlined />
+              </li>
+              <li>
+              <input type="text"/>
+              </li>
+              <li><button>搜索</button></li>
+            </ul>
+          </div>
         </Row>
+      
         {/* m 小于1023 */}
         <Row className={style.m_container} style={{height:"60px"}}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
