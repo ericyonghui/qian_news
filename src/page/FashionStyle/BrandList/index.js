@@ -106,8 +106,8 @@ class Brand extends PureComponent {
       brand: query.brand ||''
     });
   };
-  handleSlideShow=(primaryKey)=>{
-    router.push(`/slideShow/brand_slideShow?id=${primaryKey.split('_')[0]}`);
+  handleSlideShow=(main_id)=>{
+    router.push(`/slideShow/brand_slideShow?id=${main_id}`);
   };
   render() {
     return (

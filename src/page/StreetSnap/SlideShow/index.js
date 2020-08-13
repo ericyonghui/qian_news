@@ -36,7 +36,7 @@ class Detail extends PureComponent {
     });
   };
   componentWillUnmount() {
-    window.addEventListener('resize',this.handleWidth);
+    window.removeEventListener('resize',this.handleWidth);
   }
   queryDetail=(params)=>{
     const _this = this;
