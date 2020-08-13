@@ -30,7 +30,7 @@ class StyleList extends PureComponent {
       list.forEach(item => {
         let {
           key,
-          primary_key,
+          main_id,
           brand_name,
           fashion_season,
           fashion_region,
@@ -47,7 +47,7 @@ class StyleList extends PureComponent {
             className={style.list}
             key={key}
           >
-            <div className={style.stagemain} onClick={() => {handleSlideShow(primary_key,fashion_season,fashion_region,brand_name)}}>
+            <div className={style.stagemain} onClick={() => {handleSlideShow(main_id,fashion_season,fashion_region,brand_name)}}>
               <div className={`${style.picture}`}>
                 <img data-src={`${IMG_HOST_IP}${img}`} alt="" />
                 <span className={style.newPosition}>NEW</span>

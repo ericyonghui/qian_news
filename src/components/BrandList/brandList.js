@@ -28,7 +28,7 @@ class BrandList extends PureComponent {
       list.forEach(item => {
         let {
           key,
-          primary_key,
+          main_id,
           img
         } = item;
         vDOM.push(
@@ -41,7 +41,7 @@ class BrandList extends PureComponent {
             className={style.item}
             key={key}
           >
-            <div onClick={() => {handleSlideShow(primary_key)}} className={style.itemIMG}>
+            <div onClick={() => {handleSlideShow(main_id)}} className={style.itemIMG}>
               <img data-src={`${IMG_HOST_IP}${img}`} alt="" />
             </div>
           </Col>
