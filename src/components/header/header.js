@@ -130,7 +130,7 @@ class HeaderComponent extends PureComponent {
               </ul>              
               <SearchOutlined className={style.ICONSearch}/>
             </div>
-            <div className={style.searchList}>
+            <div className={style.searchList} style={{display:'block'}}>
               <div className={style.searchBorder}>
                 <div className={style.searchHistory}>
                   <span>最近搜索</span>
