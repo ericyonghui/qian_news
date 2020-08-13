@@ -3,21 +3,18 @@ import router from 'umi/router';
 import { Row, Col, Menu, Input ,Select} from "antd";
 import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
-import img1 from "../../page/IMG/季节/季节-2020早春.png"
-import img2 from "../../page/IMG/季节/季节-2020早秋.jpg"
-import img3 from "../../page/IMG/季节/季节-2020春夏.jpg"
-import img4 from "../../page/IMG/季节/季节-2020秋冬.jpg"
-import img5 from "../../page/IMG/性别/性别-女装.jpg"
-import img6 from "../../page/IMG/性别/性别-男装.png"
-import img7 from "../../page/IMG/性别/性别-童装.jpg"
-import img8 from "../../page/IMG/类别/类别-T台.png"
-import img9 from "../../page/IMG/类别/类别-图案.jpg"
-import img10 from "../../page/IMG/类别/类别-手绘.png"
-import img11 from "../../page/IMG/类别/类别-款式.jpg"
-import img12 from "../../page/IMG/类别/类别-街拍.png"
-
-
-
+import img1 from "../../assets/season/early_spring.png"
+import img2 from "../../assets/season/early_autumn.jpg"
+import img3 from "../../assets/season/spring_summer.jpg"
+import img4 from "../../assets/season/autumn_winter.jpg"
+import img5 from "../../assets/gender/women.jpg"
+import img6 from "../../assets/gender/men.png"
+import img7 from "../../assets/gender/kids.jpg"
+import img8 from "../../assets/module/runway.png"
+import img9 from "../../assets/module/design.jpg"
+import img10 from "../../assets/module/material.png"
+import img11 from "../../assets/module/style.jpg"
+import img12 from "../../assets/module/streetSnap.png"
 
 const { Search } = Input;
 const { Option } = Select;
