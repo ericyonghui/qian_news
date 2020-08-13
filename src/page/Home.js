@@ -6,7 +6,9 @@ import {lazyLoad} from '../util/utils';
 import { IMG_HOST,IMG_HOST_IP } from "../util/common";
 import axios from "../util/axios";
 import style from "./home.less";
-
+import LB1 from "../assets/banner/LB1.jpg";
+import LB2 from "../assets/banner/LB2.jpg";
+import LB3 from "../assets/banner/LB3.jpg";
 
 class Home extends PureComponent {
     state={
@@ -174,16 +176,13 @@ class Home extends PureComponent {
         <div className={style.carsuselContainer}>
           <Carousel autoplay style={{ height: "480px" }}>
             <div>
-              <h3>1</h3>
+              <h3><img src={LB1} alt=""/></h3>
             </div>
             <div>
-              <h3>2</h3>
+              <h3><img src={LB2} alt=""/></h3>
             </div>
             <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
+              <h3><img src={LB3} alt=""/></h3>
             </div>
           </Carousel>
         </div>
