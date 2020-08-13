@@ -364,7 +364,7 @@ class HeaderComponent extends PureComponent {
         <Row className={style.m_container} style={{height:"60px"}}>
             <Col md={2} sm={3} xs={3} className={style.logo}>千尚</Col>
             <Col  md={20} sm={18} xs={18} className={style.search}>
-              <div className={style.searchInput}>
+              <div className={style.searchInputMobile}>
                 <input type="text"/>
                 <SearchOutlined className={style.ICONSearch}/>
               </div>
