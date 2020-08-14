@@ -50,21 +50,17 @@ class HeaderComponent extends PureComponent {
   state={
     current: "index",
     display:'none',
-    searchDisplay: 'none'
+    searchDisplay: 'none',
+    headerHeight:0
   };
 
   componentDidMount(){
-    // let str = window.location.pathname;
-    // let pathname=str.substring(1,str.length);
-    // let res = routerArr.filter(item=>{return item.routerKey === pathname});
-    // if(res[0].routerVal!==''){
-    //   router.push(res[0].routerVal);
-    // } else {
-    //   router.push(`/home`);
-    // }
-    // this.setState({
-    //   current: pathname
-    // });
+     const headerDom = this.headerDom;
+     if(headerDom){
+       this.setState({
+         headerHeight: headerDom.clientHeight
+       })
+     }
   }
 
 
@@ -302,7 +298,9 @@ class HeaderComponent extends PureComponent {
     return (
       <div>
         {/* pc 大于等于1024 >ipad */}
-        <Row className={style.pc_container} style={{borderBottom:'1px solid #333'}} ref="header">
+        <Row className={style.pc_container} style={{borderBottom:'1px solid #333'}} ref={(c) => {
+          this.headerDom = c;
+        }}>
           <Col span={2} className={style.logo}>
             千尚
           </Col>
@@ -364,7 +362,7 @@ class HeaderComponent extends PureComponent {
           </div>
         </Row>
 
-        <div className={style.pcHeaderHeight} style={{height:'120px',marginBottom:"20px"}}></div>
+        <div className={style.pcHeaderHeight} style={{height:`${this.state.headerHeight}px`,marginBottom:"20px"}}></div>
 
         {/* m 小于1023 */}
         <Row className={style.m_container} style={{height:"60px"}}>
