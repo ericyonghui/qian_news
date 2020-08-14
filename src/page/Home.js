@@ -174,7 +174,7 @@ class Home extends PureComponent {
       <div className={style.homeContainer}>
         {/* 轮播图 */}
         <div className={style.carsuselContainer}>
-          <Carousel autoplay style={{ height: "480px" }}>
+          <Carousel autoplay className={style.sliderH}>
             <div>
               <h3><img src={LB1} alt=""/></h3>
             </div>
