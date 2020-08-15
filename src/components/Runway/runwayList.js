@@ -23,7 +23,7 @@ class RunwayList extends PureComponent {
   renderList() {
     let vDOM = [];
     let {
-      data: { list },handleSlideShow
+      data: { list },handleSlideShow,handleLikeChange
     } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
@@ -37,7 +37,8 @@ class RunwayList extends PureComponent {
           gender,
           img,
           like_size,
-          view_size
+          view_size,
+          likeFlag
         } = item;
         vDOM.push(
           <Col
@@ -49,7 +50,7 @@ class RunwayList extends PureComponent {
             className={style.list}
             key={key}
           >
-            <div className={style.stagemain} onClick={() => {handleSlideShow(main_id)}}>
+            <div className={style.stagemain}>
               <div className={`${style.picture}`}>
                 <img data-src={`${IMG_HOST}/webp${img}`} alt="" />
                 <span className={style.newPosition}>NEW</span>
@@ -57,7 +58,11 @@ class RunwayList extends PureComponent {
 
                   <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
-                      <HeartFilled className={style.heartIcon} />
+                      {
+                        likeFlag ===1 ? (
+                          <HeartFilled className={style.heartIcon} style={{color:"#ff0000"}} onClick={() => {handleLikeChange(main_id,likeFlag)}}/>
+                        ):(<HeartFilled className={style.heartIcon}  onClick={() => {handleLikeChange(main_id,likeFlag)}}/>)
+                      }
                       <span>{like_size}</span>
                     </li>
                     <li>
@@ -67,7 +72,7 @@ class RunwayList extends PureComponent {
                   </ul>
 
               </div>
-              <div className={style.info}>
+              <div className={style.info} onClick={() => {handleSlideShow(main_id)}}>
                 <h3
                   className={style.title} title={`${release_date}${fashion_season}${brand_name}${gender === "women" ? "女装" : "男装"}发布会`}
                 >{`${release_date}${fashion_season}${brand_name}${

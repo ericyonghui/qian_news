@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import { Spin, Pagination } from "antd";
 import axios from "../../util/axios";
+import {giveLike,giveUnLike} from'../../util/utils';
 import style from "../Runway/index.less";
 import StyleList from "../../components/FashionStyle/styleList";
 
@@ -73,6 +74,15 @@ class FashionStyle extends PureComponent {
       }
     });
   };
+  viewStatistics=async (brand,fashionSeason,fashionRegion)=>{
+    await axios({
+      method:"POST",
+      url:`/style/viewStatistics`,
+      data:{
+        brand,fashionSeason,fashionRegion
+      }
+    });
+  };
   handleStandardTableChange = (current, pageSize) => {
     if(current === 1){
       router.push(`/style`);
@@ -83,8 +93,19 @@ class FashionStyle extends PureComponent {
       current, pageSize
     });
   };
-
-  handleSlideShow=(main_id,fashionSeason,fashionRegion,brandName)=>{
+  handleLikeChange=async(brandName,fashionSeason,fashionRegion,likeFlag)=>{
+    if(likeFlag === 0){
+      await giveLike(`${brandName}_${fashionSeason}_${fashionRegion}`,2);
+    } else {
+      await giveUnLike(`${brandName}_${fashionSeason}_${fashionRegion}`,2);
+    }
+    let query = this.props.location.query;
+    this.queryList({
+      current: query.currentPage || this.state.current
+    });
+  };
+  handleSlideShow=async (main_id,fashionSeason,fashionRegion,brandName)=>{
+    await this.viewStatistics(brandName,fashionSeason,fashionRegion);
     router.push(`/brand?id=${main_id}&fashion_season=${fashionSeason}&fashion_region=${fashionRegion}&brand=${brandName}`);
   };
 
@@ -102,6 +123,7 @@ class FashionStyle extends PureComponent {
               <StyleList
                 data={this.state.productData}
                 handleSlideShow={this.handleSlideShow}
+                handleLikeChange={this.handleLikeChange}
               />
               <div className={style.pagination}>
                 <Pagination
