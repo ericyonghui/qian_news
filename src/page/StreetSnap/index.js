@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import axios from "../../util/axios";
+import {giveLike,giveUnLike} from'../../util/utils';
 import { Spin, Pagination } from "antd";
 import style from "../Runway/index.less";
 import StreetSnapList from "../../components/StreetSnap/streetSnapList";
@@ -73,6 +74,15 @@ class StreetSnap extends PureComponent {
       }
     });
   };
+  viewStatistics=async (id)=>{
+    await axios({
+      method:"POST",
+      url:`/streetSnap/viewStatistics`,
+      data:{
+        id
+      }
+    });
+  };
   handleStandardTableChange = (current, pageSize) => {
     if(current === 1){
       router.push(`/streetSnap`);
@@ -83,8 +93,19 @@ class StreetSnap extends PureComponent {
       current, pageSize
     });
   };
-
-  handleSlideShow=(id)=>{
+  handleLikeChange=async (id,likeFlag)=>{
+    if(likeFlag === 0){
+      await giveLike(id,3);
+    } else {
+      await giveUnLike(id,3);
+    }
+    let query = this.props.location.query;
+    this.queryList({
+      current: query.currentPage || this.state.current
+    });
+  };
+  handleSlideShow=async (id)=>{
+    await this.viewStatistics(id);
     router.push(`/slideShow/streetSnap_slideShow?id=${id}`);
   };
 
@@ -102,6 +123,7 @@ class StreetSnap extends PureComponent {
               <StreetSnapList
                 data={this.state.productData}
                 handleSlideShow={this.handleSlideShow}
+                handleLikeChange={this.handleLikeChange}
               />
               <div className={style.pagination}>
                 <Pagination

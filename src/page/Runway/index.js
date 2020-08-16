@@ -3,6 +3,7 @@ import router from 'umi/router';
 import RunwayList from '../../components/Runway/runwayList';
 import { Spin, Pagination } from "antd";
 import axios from '../../util/axios';
+import {giveLike,giveUnLike} from'../../util/utils';
 import style from "./index.less";
 
 class Runway extends PureComponent {
@@ -73,6 +74,15 @@ class Runway extends PureComponent {
       }
     });
   };
+  viewStatistics=async (id)=>{
+    await axios({
+      method:"POST",
+      url:`/fashion/viewStatistics`,
+      data:{
+        id
+      }
+    });
+  };
   handleStandardTableChange = (current, pageSize) => {
     if(current === 1){
       router.push(`/runway`);
@@ -83,8 +93,21 @@ class Runway extends PureComponent {
       current, pageSize
     });
   };
+  handleLikeChange=async (id,likeFlag)=>{
+    if(likeFlag === 0){
+      await giveLike(id,1);
+    } else {
+      await giveUnLike(id,1);
+    }
 
-  handleSlideShow=(id)=>{
+    let query = this.props.location.query;
+    this.queryList({
+      current: query.currentPage || this.state.current
+    });
+  };
+
+  handleSlideShow=async (id)=>{
+    await this.viewStatistics(id);
     router.push(`/slideShow/runway_slideShow?id=${id}`);
   };
 
@@ -102,6 +125,7 @@ class Runway extends PureComponent {
               <RunwayList
                 data={this.state.productData}
                 handleSlideShow={this.handleSlideShow}
+                handleLikeChange={this.handleLikeChange}
               />
               <div className={style.pagination}>
                 <Pagination

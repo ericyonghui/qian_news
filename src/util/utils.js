@@ -1,3 +1,5 @@
+import axios from './axios';
+
 export function format(date, format){
   var v = "";
   if (typeof date == "string" || typeof date != "object") {
@@ -139,4 +141,24 @@ export async function titleCase(str) {
     strArr[i] = strArr[i].substring(0,1).toUpperCase()+strArr[i].toLowerCase().substring(1)
   }
   return strArr.join(' ');
+}
+
+
+export async function giveLike(id,optionType){
+  await axios({
+    method:"POST",
+    url:`/u/giveLike`,
+    data:{
+      id,optionType
+    }
+  });
+}
+export async function giveUnLike(id,optionType){
+  await axios({
+    method:"POST",
+    url:`/u/giveUnLike`,
+    data:{
+      id,optionType
+    }
+  });
 }

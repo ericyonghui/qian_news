@@ -24,7 +24,7 @@ class StyleList extends PureComponent {
   renderList() {
     let vDOM = [];
     let {
-      data: { list },handleSlideShow
+      data: { list },handleSlideShow,handleLikeChange
     } = this.props;
     if (list.length > 0) {
       list.forEach(item => {
@@ -37,7 +37,8 @@ class StyleList extends PureComponent {
           gender,
           img,
           like_size,
-          view_size
+          view_size,
+          likeFlag
         } = item;
         vDOM.push(
           <Col
@@ -49,14 +50,18 @@ class StyleList extends PureComponent {
             className={style.list}
             key={key}
           >
-            <div className={style.stagemain} onClick={() => {handleSlideShow(main_id,fashion_season,fashion_region,brand_name)}}>
+            <div className={style.stagemain}>
               <div className={`${style.picture}`}>
                 <img data-src={`${IMG_HOST_IP}${img}`} alt="" />
                 <span className={style.newPosition}>NEW</span>
                 <span className={style.downPostion}>下载</span>
                 <ul className={`${style.iconPosition} ${style.clearfix}`}>
                     <li>
-                      <HeartFilled className={style.heartIcon} />
+                      {
+                        likeFlag ===1 ? (
+                          <HeartFilled className={style.heartIcon} style={{color:"#ff0000"}} onClick={() => {handleLikeChange(brand_name,fashion_season,fashion_region,likeFlag)}}/>
+                        ):(<HeartFilled className={style.heartIcon}  onClick={() => {handleLikeChange(brand_name,fashion_season,fashion_region,likeFlag)}}/>)
+                      }
                       <span>{like_size}</span>
                     </li>
                     <li>
@@ -64,9 +69,8 @@ class StyleList extends PureComponent {
                       <span>{view_size}</span>
                     </li>
                   </ul>
-
               </div>
-              <div className={style.info}>
+              <div className={style.info} onClick={() => {handleSlideShow(main_id,fashion_season,fashion_region,brand_name)}}>
                 <h3
                   className={style.title} title={`${brand_name}${fashion_season}${gender === "women" ? "女装" : (gender === "men" ? "男装": "童装")}系列`}
                 >{`${brand_name}${fashion_season}${gender === "women" ? "女装" : (gender === "men" ? "男装": "童装")}系列`}</h3>
