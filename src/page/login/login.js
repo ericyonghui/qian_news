@@ -9,12 +9,12 @@ export default class Login extends React.Component{
     }
     render(){
         return <Row className={style.LoginContainer}>
-            <Col lg={8} xl={8} md={8} xs={24} sm={24} className={style.bg}>
+            <Col lg={8} xl={8} md={12} xs={24} sm={24} className={style.bg}>
                 <h2>发现时尚</h2>
                 <h2 className={style.titleP}>定义时尚</h2>
                 <p><span>千尚</span>致力于用最前沿的人工智能技术为服装产业提供AI相关产品及应用解决发难，通过AI赋能助力客户及合作伙伴提升效率和价值</p>
             </Col>
-            <Col lg={8} xl={8} md={8} xs={24} sm={24} className={style.context}>
+            <Col lg={4} xl={8} md={12} xs={24} sm={24} className={style.context}>
                <div className={style.just}>
                <p>会员专享权利</p>
                 <ul>
@@ -26,7 +26,7 @@ export default class Login extends React.Component{
                 </ul>
                </div>
             </Col>
-            <Col lg={8} xl={8} md={8} sm={24} xs={24} className={style.form}>
+            <Col lg={12} xl={8} md={24} sm={24} xs={24} className={style.form}>
                 <h2>加入千尚</h2>
                 <div>
                     <form>

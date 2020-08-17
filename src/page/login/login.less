@@ -13,44 +13,14 @@
   .LoginContainer{
       display: flex;
       width:100%;
-      height: 100vh;
-      width:100%;
-      background: url("./bg5.png") left top no-repeat;
-      background-size: auto 100%;
   }
   .bg{
-      padding:80px 200px 30px 30px;
       box-sizing: border-box;
-      h2{
-          font-size:40px;
-          line-height: 80px;
-      }
-      .titleP{
-          text-indent: 50px;
-      }
-      p{
-          margin-top:100px;
-          color:#fff;
-          font-size: 16px;
-          line-height: 30px;
-          span{
-              font-size:24px;
-          }
-      }
+      color:#333;
   }
 .context{
     position: relative;
-    padding-left: 50px;
-    .just{
-        position: absolute;
-        top:50%;
-        margin-top:-120px;
-    }
-    p{
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+    
     ul{
         padding:0;
         margin:0;
@@ -65,19 +35,13 @@
 }
 }
 .form{
-    padding:30px;
     box-sizing: border-box;
     h2{
-        font-size: 40px;
         color:#333;
-        line-height: 80px;
-        margin-top:40px;
         text-align: center;
     }
     ul{
         background:#f0f0f0;
-        border-radius: 50px;
-        padding:30px;
         overflow: hidden;
     }
     li{
@@ -152,6 +116,213 @@
            border-radius:10px;
            font-size: 14px;
            cursor: pointer;
+        }
+    }
+
+}
+
+@media (min-width:1200px){
+    .LoginContainer{
+        background: url("./bg5.png") left top no-repeat;
+        background-size: auto 100%;
+        height: 100vh;
+    }
+    .bg{
+        padding:80px 200px 30px 30px;
+        color:#fff;
+        h2{
+            font-size:40px;
+            line-height: 80px;
+        }
+        .titleP{
+            text-indent: 50px;
+        }
+        p{
+            margin-top:100px;
+            font-size: 16px;
+            line-height: 30px;
+            span{
+                font-size:24px;
+            }
+        }
+    }
+    .context{
+        padding-left: 50px;
+        .just{
+            position: absolute;
+            top:50%;
+            margin-top:-120px;
+        }
+        p{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    }
+    .form{
+        padding:30px;
+        h2{
+            font-size: 40px;
+            line-height: 80px;
+            margin-top:40px;
+        }
+        ul{
+            border-radius: 50px;
+            padding:30px;
+        }
+    }
+
+}
+
+// ipad pro
+@media (min-width:1024px) and (max-width:1199px){
+    .LoginContainer{
+        background: url("./bg5.png") left top no-repeat;
+        height: 100vh;
+    }
+    .bg{
+        padding:80px 40px 20px 20px;
+        color:#fff;
+        h2{
+            font-size:20px;
+        }
+        p{
+            margin-top:60px;
+            font-size: 16px;
+            line-height: 30px;
+            span{
+                font-size:24px;
+            }
+        }
+        .titleP{
+            text-indent: 20px;
+        }
+    }
+    .context{
+        padding-left: 20px;
+        .just{
+            margin-top: 30px;
+        }
+        p{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    }
+    .form{
+        padding:15px;
+        h2{
+            font-size: 30px;
+            line-height: 60px;
+        }
+        ul{
+            border-radius: 50px;
+            padding:30px;
+        }
+    }
+
+}
+// ipad
+@media (min-width:768px) and (max-width:1023px){
+    .LoginContainer{
+        height: 100vh;
+        background: url("./bg5.png") left top no-repeat;
+    }
+    .bg{
+        padding:80px 80px 20px 20px;
+        color:#fff;
+        h2{
+            font-size:20px;
+        }
+        p{
+            margin-top:40px;
+            font-size: 16px;
+            line-height: 30px;
+            span{
+                font-size:24px;
+            }
+        }
+        .titleP{
+            text-indent: 20px;
+        }
+    }
+    .context{
+        padding-top:20px;
+        padding-left: 20px;
+        .just{
+            margin-top: 30px;
+        }
+        p{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    }
+    .form{
+        background:#fff;
+        padding:15px;
+        h2{
+            font-size: 30px;
+            line-height: 60px;
+        }
+        ul{
+            border-radius: 50px;
+            padding:30px;
+        }
+    }
+
+}
+// mobile
+@media (max-width:767px){
+    .LoginContainer{
+        background: url("./bg5.png") left top no-repeat;
+        background-size:100% auto;
+    }
+    .bg{
+        padding:20px 60px 20px 20px;
+        color:#fff;
+        h2{
+            font-size:20px;
+        }
+        p{
+            margin-top:40px;
+            font-size: 16px;
+            line-height: 30px;
+            span{
+                font-size:24px;
+            }
+        }
+        .titleP{
+            text-indent: 20px;
+        }
+    }
+    .context{
+        padding-top:20px;
+        padding-left: 20px;
+        .just{
+            padding-left: 10px;;
+            color:#f0f0f0;
+            li{
+                color:#f0f0f0;
+            }
+        }
+        p{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+    }
+    .form{
+        background:#fff;
+        padding:5px;
+        h2{
+            font-size: 20px;
+            line-height: 40px;
+        }
+        ul{
+            padding: 10px;
+            box-sizing: border-box;
         }
     }
 
