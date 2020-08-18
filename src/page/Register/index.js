@@ -1,12 +1,16 @@
 import React, { PureComponent } from "react";
-import {Form, Row, Col} from "antd";
+import {Form, Row, Col,message} from "antd";
+import router from 'umi/router';
 import GraphicsValidation from '../../components/GraphicsValidation';
+import axios from '../../util/axios';
 import style from './index.less';
 
+const md5 = require('md5');
 const userNameReg=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{5,20}$/;
 const phoneReg=/^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/;
-const passwordReg=/^(?![A-z0-9]+$)(?![A-z!@#$%^&*()_]+$)(?![0-9!@#$%^&*()_]+$)([A-z0-9!@#$%^&*()_]{6,})$/;
-let wait = 60;
+const passwordReg=/^(?!^[0-9]+$)(?!^[a-zA-Z]+$)(?!^[!@#$%^&*_]+$)[0-9a-zA-Z!@#$%^&*_]{6,}$/;
+
+
 let loginTimer=null;
 
 class Register extends PureComponent {
@@ -24,36 +28,73 @@ class Register extends PureComponent {
     contentWidth: 96,
     contentHeight: 38,
     clickFlag: true,
-    count:60,
     usernameMsg:'',
     phoneMsg:'',
     graphCodeMsg:'',
     messageCodeMsg:'',
-    passwordMsg:'',
-    phone:'',
+    passwordMsg:''
+  };
+  formRef = React.createRef();
+  queryExistUserName=async (uName)=>{
+    let result = await axios({
+      method:"POST",
+      url:`/u/existUserName`,
+      data:{
+        uName
+      }
+    });
+    const { data} = result;
+    return data;
+  };
+  queryExistPhone=async (phone)=>{
+    let result = await axios({
+      method:"POST",
+      url:`/u/existPhone`,
+      data:{
+        phone
+      }
+    });
+    const { data} = result;
+    return data;
+  };
+  sendSms=async (phone)=>{
+    let result = await axios({
+      method:"POST",
+      url:`/u/sendSms`,
+      data:{
+        phone
+      }
+    });
+    const {data} = result;
+    return data;
   };
 
-  handleFinish = values  => {
-    console.log('Received values of form: ', values);
-  };
-  handleFinishFailed = ({ values })  => {
-    let usernameMsg='',phoneMsg='',passwordMsg='',graphCodeMsg='';
+  handleFinishFailed = async ({ values })  => {
+    let usernameMsg='',phoneMsg='',passwordMsg='',graphCodeMsg='',messageCodeMsg='';
     //用户名验证
-    if(typeof values.username==='undefined'){
+    if(typeof values.username==='undefined' || values.username===''){
       usernameMsg = '用户名不能为空'
     } else if(!userNameReg.test(values.username)){
       usernameMsg = '用户名以字母和数字组成，5-20字符'
     } else {
       //从数据库进行查询用户名是否存在
+      let resFLag = await this.queryExistUserName(values.username);
+      if(!resFLag){
+        usernameMsg = '用户名已存在'
+      }
     }
-
     //手机号验证
-    if(typeof values.phone==='undefined'){
+    if(typeof values.phone==='undefined' || values.phone===''){
       phoneMsg = '手机号码不能为空'
     } else if(!phoneReg.test(values.phone)){
       phoneMsg = '手机号码输入不规范'
+    } else {
+      //从数据库进行查询用户名是否存在
+      let resFLag = await this.queryExistPhone(values.phone);
+      if(!resFLag){
+        phoneMsg = '手机号码已注册'
+      }
     }
-
     //图形验证码验证
     if(typeof values.graphCode==='undefined' || values.graphCode.toLowerCase() === ''){
       graphCodeMsg = '图形验证码不能为空'
@@ -61,8 +102,14 @@ class Register extends PureComponent {
       graphCodeMsg = '图形验证码输入不正确'
     }
 
+    //短信验证码验证
+    if(typeof values.messageCode==='undefined' || values.messageCode === ''){
+      messageCodeMsg = '短信验证码不能为空'
+    } else if(!/^\d{6}$/.test(values.messageCode)){
+      messageCodeMsg = '短信验证码输入不规范'
+    }
     //密码验证
-    if(typeof values.password==='undefined'){
+    if(typeof values.password==='undefined' || values.password===''){
       passwordMsg = '登录密码不能为空'
     } else if(!passwordReg.test(values.password)){
       passwordMsg = '由6位以上字母、数字或特殊符号组成'
@@ -73,37 +120,47 @@ class Register extends PureComponent {
       phoneMsg,
       passwordMsg,
       graphCodeMsg,
+      messageCodeMsg,
       phone: values.phone
     })
   };
-  handleUserNameBlur=(e)=>{
+  handleUserNameBlur=async (e)=>{
     let usernameMsg='';
-    if(typeof e.target.value==='undefined'){
+    if(typeof e.target.value==='undefined' || e.target.value===''){
       usernameMsg = '用户名不能为空'
     } else if(!userNameReg.test(e.target.value)){
       usernameMsg = '用户名以字母和数字组成，5-20字符'
     } else {
       //从数据库进行查询用户名是否存在
+      let resFLag = await this.queryExistUserName(e.target.value);
+      if(!resFLag){
+        usernameMsg = '用户名已存在'
+      }
     }
     this.setState({
       usernameMsg
     });
   };
-  handlePhoneBlur=(e)=>{
+  handlePhoneBlur=async(e)=>{
     let phoneMsg='';
-    if(typeof e.target.value==='undefined'){
+    if(typeof e.target.value==='undefined' || e.target.value===''){
       phoneMsg = '手机号码不能为空'
     } else if(!phoneReg.test(e.target.value)){
       phoneMsg = '手机号码输入不规范'
+    } else {
+      //从数据库进行查询用户名是否存在
+      let resFLag = await this.queryExistPhone(e.target.value);
+      if(!resFLag){
+        phoneMsg = '手机号码已注册'
+      }
     }
     this.setState({
-      phoneMsg,
-      phone: e.target.value
+      phoneMsg
     });
   };
   handlePasswordBlur=(e)=>{
     let passwordMsg='';
-    if(typeof e.target.value==='undefined'){
+    if(typeof e.target.value==='undefined' || e.target.value===''){
       passwordMsg = '登录密码不能为空'
     } else if(!passwordReg.test(e.target.value)){
       passwordMsg = '由6位以上字母、数字或特殊符号组成'
@@ -123,13 +180,46 @@ class Register extends PureComponent {
       graphCodeMsg
     });
   };
-  handleGraphicsCode=(code)=>{
-    this.setState({code});
+  handleMessageCodeBlur=(e)=>{
+    let messageCodeMsg='';
+    //短信验证码验证
+    if(typeof e.target.value==='undefined' || e.target.value ===''){
+      messageCodeMsg = '短信验证码不能为空'
+    } else if(!/^\d{6}$/.test(e.target.value)){
+      messageCodeMsg = '短信验证码输入不规范'
+    }
+    this.setState({
+      messageCodeMsg
+    });
   };
-  handleGetCode=()=>{
-    const {phone} = this.state;
-    if(typeof phone!=='undefined' && phone!=='' && phoneReg.test(phone)){
-      this.handleTimer();
+  handleGraphicsCode=(code)=>{
+    const _this = this;
+    _this.setState({code},()=>{
+      _this.formRef.current.setFieldsValue({
+        graphCode: "",
+      });
+      if(this.graphCodeInput){
+        this.graphCodeInput.value='';
+      }
+    });
+  };
+  handleGetCode=async ()=>{
+    if(this.phoneInput){
+      let phone = this.phoneInput.value;
+      if(typeof phone!=='undefined' && phone!=='' && phoneReg.test(phone)){
+        let resFLag = await this.queryExistPhone(phone);
+        if(resFLag){
+          const res = await this.sendSms(phone);
+          if(res ==='success'){
+            this.handleTimer();
+            message.success('发送成功');
+          } else if(res ==='repeat'){
+            message.warn('验证码已发送,5分钟内有效');
+          } else if(res ==='fail'){
+            message.error('发送失败');
+          }
+        }
+      }
     }
   };
   handleTimer=()=>{
@@ -154,6 +244,35 @@ class Register extends PureComponent {
       },1000);
     })
   };
+
+  handleFill=async ()=>{
+    try{
+      const res = await this.formRef.current.validateFields();
+      const {usernameMsg,phoneMsg,passwordMsg,graphCodeMsg,messageCodeMsg} =this.state;
+      if(usernameMsg==='' && phoneMsg==="" && passwordMsg==="" && graphCodeMsg==="" && messageCodeMsg===""){
+        const {messageCode,password,phone,username} = res;
+        let result = await axios({
+          method:"POST",
+          url:"/u/register",
+          data: {
+            username,phone,messageCode,password: md5(password)
+          }
+        });
+        let {code,msg} = result;
+        if(code === 200){
+          clearInterval(loginTimer);
+          router.push('/slideShow/registerInfo')
+        } else {
+          message.error(msg);
+        }
+      } else {
+        return false;
+      }
+    }catch (e) {
+      return false;
+    }
+  };
+
   render(){
     return <Row className={style.LoginContainer}>
       <Col lg={8} xl={8} md={12} xs={24} sm={24} className={style.bg}>
@@ -176,7 +295,7 @@ class Register extends PureComponent {
       <Col lg={12} xl={8} md={24} sm={24} xs={24} className={style.form}>
         <h2>加入千尚</h2>
         <div>
-          <Form  onFinish={this.handleFinish} onFinishFailed={this.handleFinishFailed}>
+          <Form ref={this.formRef} onFinishFailed={this.handleFinishFailed}>
             <ul>
               <Form.Item
                 noStyle
@@ -205,7 +324,9 @@ class Register extends PureComponent {
               >
                 <li>
                   <span>手机号</span>
-                  <input type="text" placeholder='请输入手机号!'  onBlur={this.handlePhoneBlur}/>
+                  <input type="text" ref={(c) => {
+                    this.phoneInput = c;
+                  }} placeholder='请输入手机号!'  onBlur={this.handlePhoneBlur}/>
                   { this.state.phoneMsg!=='' &&
                   <p className={style.on}>{this.state.phoneMsg}</p>
                   }
@@ -219,7 +340,9 @@ class Register extends PureComponent {
               >
                 <li>
                   <span>图形验证码</span>
-                  <input type="text"  placeholder='请输入图形验证码!' onBlur={this.handleGraphCodeBlur}/>
+                  <input type="text"  ref={(c) => {
+                    this.graphCodeInput = c;
+                  }} placeholder='请输入图形验证码!' onBlur={this.handleGraphCodeBlur}/>
                   { this.state.graphCodeMsg!=='' &&
                     <p className={style.on}>{this.state.graphCodeMsg}</p>
                   }
@@ -236,13 +359,13 @@ class Register extends PureComponent {
               >
                 <li>
                   <span>短信验证码</span>
-                  <input type="text"  placeholder='请输入短信验证码!'/>
+                  <input type="text"  placeholder='请输入短信验证码!' onBlur={this.handleMessageCodeBlur}/>
                   { this.state.messageCodeMsg!=='' &&
                     <p className={style.on}>{this.state.messageCodeMsg}</p>
                   }
                   {
                     this.state.clickFlag ? (
-                      <a href='#' className={style.YZ}onClick={this.handleGetCode}>发送验证码</a>
+                      <a href='#' className={style.YZ} onClick={this.handleGetCode}>发送验证码</a>
                     ):(<a href='#' className={style.YZ} id="getCode" />)
                   }
                 </li>
@@ -269,7 +392,7 @@ class Register extends PureComponent {
                 noStyle
               >
                 <li>
-                  <button type="submit" className={style.submitButton}>立即注册</button>
+                  <button type="submit" className={style.submitButton} onClick={this.handleFill}>立即注册</button>
                 </li>
               </Form.Item>
               <Form.Item

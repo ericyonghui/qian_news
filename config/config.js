@@ -25,7 +25,10 @@ export default {
         // 款式商品详细
         {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'},
         {path:'/slideShow/register1',component:'./login/login'},
-        {path:'/slideShow/register',component:'./Register'}
+        {path:'/slideShow/register',component:'./Register'},
+        {
+          component: 'registerInfo',
+        },
       ]
     },
     {
