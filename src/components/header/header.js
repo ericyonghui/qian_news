@@ -324,16 +324,16 @@ class HeaderComponent extends PureComponent {
           <Col span={12} className={style.search}>
             <div className={style.searchInput}>
               <ul className={style.clearfix}>
-                <li>男装&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
+                {/* <li>男装&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>2020早秋&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>
                   <input type="text" onFocus={this.showSearchNav} onBlur={this.hideSearchNav}/>
 
-              </li>
+              </li> */}
               </ul>
               <SearchOutlined className={style.ICONSearch}/>
             </div>
-            {this.renderSearchDom()}
+            {/* {this.renderSearchDom()} */}
           </Col>
           <Col span={2} className={style.user}>
             <ul>
@@ -342,7 +342,7 @@ class HeaderComponent extends PureComponent {
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
-          <div span={24} className={style.moreSearchList}>
+          {/* <div span={24} className={style.moreSearchList}>
             <h4>搜索资源</h4>
             <ul>
               <li>
@@ -359,7 +359,7 @@ class HeaderComponent extends PureComponent {
               </li>
               <li><button>搜索</button></li>
             </ul>
-          </div>
+          </div> */}
         </Row>
 
         <div className={style.pcHeaderHeight} style={{height:`${this.state.headerHeight}px`,marginBottom:"20px"}}></div>
