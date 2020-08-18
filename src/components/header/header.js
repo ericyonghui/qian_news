@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
+import Link from 'umi/link';
 import { Row, Col, Menu, Input ,Select ,Checkbox} from "antd";
 import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
@@ -338,7 +339,7 @@ class HeaderComponent extends PureComponent {
           <Col span={2} className={style.user}>
             <ul>
               <li>登录</li>
-              <li>注册</li>
+              <Link to="/slideShow/register"><li>注册</li></Link>
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
@@ -398,7 +399,7 @@ class HeaderComponent extends PureComponent {
             </Menu>
           </div>
         </Row>
-          
+
 
           {/* 登陆 弹窗 */}
           {/* 默认设置css display:none */}
