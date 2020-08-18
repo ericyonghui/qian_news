@@ -603,3 +603,77 @@ button {
   
   }
 }
+.loginMark{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background:rgba(0,0,0,.5);
+  z-index: 5;
+  .content{
+    position: fixed;
+    top:30%;
+    left:calc(50% - 200px);
+    width:600px;
+    padding:50px;
+    background:#fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    h4{
+      font-size:30px;
+      line-height: 60px;
+      color:#333;
+      font-weight: bold;
+    }
+    li{
+      padding:0;
+      margin-bottom:20px;
+      display: flex;
+      .labelName{
+        width:65px;
+        text-align: right;
+        font-size:16px;
+        color:#333;
+        line-height: 32px;
+        font-weight: bold;
+        padding-right: 15px;
+      }
+      .inputBox{
+        flex: 1;
+        height: 32px;
+        border:1px solid #ddd;
+        border-radius: 4px;
+        padding:0 8px;
+        font-size: 16px;
+        color:#666;
+        line-height: 32px;
+        box-sizing: border-box;
+      }
+      .forgetPassword{
+        flex:1;
+        text-align: right;
+        font-size:14px;
+        color:#999;
+      }
+      .loginBtn{
+        width:100%;
+        height: 40px;
+        border:0;
+        border-radius: 8px;
+        font-size:16px;
+        text-align: center;
+        line-height: 40px;
+        color:#fff;
+        background:#2c2929;
+        cursor: pointer;
+        transition: all ease-in .5s;
+        &:hover{
+          background: #000;;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
-import { Row, Col, Menu, Input ,Select} from "antd";
+import { Row, Col, Menu, Input ,Select ,Checkbox} from "antd";
 import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
 import style from "./header.less";
 import img1 from "../../assets/season/early_spring.png"
@@ -398,6 +398,36 @@ class HeaderComponent extends PureComponent {
             </Menu>
           </div>
         </Row>
+          
+
+          {/* 登陆 弹窗 */}
+          {/* 默认设置css display:none */}
+          <div className={style.loginMark}>
+            <div className={style.content}>
+              <h4>登陆千尚</h4>
+              <ul>
+                <li>
+                  <span className={style.labelName}>用户名</span>
+                  <input type="text" className={style.inputBox}/>
+                </li>
+                <li>
+                  <span className={style.labelName}>密码</span>
+                  <input type="password" className={style.inputBox}/>
+                </li>
+                <li className={style.clearfix}>
+                  <Checkbox style={{float:'left'}}>记录登陆状态</Checkbox>
+                  <a href="javascript:;" className={style.forgetPassword}>忘记密码</a>
+                </li>
+                <li>
+                  <button className={style.loginBtn}>登陆</button>
+                </li>
+                <li>
+                  还没有千尚账号？<a href="javascript:;">立即注册</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
       </div>
     );
   }
