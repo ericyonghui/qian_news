@@ -49,7 +49,9 @@ export default {
         {path:'/material' , component:'./Material'},
         //图案素材详情
         {path:'/detail' , component:'./Material/Detail'},
-        {path:'/search' , component:'./searchMobile/searchMobile'}
+        {path:'/search' , component:'./searchMobile/searchMobile'},
+        // login
+        {path:'/Login',component:'./login/Login'}
       ]
     }
   ],
