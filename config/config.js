@@ -24,7 +24,7 @@ export default {
         {path:'/slideShow/streetSnap_slideShow',component:'./StreetSnap/SlideShow'},
         // 款式商品详细
         {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'},
-        {path:'/slideShow/register1',component:'./login/login'},
+        {path:'/slideShow/register1',component:'./Login/login'},
         {path:'/slideShow/register',component:'./Register'},
         {
           component: 'registerInfo',
@@ -56,7 +56,7 @@ export default {
         {path:'/detail' , component:'./Material/Detail'},
         {path:'/search' , component:'./searchMobile/searchMobile'},
         // login
-        {path:'/Login',component:'./login/Login'}
+        {path:'/Login',component:'./Login/login'}
       ]
     }
   ],
