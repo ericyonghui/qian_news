@@ -23,7 +23,9 @@ export default {
         // 街拍详细
         {path:'/slideShow/streetSnap_slideShow',component:'./StreetSnap/SlideShow'},
         // 款式商品详细
-        {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'}
+        {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'},
+        {path:'/slideShow/register1',component:'./login/login'},
+        {path:'/slideShow/register',component:'./Register'}
       ]
     },
     {

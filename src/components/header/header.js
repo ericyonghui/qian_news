@@ -10,11 +10,11 @@ import img4 from "../../assets/season/autumn_winter.jpg"
 import img5 from "../../assets/gender/women.jpg"
 import img6 from "../../assets/gender/men.png"
 import img7 from "../../assets/gender/kids.jpg"
-import img8 from "../../assets/module/runway.png"
-import img9 from "../../assets/module/design.jpg"
-import img10 from "../../assets/module/material.png"
-import img11 from "../../assets/module/style.jpg"
-import img12 from "../../assets/module/streetSnap.png"
+import img8 from "../../assets/block/runway.png"
+import img9 from "../../assets/block/design.jpg"
+import img10 from "../../assets/block/material.png"
+import img11 from "../../assets/block/style.jpg"
+import img12 from "../../assets/block/streetSnap.png"
 
 const { Search } = Input;
 const { Option } = Select;
