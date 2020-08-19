@@ -13,6 +13,20 @@ axios.interceptors.request.use(config => {
 },(error)=>{
   return Promise.reject(error);
 });
-
+// //响应拦截器
+axios.interceptors.response.use(response=> {
+    return response;
+  },error=> {
+    if(error.response) {
+      const { status } = error.response;
+      //如果401或405则到登录页
+      if (status === 401 || status === 405) {
+        localStorage.removeItem('nickname');
+        localStorage.removeItem('token');
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 axios.interceptors.response.use(result => result.data);
 export default axios;
