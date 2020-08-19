@@ -91,7 +91,7 @@ class Login extends PureComponent {
               noStyle
             >
               <li>
-                还没有千尚账号？<Link to="/slideShow/register"><a href="#">立即注册</a></Link>
+                还没有千尚账号？<Link to="/member/register">立即注册</Link>
               </li>
             </Form.Item>
             </ul>

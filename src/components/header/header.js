@@ -343,7 +343,7 @@ class HeaderComponent extends PureComponent {
           <Col span={2} className={style.user}>
             <ul>
               <li onClick={this.handleLogin}>登录</li>
-              <Link to="/slideShow/register"><li>注册</li></Link>
+              <Link to="/member/register"><li>注册</li></Link>
             </ul>
             {/* <div>hello xxx</div> */}
           </Col>
