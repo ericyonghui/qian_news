@@ -298,6 +298,11 @@ class HeaderComponent extends PureComponent {
       loginMark:'block'
     })
   };
+  handleSetLoginMark=(loginMark)=>{
+    this.setState({
+      loginMark
+    })
+  };
 
   render() {
     return (
@@ -408,7 +413,7 @@ class HeaderComponent extends PureComponent {
         <div className={style.loginMark} style={{
           display: this.state.loginMark
         }}>
-          <Login/>
+          <Login handleSetLoginMark={this.handleSetLoginMark}/>
         </div>
       </div>
     );
