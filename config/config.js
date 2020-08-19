@@ -15,6 +15,16 @@ export default {
   hash:true,
   routes: [
     {
+      path: '/member',
+      component: '../layout/otherIndex',
+      routes: [
+        {path:'/member/register',component:'./Register'},
+        {
+          component: 'registerInfo',
+        }
+      ]
+    },
+    {
       path: '/slideShow',
       component: '../layout/SlideShow',
       routes: [
@@ -23,12 +33,7 @@ export default {
         // 街拍详细
         {path:'/slideShow/streetSnap_slideShow',component:'./StreetSnap/SlideShow'},
         // 款式商品详细
-        {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'},
-        {path:'/slideShow/register1',component:'./Login/login'},
-        {path:'/slideShow/register',component:'./Register'},
-        {
-          component: 'registerInfo',
-        },
+        {path:'/slideShow/brand_slideShow',component:'./FashionStyle/SlideShow'}
       ]
     },
     {
@@ -55,8 +60,6 @@ export default {
         //图案素材详情
         {path:'/detail' , component:'./Material/Detail'},
         {path:'/search' , component:'./searchMobile/searchMobile'},
-        // login
-        {path:'/Login',component:'./Login/login'}
       ]
     }
   ],

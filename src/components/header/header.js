@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import Link from 'umi/link';
-import { Row, Col, Menu, Input ,Select ,Checkbox} from "antd";
+import { Row, Col, Menu, Input ,Select } from "antd";
 import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
+import Login from '../Login';
 import style from "./header.less";
 import img1 from "../../assets/season/early_spring.png"
 import img2 from "../../assets/season/early_autumn.jpg"
@@ -52,7 +53,8 @@ class HeaderComponent extends PureComponent {
     current: "index",
     display:'none',
     searchDisplay: 'none',
-    headerHeight:0
+    headerHeight:0,
+    loginMark:'none'
   };
 
   componentDidMount(){
@@ -63,8 +65,6 @@ class HeaderComponent extends PureComponent {
        })
      }
   }
-
-
   handleClick = e => {
     let res = routerArr.filter(item=>{return item.routerKey === e.key});
     if(res[0].routerVal!==''){
@@ -82,14 +82,12 @@ class HeaderComponent extends PureComponent {
   hideNav = e =>{
     this.setState({display: "none"});
   }
-
   showSearchNav = e =>{
     this.setState({searchDisplay: "block"});
   }
   hideSearchNav = e =>{
     this.setState({searchDisplay: "none"});
   }
-
   renderSearchDom(){
     return <div className={style.searchList} style={{display:this.state.searchDisplay}}>
       <div className={style.searchBorder}>
@@ -295,6 +293,12 @@ class HeaderComponent extends PureComponent {
     </div>;
   }
 
+  handleLogin=()=>{
+    this.setState({
+      loginMark:'block'
+    })
+  };
+
   render() {
     return (
       <div>
@@ -338,7 +342,7 @@ class HeaderComponent extends PureComponent {
           </Col>
           <Col span={2} className={style.user}>
             <ul>
-              <li>登录</li>
+              <li onClick={this.handleLogin}>登录</li>
               <Link to="/slideShow/register"><li>注册</li></Link>
             </ul>
             {/* <div>hello xxx</div> */}
@@ -400,35 +404,12 @@ class HeaderComponent extends PureComponent {
           </div>
         </Row>
 
-
           {/* 登陆 弹窗 */}
-          {/* 默认设置css display:none */}
-          <div className={style.loginMark}>
-            <div className={style.content}>
-              <h4>登陆千尚</h4>
-              <ul>
-                <li>
-                  <span className={style.labelName}>用户名</span>
-                  <input type="text" className={style.inputBox}/>
-                </li>
-                <li>
-                  <span className={style.labelName}>密码</span>
-                  <input type="password" className={style.inputBox}/>
-                </li>
-                <li className={style.clearfix}>
-                  <Checkbox style={{float:'left'}}>记录登陆状态</Checkbox>
-                  <a href="javascript:;" className={style.forgetPassword}>忘记密码</a>
-                </li>
-                <li>
-                  <button className={style.loginBtn}>登陆</button>
-                </li>
-                <li>
-                  还没有千尚账号？<a href="javascript:;">立即注册</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
+        <div className={style.loginMark} style={{
+          display: this.state.loginMark
+        }}>
+          <Login/>
+        </div>
       </div>
     );
   }
