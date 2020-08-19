@@ -54,16 +54,25 @@ class HeaderComponent extends PureComponent {
     display:'none',
     searchDisplay: 'none',
     headerHeight:0,
-    loginMark:'none'
+    loginMark:'none',
+    loginFlag: false,
+    nickname:''
   };
 
   componentDidMount(){
-     const headerDom = this.headerDom;
-     if(headerDom){
-       this.setState({
-         headerHeight: headerDom.clientHeight
-       })
-     }
+    const nickname = localStorage.getItem('nickname');
+    if(nickname){
+      this.setState({
+        nickname,
+        loginFlag: true
+      })
+    }
+    const headerDom = this.headerDom;
+    if(headerDom){
+     this.setState({
+       headerHeight: headerDom.clientHeight
+     })
+   }
   }
   handleClick = e => {
     let res = routerArr.filter(item=>{return item.routerKey === e.key});
@@ -304,6 +313,16 @@ class HeaderComponent extends PureComponent {
     })
   };
 
+  handleShowNickName=()=>{
+    const nickname = localStorage.getItem('nickname');
+    if(nickname){
+      this.setState({
+        nickname,
+        loginFlag: true
+      })
+    }
+  };
+
   render() {
     return (
       <div>
@@ -346,11 +365,14 @@ class HeaderComponent extends PureComponent {
             {/* {this.renderSearchDom()} */}
           </Col>
           <Col span={2} className={style.user}>
-            <ul>
-              <li onClick={this.handleLogin}>登录</li>
-              <Link to="/member/register"><li>注册</li></Link>
-            </ul>
-            {/* <div>hello xxx</div> */}
+            {
+              this.state.loginFlag ? (<div>hello {this.state.nickname}</div>)
+                : (<ul style={{}}>
+                      <li onClick={this.handleLogin}>登录</li>
+                      <Link to="/member/register"><li>注册</li></Link>
+                    </ul>
+                )
+            }
           </Col>
           {/* <div span={24} className={style.moreSearchList}>
             <h4>搜索资源</h4>
@@ -413,7 +435,10 @@ class HeaderComponent extends PureComponent {
         <div className={style.loginMark} style={{
           display: this.state.loginMark
         }}>
-          <Login handleSetLoginMark={this.handleSetLoginMark}/>
+          <Login
+            handleSetLoginMark={this.handleSetLoginMark}
+            handleShowNickName={this.handleShowNickName}
+          />
         </div>
       </div>
     );

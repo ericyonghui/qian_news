@@ -49,6 +49,7 @@ class Login extends PureComponent {
           this.setState({submitting: true});
           localStorage.setItem('nickname', nickname);
           localStorage.setItem('token', token);
+          this.props.handleShowNickName();
           this.props.handleSetLoginMark('none');
         } else {
           this.setState({submitting: false});
