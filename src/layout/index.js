@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import withRouter from 'umi/withRouter';
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
 
@@ -22,4 +21,4 @@ class BasicLayout extends Component {
   }
 }
 
-export default withRouter(BasicLayout);
+export default BasicLayout;

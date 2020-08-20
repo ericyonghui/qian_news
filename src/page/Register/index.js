@@ -261,7 +261,7 @@ class Register extends PureComponent {
         let {code,msg} = result;
         if(code === 200){
           clearInterval(loginTimer);
-          router.push('/slideShow/registerInfo')
+          router.push('/member/registerInfo')
         } else {
           message.error(msg);
         }
