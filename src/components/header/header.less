@@ -301,7 +301,14 @@
 
 
     .user {
-
+      .PCuserName{
+        padding:0 8px;
+        font-size: 16px;
+        color:#333;
+        line-height: 50px;
+        text-align: center;
+        box-sizing: border-box;
+      }
       li {
         float: right;
         padding: 0 10px;
@@ -603,6 +610,7 @@ button {
 
   }
 }
+// 登陆login mark
 .loginMark{
   position: fixed;
   top:0;
@@ -614,7 +622,7 @@ button {
   .content{
     position: fixed;
     top:30%;
-    left:calc(50% - 200px);
+    left:calc(50% - 300px);
     width:600px;
     padding:50px;
     background:#fff;
@@ -657,7 +665,11 @@ button {
         font-size: 16px;
         color:#666;
         line-height: 32px;
+        transition: all ease-in .3s;
         box-sizing: border-box;
+        &:focus{
+          border-color:#1890ff;
+        }
       }
       .forgetPassword{
         flex:1;
@@ -682,5 +694,13 @@ button {
         }
       }
     }
+  }
+  .iconPostion{
+    position: fixed;
+    top:calc(30% +  20px);
+    left:calc(50% + 260px);
+    z-index: 5;
+    font-size: 20px;
+    cursor: pointer;
   }
 }

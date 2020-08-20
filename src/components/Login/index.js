@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Link from 'umi/link';
 import {Form, Checkbox,Alert} from "antd";
+import {CloseOutlined} from "@ant-design/icons"
 import axios from "../../util/axios";
 import style from "../header/header.less";
 
@@ -73,6 +74,7 @@ class Login extends PureComponent {
     return (
         <div className={style.content}>
           <h4>登陆千尚</h4>
+          <CloseOutlined className={style.iconPostion}/>
           <Form ref={this.formRef} onFinishFailed={this.handleFinishFailed}>
             {!this.state.submitting && this.renderMessage('账户或密码错误')}
             <ul>

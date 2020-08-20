@@ -353,6 +353,7 @@ class HeaderComponent extends PureComponent {
           <Col span={12} className={style.search}>
             <div className={style.searchInput}>
               <ul className={style.clearfix}>
+                <input type="text" style={{width:'100%',border:'0',background:'transparent'}} />
                 {/* <li>男装&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>2020早秋&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>
@@ -366,7 +367,7 @@ class HeaderComponent extends PureComponent {
           </Col>
           <Col span={2} className={style.user}>
             {
-              this.state.loginFlag ? (<div>hello {this.state.nickname}</div>)
+              this.state.loginFlag ? (<div className={style.PCuserName}>hello {this.state.nickname}</div>)
                 : (<ul style={{}}>
                       <li onClick={this.handleLogin}>登录</li>
                       <Link to="/member/register"><li>注册</li></Link>
