@@ -417,13 +417,13 @@ class HeaderComponent extends PureComponent {
                 </li>
                 <li className={style.clearfix}>
                   <Checkbox style={{float:'left'}}>记录登陆状态</Checkbox>
-                  <a href="javascript:;" className={style.forgetPassword}>忘记密码</a>
+                  <a  className={style.forgetPassword}>忘记密码</a>
                 </li>
                 <li>
                   <button className={style.loginBtn}>登陆</button>
                 </li>
                 <li>
-                  还没有千尚账号？<a href="javascript:;">立即注册</a>
+                  还没有千尚账号？<a >立即注册</a>
                 </li>
               </ul>
             </div>

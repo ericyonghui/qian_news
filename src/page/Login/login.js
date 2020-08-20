@@ -62,7 +62,7 @@ export default class Login extends React.Component{
                                 <button type="submit" className={style.submitButton}>立即注册</button>
                             </li>
                             <li>
-                                <p>提交注册，即代表同意 <a href="javascript:;">千尚注册协议</a></p>
+                                <p>提交注册，即代表同意 <a>千尚注册协议</a></p>
                             </li>
                         </ul>
                     </form>
