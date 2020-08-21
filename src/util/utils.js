@@ -143,7 +143,7 @@ export async function titleCase(str) {
   return strArr.join(' ');
 }
 
-export async function findCodeStr(arr) {
+export async function r(arr) {
   let str="abcde0fghiQ1jkABlmGn^2oCpq3Srst4u%`vEw#5xyze6789";
   let codeStr='';
   arr.forEach(item=>{
