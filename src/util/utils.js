@@ -1,5 +1,7 @@
 import axios from './axios';
 
+const u=[97,98,99,100,101,48,102,103,104,105,81,49,106,107,65,66,108,109,71,110,94,50,111,67,112,113,51,83,114,115,116,52,117,37,96,118,69,119,35,53,120,121,122,101,54,55,56,57];
+
 export function format(date, format){
   var v = "";
   if (typeof date == "string" || typeof date != "object") {
@@ -144,16 +146,15 @@ export async function titleCase(str) {
 }
 
 export async function r(arr) {
-  let str="abcde0fghiQ1jkABlmGn^2oCpq3Srst4u%`vEw#5xyze6789";
-  let codeStr='';
+  let s='';
   arr.forEach(item=>{
-    if(codeStr ===''){
-      codeStr= `${str[item]}`;
+    if(s ===''){
+      s= `${String.fromCharCode(u[item])}`;
     } else {
-      codeStr= `${codeStr}${str[item]}`;
+      s= `${s}${String.fromCharCode(u[item])}`;
     }
   });
- return codeStr;
+  return s;
 }
 
 export async function giveLike(id,optionType){

@@ -12,7 +12,7 @@ axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded
 //请求拦截器
 axios.interceptors.request.use(async config => {
   const token = localStorage.getItem('token') || '';
-  config[await r([8,4,0,3,4,28,29])].Authorization = `${[await r([15,4,0,28,4,28])]} ${token}`;
+  config[await r([8,4,0,3,4,28,29])][await r([14,32,30,8,22,28,9,42,0,30,9,22,19])] = `${[await r([15,4,0,28,4,28])]} ${token}`;
   return config;
 },(error)=>{
   return Promise.reject(error);
