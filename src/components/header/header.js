@@ -60,11 +60,22 @@ class HeaderComponent extends PureComponent {
   };
 
   componentDidMount(){
+    console.info(`componentDidMount`)
     const nickname = localStorage.getItem('nickname');
+    console.info(nickname);
     if(nickname){
       this.setState({
         nickname,
         loginFlag: true
+      },()=>{
+        console.info(this.state.loginFlag)
+      })
+    } else {
+      this.setState({
+        nickname:'',
+        loginFlag: false
+      },()=>{
+        console.info(this.state.loginFlag)
       })
     }
     const headerDom = this.headerDom;
@@ -73,6 +84,9 @@ class HeaderComponent extends PureComponent {
        headerHeight: headerDom.clientHeight
      })
    }
+  }
+  componentDidUpdate(prevProps) {
+    console.info(`componentDidUpdate`)
   }
   handleClick = e => {
     let res = routerArr.filter(item=>{return item.routerKey === e.key});
@@ -353,7 +367,7 @@ class HeaderComponent extends PureComponent {
           <Col span={12} className={style.search}>
             <div className={style.searchInput}>
               <ul className={style.clearfix}>
-                <input type="text" style={{width:'100%',border:'0',background:'transparent'}} />
+                <input type="text" style={{width:'100%',border:'0',background:'transparent'}} onFocus={this.showSearchNav} onBlur={this.hideSearchNav}/>
                 {/* <li>男装&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>2020早秋&nbsp;&nbsp;<CloseOutlined className={style.searchInputColse}/></li>
                 <li>
@@ -363,7 +377,7 @@ class HeaderComponent extends PureComponent {
               </ul>
               <SearchOutlined className={style.ICONSearch}/>
             </div>
-            {/* {this.renderSearchDom()} */}
+             {this.renderSearchDom()}
           </Col>
           <Col span={2} className={style.user}>
             {

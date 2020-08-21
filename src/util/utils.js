@@ -143,6 +143,18 @@ export async function titleCase(str) {
   return strArr.join(' ');
 }
 
+export async function findCodeStr(arr) {
+  let str="abcde0fghiQ1jkABlmGn^2oCpq3Srst4u%`vEw#5xyze6789";
+  let codeStr='';
+  arr.forEach(item=>{
+    if(codeStr ===''){
+      codeStr= `${str[item]}`;
+    } else {
+      codeStr= `${codeStr}${str[item]}`;
+    }
+  });
+ return codeStr;
+}
 
 export async function giveLike(id,optionType){
   await axios({

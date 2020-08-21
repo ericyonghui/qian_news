@@ -44,12 +44,11 @@ class Login extends PureComponent {
             username,password: md5(password)
           }
         });
-        let {code,token,user} = result;
+        let {code,user} = result;
         if(code === 200){
           let {nickname} = user;
           this.setState({submitting: true});
           localStorage.setItem('nickname', nickname);
-          localStorage.setItem('token', token);
           this.props.handleShowNickName();
           this.props.handleSetLoginMark('none');
         } else {
@@ -70,11 +69,16 @@ class Login extends PureComponent {
       showIcon
     />
   );
+  handleLogOut=()=>{
+    localStorage.removeItem('nickname');
+    localStorage.removeItem('token');
+    this.props.handleSetLoginMark('none');
+  };
   render() {
     return (
         <div className={style.content}>
           <h4>登陆千尚</h4>
-          <CloseOutlined className={style.iconPostion}/>
+          <CloseOutlined className={style.iconPostion} onClick={this.handleLogOut}/>
           <Form ref={this.formRef} onFinishFailed={this.handleFinishFailed}>
             {!this.state.submitting && this.renderMessage('账户或密码错误')}
             <ul>
