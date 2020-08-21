@@ -60,22 +60,16 @@ class HeaderComponent extends PureComponent {
   };
 
   componentDidMount(){
-    console.info(`componentDidMount`)
     const nickname = localStorage.getItem('nickname');
-    console.info(nickname);
     if(nickname){
       this.setState({
         nickname,
         loginFlag: true
-      },()=>{
-        console.info(this.state.loginFlag)
       })
     } else {
       this.setState({
         nickname:'',
         loginFlag: false
-      },()=>{
-        console.info(this.state.loginFlag)
       })
     }
     const headerDom = this.headerDom;
@@ -85,9 +79,7 @@ class HeaderComponent extends PureComponent {
      })
    }
   }
-  componentDidUpdate(prevProps) {
-    console.info(`componentDidUpdate`)
-  }
+
   handleClick = e => {
     let res = routerArr.filter(item=>{return item.routerKey === e.key});
     if(res[0].routerVal!==''){

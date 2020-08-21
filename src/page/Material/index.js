@@ -4,7 +4,7 @@ import axios from "../../util/axios";
 import { Spin, Pagination } from "antd";
 import style from "./index.less";
 import MaterialList from "../../components/Material/materialList";
-
+import ErrorDiv from '../../components/403';
 
 class Material extends PureComponent {
   state = {
@@ -17,7 +17,8 @@ class Material extends PureComponent {
         pageSize: 0,
         current: 1,
       }
-    }
+    },
+    errorFlag: false
   };
   componentDidMount(){
     const _this = this;
@@ -37,6 +38,7 @@ class Material extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         list: [],
         pagination: {},
@@ -67,6 +69,11 @@ class Material extends PureComponent {
           spinLoading: false,
           productData: objData
         });
+      } else if(code === 403){
+        _this.setState({
+          spinLoading: false,
+          errorFlag: true,
+        });
       } else{
         _this.setState({
           spinLoading: false
@@ -93,6 +100,10 @@ class Material extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.patternContainer}>
+          {
+            this.state.errorFlag &&
+            <ErrorDiv errorFlag="1"/>
+          }
           {
             this.state.productData.list.length<=0 &&
             <div style={{width:'100%',height:"500px"}}/>

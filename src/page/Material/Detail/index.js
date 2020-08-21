@@ -3,6 +3,7 @@ import {IMG_HOST_IP} from '../../../util/common';
 import router from 'umi/router';
 import {Spin,Row, Col } from "antd";
 import {DownloadOutlined,EllipsisOutlined,HeartOutlined} from "@ant-design/icons";
+import ErrorDiv from '../../../components/403';
 import style from "./index.less";
 import axios from "../../../util/axios";
 
@@ -17,7 +18,8 @@ class Detail extends PureComponent {
       material_size:'',
       material_copyright:'',
       tag:[]
-    }
+    },
+    errorFlag: false
   };
 
   componentDidMount(){
@@ -32,6 +34,7 @@ class Detail extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         img:'',
         main_id:'',
@@ -52,6 +55,11 @@ class Detail extends PureComponent {
           spinLoading: false,
           productData: data
         });
+      } else if(code === 403){
+        _this.setState({
+          spinLoading: false,
+          errorFlag: true,
+        });
       } else{
         _this.setState({
           spinLoading: false
@@ -65,7 +73,10 @@ class Detail extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.patternContainer}>
-
+        {
+          this.state.errorFlag &&
+          <ErrorDiv errorFlag="1"/>
+        }
         {
           img!=='' &&
           <Row>

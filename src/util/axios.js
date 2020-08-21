@@ -1,3 +1,4 @@
+import React from "react";
 import axios from 'axios';
 import router from 'umi/router';
 import {BASE_URL_PRO} from './common';
@@ -26,7 +27,11 @@ axios.interceptors.response.use(async response=> {
     } else {
       localStorage.removeItem('nickname');
       localStorage.removeItem('token');
-      router.push(response.headers['path']);
+      if(response[await r([8,4,0,3,4,28,29])] && response[await r([8,4,0,3,4,28,29])][await r([24,0,30,8])]){
+        router.push(response[await r([8,4,0,3,4,28,29])][await r([24,0,30,8])]);
+      } else {
+        router.push("/home");
+      }
     }
     return response;
   },error=> {

@@ -4,6 +4,7 @@ import { Spin, Row, Col } from "antd";
 import router from 'umi/router';
 import {LeftOutlined, RightOutlined,DownOutlined, UpOutlined} from "@ant-design/icons";
 import style from "../../../components/Runway/SlideShow/swiperPicture.less";
+import ErrorDiv from '../../../components/403';
 import axios from "../../../util/axios";
 
 class Detail extends PureComponent {
@@ -17,7 +18,8 @@ class Detail extends PureComponent {
       imgs:[]
     },
     ulHeight:`${document.body.clientHeight - 140}px`,
-    setHeight:`${document.body.clientHeight}px`
+    setHeight:`${document.body.clientHeight}px`,
+    errorFlag: false
   };
   componentDidMount(){
     let query = this.props.location.query;
@@ -42,6 +44,7 @@ class Detail extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         main_id:'',
         street_snap_type:'',
@@ -52,28 +55,38 @@ class Detail extends PureComponent {
         method:"GET",
         url:`/streetSnap/getDetail?id=${params.id ||'' }`,
       });
-      const { code,data:{main_id,street_snap_type,imgs}} = result;
-      if (code === 200) {
-        let dataList = [];
-        for (const [index, val] of imgs.entries()) {
-          const obj = { key: (index + 1) };
-          Object.assign(val, obj);
-          dataList.push(val);
+      if(typeof result.code!=='undefined'){
+        const { code } = result;
+        if (code === 200) {
+          if(typeof result.data!=='undefined' && result.data!=='' && typeof result.data.main_id!=='undefined'){
+            const { data:{main_id,street_snap_type,imgs}} = result;
+            let dataList = [];
+            for (const [index, val] of imgs.entries()) {
+              const obj = { key: (index + 1) };
+              Object.assign(val, obj);
+              dataList.push(val);
+            }
+            let obj=dataList.filter(item=>{return item.key === 1})[0];
+            _this.setState({
+              spinLoading: false,
+              productData:{
+                main_id,
+                street_snap_type,
+                imgs:dataList
+              },
+              selectPic: obj.server_picture_address
+            });
+          }
+        } else if(code === 403){
+          _this.setState({
+            spinLoading: false,
+            errorFlag: true
+          });
+        } else{
+          _this.setState({
+            spinLoading: false
+          });
         }
-        let obj=dataList.filter(item=>{return item.key === 1})[0];
-        _this.setState({
-          spinLoading: false,
-          productData:{
-            main_id,
-            street_snap_type,
-            imgs:dataList
-          },
-          selectPic: obj.server_picture_address
-        });
-      } else{
-        _this.setState({
-          spinLoading: false
-        });
       }
     });
   };
@@ -168,6 +181,10 @@ class Detail extends PureComponent {
     }
     return (
       <Spin spinning={this.state.spinLoading}>
+        {
+          this.state.errorFlag &&
+          <ErrorDiv errorFlag="2"/>
+        }
         {
           imgs.length > 0 &&
           <Row className={style.container}>

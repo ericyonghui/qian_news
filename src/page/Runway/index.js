@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
 import RunwayList from '../../components/Runway/runwayList';
+import ErrorDiv from '../../components/403';
 import { Spin, Pagination } from "antd";
 import axios from '../../util/axios';
 import {giveLike,giveUnLike} from'../../util/utils';
@@ -17,7 +18,8 @@ class Runway extends PureComponent {
         pageSize: 0,
         current: 1,
       }
-    }
+    },
+    errorFlag: false
   };
   componentDidMount(){
     const _this = this;
@@ -37,6 +39,7 @@ class Runway extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         list: [],
         pagination: {},
@@ -67,7 +70,12 @@ class Runway extends PureComponent {
           spinLoading: false,
           productData: objData
         });
-      } else{
+      } else if(code === 403){
+        _this.setState({
+          errorFlag: true,
+          spinLoading: false
+        });
+      } else {
         _this.setState({
           spinLoading: false
         });
@@ -115,6 +123,10 @@ class Runway extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.TstageContainer}>
+          {
+            this.state.errorFlag &&
+              <ErrorDiv errorFlag="1"/>
+          }
           {
             this.state.productData.list.length<=0 &&
             <div style={{width:'100%',height:"500px"}}/>

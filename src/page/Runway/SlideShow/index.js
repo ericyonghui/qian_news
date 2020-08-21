@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Spin } from "antd";
-import ListPicture from "../../../components/Runway/SlideShow/listPicture"
-import SwiperPicture from "../../../components/Runway/SlideShow/swiperPicture"
+import ListPicture from "../../../components/Runway/SlideShow/listPicture";
+import SwiperPicture from "../../../components/Runway/SlideShow/swiperPicture";
+import ErrorDiv from '../../../components/403';
 import style from "./index.less"
 import axios from "../../../util/axios";
 
@@ -19,6 +20,7 @@ class SlideShow extends PureComponent{
     },
     selectTypeKey:1,
     selectTypeVal:"T台",
+    errorFlag: false
   };
 
  componentDidMount(){
@@ -31,18 +33,25 @@ class SlideShow extends PureComponent{
   queryImgTypeList = (id) =>{
     const _this = this;
     _this.setState({
-      imgTypeList:[]
+      imgTypeList:[],
+      errorFlag: false,
     }, async()=>{
       let result = await axios({
         method:"GET",
         url:`/fashion/getImgTypeList?id=${id}`,
       });
-      const { code,data } = result;
-      if (code === 200) {
-        this.queryImgList(id,data[0].typeKey);
-        _this.setState({
-          imgTypeList: data
-        });
+      if(typeof result.code!=='undefined'){
+        const { code,data } = result;
+        if (code === 200) {
+          this.queryImgList(id,data[0].typeKey);
+          _this.setState({
+            imgTypeList: data
+          });
+        } else if(code === 403){
+          _this.setState({
+            errorFlag: true
+          });
+        }
       }
     });
   };
@@ -121,6 +130,10 @@ class SlideShow extends PureComponent{
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.detail}>
+          {
+            this.state.errorFlag &&
+            <ErrorDiv errorFlag="2"/>
+          }
           {
             this.state.switchFlag
               ?

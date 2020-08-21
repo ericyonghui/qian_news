@@ -5,6 +5,7 @@ import {giveLike,giveUnLike} from'../../util/utils';
 import { Spin, Pagination } from "antd";
 import style from "../Runway/index.less";
 import StreetSnapList from "../../components/StreetSnap/streetSnapList";
+import ErrorDiv from '../../components/403';
 
 class StreetSnap extends PureComponent {
   state = {
@@ -17,7 +18,8 @@ class StreetSnap extends PureComponent {
         pageSize: 0,
         current: 1,
       }
-    }
+    },
+    errorFlag: false
   };
   componentDidMount(){
     const _this = this;
@@ -37,6 +39,7 @@ class StreetSnap extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         list: [],
         pagination: {},
@@ -46,31 +49,38 @@ class StreetSnap extends PureComponent {
         method:"GET",
         url:`/streetSnap/getStreetSnapList?currentPage=${params.current ||'' }`,
       });
-      const { code,data} = result;
-      if (code === 200) {
-        const {count,pageSize,current,rows} = data;
-        let dataList = [];
-        for (const [index, val] of rows.entries()) {
-          const obj = { key: (index + 1) };
-          Object.assign(val, obj);
-          dataList.push(val);
+      if(typeof result.code!=='undefined'){
+        const { code,data} = result;
+        if (code === 200) {
+          const {count,pageSize,current,rows} = data;
+          let dataList = [];
+          for (const [index, val] of rows.entries()) {
+            const obj = { key: (index + 1) };
+            Object.assign(val, obj);
+            dataList.push(val);
+          }
+          let objData = {
+            pagination: {
+              total: count,
+              pageSize,
+              current
+            },
+            list: dataList,
+          };
+          _this.setState({
+            spinLoading: false,
+            productData: objData
+          });
+        } else if(code === 403){
+          _this.setState({
+            spinLoading: false,
+            errorFlag: true,
+          });
+        } else{
+          _this.setState({
+            spinLoading: false
+          });
         }
-        let objData = {
-          pagination: {
-            total: count,
-            pageSize,
-            current
-          },
-          list: dataList,
-        };
-        _this.setState({
-          spinLoading: false,
-          productData: objData
-        });
-      } else{
-        _this.setState({
-          spinLoading: false
-        });
       }
     });
   };
@@ -113,6 +123,10 @@ class StreetSnap extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.TstageContainer}>
+          {
+            this.state.errorFlag &&
+              <ErrorDiv errorFlag="1"/>
+          }
           {
             this.state.productData.list.length<=0 &&
             <div style={{width:'100%',height:"500px"}}/>

@@ -5,6 +5,7 @@ import { Spin, Row, Col, Pagination } from "antd";
 import style from "./index.less";
 import axios from "../../../util/axios";
 import BrandList from '../../../components/BrandList/brandList';
+import ErrorDiv from '../../../components/403';
 
 class Brand extends PureComponent {
   state={
@@ -21,7 +22,8 @@ class Brand extends PureComponent {
         pageSize: 0,
         current: 1,
       }
-    }
+    },
+    errorFlag: false
   };
   componentDidMount(){
     const _this = this;
@@ -49,6 +51,7 @@ class Brand extends PureComponent {
     const _this = this;
     _this.setState({
       spinLoading: true,
+      errorFlag: false,
       productData: {
         list: [],
         pagination: {},
@@ -58,35 +61,45 @@ class Brand extends PureComponent {
         method:"GET",
         url:`/style/getFashionBrandList?currentPage=${params.current ||'' }&id=${params.id}&fashion_season=${params.fashion_season}&fashion_region=${params.fashion_region}&brand=${params.brand}`,
       });
-      const { code,data:{fashion_season,fashion_region,brand,img,data}} = result;
-      if (code === 200) {
-        const {count,pageSize,current,rows} = data;
-        let dataList = [];
-        for (const [index, val] of rows.entries()) {
-          const obj = { key: (index + 1) };
-          Object.assign(val, obj);
-          dataList.push(val);
+      if(typeof result.code!=='undefined'){
+        const { code } = result;
+        if (code === 200) {
+          if(typeof result.data!=='undefined' && result.data && typeof result.data.fashion_season!=='undefined'){
+            const {data:{fashion_season,fashion_region,brand,img,data}} = result;
+            const {count,pageSize,current,rows} = data;
+            let dataList = [];
+            for (const [index, val] of rows.entries()) {
+              const obj = { key: (index + 1) };
+              Object.assign(val, obj);
+              dataList.push(val);
+            }
+            let objData = {
+              fashion_season,
+              fashion_region,
+              brand,
+              img,
+              pagination: {
+                total: count,
+                pageSize,
+                current
+              },
+              list: dataList,
+            };
+            _this.setState({
+              spinLoading: false,
+              productData: objData
+            });
+          }
+        } else if(code === 403){
+          _this.setState({
+            spinLoading: false,
+            errorFlag: true,
+          });
+        } else{
+          _this.setState({
+            spinLoading: false
+          });
         }
-        let objData = {
-          fashion_season,
-          fashion_region,
-          brand,
-          img,
-          pagination: {
-            total: count,
-            pageSize,
-            current
-          },
-          list: dataList,
-        };
-        _this.setState({
-          spinLoading: false,
-          productData: objData
-        });
-      } else{
-        _this.setState({
-          spinLoading: false
-        });
       }
     });
   };
@@ -113,7 +126,10 @@ class Brand extends PureComponent {
     return (
       <Spin spinning={this.state.spinLoading}>
         <div className={style.MultiggarphContainer}>
-          {/* title */}
+          {
+            this.state.errorFlag &&
+            <ErrorDiv errorFlag="1"/>
+          }
           {
             this.state.productData.fashion_season &&
             <div className={style.container}>
