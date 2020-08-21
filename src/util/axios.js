@@ -29,8 +29,6 @@ axios.interceptors.response.use(async response=> {
       localStorage.removeItem('token');
       if(response[await r([8,4,0,3,4,28,29])] && response[await r([8,4,0,3,4,28,29])][await r([24,0,30,8])]){
         router.push(response[await r([8,4,0,3,4,28,29])][await r([24,0,30,8])]);
-      } else {
-        router.push("/home");
       }
     }
     return response;
