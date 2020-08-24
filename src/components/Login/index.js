@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Link from 'umi/link';
+import { connect } from 'dva';
 import {Form, Checkbox,Alert} from "antd";
 import {CloseOutlined} from "@ant-design/icons"
 import axios from "../../util/axios";
@@ -51,6 +52,7 @@ class Login extends PureComponent {
           localStorage.setItem('nickname', nickname);
           this.props.handleShowNickName();
           this.props.handleSetLoginMark('none');
+          this.props.queryLoginFlag({nickname,loginFlag: true});
         } else {
           this.setState({submitting: false});
         }
@@ -138,4 +140,8 @@ class Login extends PureComponent {
     )
   };
 }
-export default Login;
+export default connect(state => ({
+  headerModel: state.headerModel,
+}), dispatch=>({
+  queryLoginFlag:payload=> dispatch({ type: 'headerModel/queryLoginFlag', payload })
+}))(Login);

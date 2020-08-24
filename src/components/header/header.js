@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import router from 'umi/router';
+import { connect } from 'dva';
 import Link from 'umi/link';
 import { Row, Col, Menu, Input ,Select } from "antd";
 import { MenuUnfoldOutlined ,CloseOutlined,SearchOutlined,CheckCircleFilled} from "@ant-design/icons";
@@ -55,23 +56,9 @@ class HeaderComponent extends PureComponent {
     searchDisplay: 'none',
     headerHeight:0,
     loginMark:'none',
-    loginFlag: false,
-    nickname:''
   };
 
   componentDidMount(){
-    const nickname = localStorage.getItem('nickname');
-    if(nickname){
-      this.setState({
-        nickname,
-        loginFlag: true
-      })
-    } else {
-      this.setState({
-        nickname:'',
-        loginFlag: false
-      })
-    }
     const headerDom = this.headerDom;
     if(headerDom){
      this.setState({
@@ -373,7 +360,7 @@ class HeaderComponent extends PureComponent {
           </Col>
           <Col span={2} className={style.user}>
             {
-              this.state.loginFlag ? (<div className={style.PCuserName}>hello {this.state.nickname}</div>)
+              this.props.headerModel.loginFlag ? (<div className={style.PCuserName}>hello {this.props.headerModel.nickname}</div>)
                 : (<ul style={{}}>
                       <li onClick={this.handleLogin}>登录</li>
                       <Link to="/member/register"><li>注册</li></Link>
@@ -451,4 +438,7 @@ class HeaderComponent extends PureComponent {
     );
   }
 }
-export default HeaderComponent;
+
+export default connect(state => ({
+  headerModel: state.headerModel,
+}))(HeaderComponent);

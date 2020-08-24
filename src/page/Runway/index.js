@@ -71,6 +71,8 @@ class Runway extends PureComponent {
           productData: objData
         });
       } else if(code === 403){
+        const nickname = localStorage.getItem('nickname');
+        console.info(nickname);
         _this.setState({
           errorFlag: true,
           spinLoading: false

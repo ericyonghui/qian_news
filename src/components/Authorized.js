@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import { connect } from 'dva';
 import axios from "../util/axios";
 
 class Authorized extends PureComponent {
@@ -13,11 +14,17 @@ class Authorized extends PureComponent {
       method:"POST",
       url:"/u/ckToken",
     });
-    if(typeof result.code!=='undefined'){
+    if(result && typeof result.code!=='undefined'){
       let {code} = result;
       if(code !== 200){
         localStorage.removeItem('nickname');
         localStorage.removeItem('token');
+        this.props.queryLoginFlag({nickname:'',loginFlag: false});
+      } else if(code === 200) {
+        const nickname = localStorage.getItem('nickname');
+        if(nickname){
+          this.props.queryLoginFlag({nickname,loginFlag: true});
+        }
       }
     }
   };
@@ -25,4 +32,8 @@ class Authorized extends PureComponent {
     return this.props.children
   }
 }
-export default Authorized;
+export default connect(state => ({
+  headerModel: state.headerModel,
+}), dispatch=>({
+  queryLoginFlag:payload=> dispatch({ type: 'headerModel/queryLoginFlag', payload })
+}))(Authorized);
