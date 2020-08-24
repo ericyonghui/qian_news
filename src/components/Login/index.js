@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import router from 'umi/router';
 import Link from 'umi/link';
 import { connect } from 'dva';
 import {Form, Checkbox,Alert} from "antd";
@@ -53,6 +54,7 @@ class Login extends PureComponent {
           this.props.handleShowNickName();
           this.props.handleSetLoginMark('none');
           this.props.queryLoginFlag({nickname,loginFlag: true});
+          window.location.reload();
         } else {
           this.setState({submitting: false});
         }
