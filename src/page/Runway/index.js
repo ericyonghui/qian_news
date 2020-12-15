@@ -22,6 +22,7 @@ class Runway extends PureComponent {
     errorFlag: false
   };
   componentDidMount(){
+    console.info('进来了')
     const _this = this;
     let query = _this.props.location.query;
     if(typeof query.currentPage!=='undefined'){

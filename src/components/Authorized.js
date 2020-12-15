@@ -6,9 +6,9 @@ class Authorized extends PureComponent {
   state = {
     isFlag: false
   };
-  componentDidMount(){
-    this.queryToken();
-  }
+  // componentDidMount(){
+  //   this.queryToken();
+  // }
   queryToken=async ()=>{
     let result = await axios({
       method:"POST",
